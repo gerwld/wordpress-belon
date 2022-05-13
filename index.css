@@ -35,6 +35,7 @@ button {
 .content_wrapper {
  max-width: 1280px;
  margin: 0 auto;
+ padding: 0 20px;
 }
 
 .btn {
@@ -120,8 +121,8 @@ button {
 .hd-blocks {
  display: flex;
  justify-content: space-between;
- align-items: center;
- min-height: calc(100vh - 90px);
+ margin-top: 30px;
+ min-height: calc(100vh - 120px);
  color: #fff;
 }
 
@@ -149,11 +150,49 @@ button {
  border-radius: var(--max-br-radius);
 }
 
+.hd-info,
 .hd-image {
- max-width: 50%;
  flex: 0 0 50%;
+ max-width: 50%;
+ height: calc(100vh - 150px);
+ min-height: 500px;
+}
+
+.hd-info {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: center;
+}
+
+.hd-image {
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
  padding-left: 50px;
- background-color: #fff;
+ background-color: rgba(255, 255, 255, 0.144);
+}
+
+.sc_icons {
+ position: absolute;
+ bottom: 20px;
+ right: 0;
+}
+
+.sc_icons ul {
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
+
+.sc_icons li {
+ display: inline-block;
+}
+
+.sc_icons a {
+ text-decoration: none;
+ color: inherit;
 }
 
 /* Header block styles end */
