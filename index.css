@@ -1,5 +1,6 @@
 :root {
  --main-color: blue;
+ --main-color-yell: #f8c008;
  --main-text-color: #fff;
  --main-text-gray: #e3e3e3;
 
@@ -55,6 +56,7 @@ button {
  justify-content: space-between;
  align-items: center;
  padding-top: 20px;
+ font-size: 17px;
  color: #fff;
 }
 
@@ -123,28 +125,35 @@ button {
  color: #fff;
 }
 
-.hd-block {
+.hd-info {
  max-width: 50%;
  flex: 0 0 50%;
 }
 
-.hd-block h1 {
+.hd-info h1 {
  font-size: 78px;
  line-height: 0.95em;
  margin: 0.5em 0 0;
 }
 
-.hd-block p {
- font-size: 24px;
+.hd-info p {
+ font-size: 22px;
  line-height: 1.5em;
 }
 
 .btn_explore {
  padding: 12px 40px;
  margin-top: 10px;
- font-size: 24px;
- background-color: rgb(206, 223, 59);
+ font-size: 22px;
+ background-color: var(--main-color-yell);
  border-radius: var(--max-br-radius);
+}
+
+.hd-image {
+ max-width: 50%;
+ flex: 0 0 50%;
+ padding-left: 50px;
+ background-color: #fff;
 }
 
 /* Header block styles end */
