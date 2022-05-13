@@ -29,6 +29,22 @@ button {
  font-size: inherit;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+ margin: 0.5em 0;
+}
+
+h1 {
+ font-size: 38px;
+}
+
+h2 {
+ font-size: 36px;
+}
+
+h3 {
+ font-size: 34px;
+}
+
 *{
  box-sizing: border-box;
 }
@@ -219,30 +235,43 @@ button {
 /* Video block styles */
 
 .video_block {
+ position: relative;
  padding: var(--sc-padding);
+ box-sizing: content-box;
 }
 
-.video_block__content {
- display: flex;
- align-items: stretch;
- justify-content: space-between;
-}
-
-.vb_player,
+.video_block,
 .vb_info {
- flex: 0 0 50%;
+ min-height: 400px;
 }
+
 
 .vb_player {
- max-width: 50%;
- min-height: 300px;
+ position: absolute;
+ right: 0;
+ top: 0;
+ width: 50%;
+ max-width: 50vw;
+ height: 400px;
  background-color: rgb(141, 141, 141);
+ margin: var(--sc-padding);
 }
 
 .vb_info {
+ max-width: 50%;
  display: flex;
  flex-direction: column;
  justify-content: center;
+}
+
+.vb_info h3 {
+ font-size: 36px;
+ margin: 0.3em 0;
+}
+
+.vb_info .pre_title {
+ font-weight: 600;
+ text-transform: uppercase;
 }
 
 .def-clickable,
