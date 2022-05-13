@@ -257,6 +257,18 @@ h3 {
  margin: var(--sc-padding);
 }
 
+.vb_content {
+ position: absolute;
+ right: 0;
+ top: 20px;
+ width: calc(100% - 20px);
+ height: 100%;
+ 
+ margin-bottom: 10px;
+ margin-left: 10px;
+ background-color: rgb(185, 68, 68);
+}
+
 .vb_info {
  max-width: 50%;
  display: flex;
