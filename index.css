@@ -7,6 +7,7 @@
  --max-br-radius: 100px;
 
  --main-border: 1px solid #e3e3e3;
+ --main-tp-background: rgba(0, 0, 0, 0.04);
  --main-amin: 0.3s ease;
  --slow-amin: 0.4s ease;
 }
@@ -40,6 +41,7 @@ button {
  padding: 0;
  margin: 0;
  background-color: transparent;
+ transition: background var(--main-amin);
 }
 
 
@@ -83,11 +85,8 @@ button {
  padding: 0 20px;
  text-decoration: none;
  color: inherit;
+ border-radius: var(--main-br-radius);
  transition: background var(--main-amin);
-}
-
-.main-nav li a:hover {
- background-color: rgba(0, 0, 0, 0.04);
 }
 
 .btn_contact {
@@ -95,6 +94,11 @@ button {
  color: inherit;
  border: var(--main-border);
  border-radius: var(--max-br-radius);
+}
+
+.btn_contact:hover,
+.main-nav li a:hover {
+ background-color: var(--main-tp-background);
 }
 
 /* Navbar styles end */
