@@ -1,0 +1,108 @@
+:root {
+ --main-color: blue;
+ --main-text-color: #fff;
+ --main-text-gray: #e3e3e3;
+
+ --main-br-radius: 5px;
+ --max-br-radius: 100px;
+
+ --main-border: 1px solid #e3e3e3;
+ --main-amin: 0.3s ease;
+ --slow-amin: 0.4s ease;
+}
+
+body,
+html {
+ margin: 0;
+ padding: 0;
+ font-family: 'Helvetica', "Montserrat", sans-serif;
+ font-size: 16px;
+}
+
+button {
+ user-select: none;
+ cursor: pointer;
+ font-family: inherit;
+ font-size: inherit;
+}
+
+*{
+ box-sizing: border-box;
+}
+
+.content_wrapper {
+ max-width: 1280px;
+ margin: 0 auto;
+}
+
+.btn {
+ border: none;
+ padding: 0;
+ margin: 0;
+ background-color: transparent;
+}
+
+
+/* Navbar styles */
+
+.hd-navbar {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ color: #fff;
+}
+
+.hd-navbar .logo {
+ font-size: 28px;
+ font-weight: 600;
+}
+
+.main-nav ul {
+ display: flex;
+ list-style: none;
+ height: 70px;
+ line-height: 70px;
+}
+
+.main-nav li {
+ display: flex;
+ flex-direction: column;
+}
+
+.main-nav li,
+.main-nav li a {
+ display: block;
+ height: 100%;
+}
+
+.main-nav li:not(:last-child) {
+ margin-right: 10px;
+}
+
+.main-nav li a {
+ padding: 0 20px;
+ text-decoration: none;
+ color: inherit;
+ transition: background var(--main-amin);
+}
+
+.main-nav li a:hover {
+ background-color: rgba(0, 0, 0, 0.04);
+}
+
+.btn_contact {
+ padding: 15px 20px;
+ color: inherit;
+ border: var(--main-border);
+ border-radius: var(--max-br-radius);
+}
+
+/* Navbar styles end */
+
+/* Header block styles */
+
+.main-header {
+ background-color: rgb(162, 63, 175);
+}
+
+/* Header block styles end */
