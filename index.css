@@ -6,11 +6,12 @@
 
  --main-br-radius: 5px;
  --max-br-radius: 100px;
+ --sc-padding: 50px 0;
 
  --main-border: 1px solid #e3e3e3;
  --main-tp-background: rgba(0, 0, 0, 0.04);
- --main-amin: 0.3s ease;
- --slow-amin: 0.4s ease;
+ --main-anim: 0.3s ease;
+ --slow-anim: 0.4s ease;
 }
 
 body,
@@ -45,8 +46,9 @@ button {
  margin: 0;
  color: inherit;
  text-decoration: none;
+ white-space: nowrap;
  background-color: transparent;
- transition: background var(--main-amin);
+ transition: background var(--main-anim);
 }
 
 
@@ -62,7 +64,8 @@ button {
 }
 
 .hd-navbar .logo {
- font-size: 28px;
+ text-transform: uppercase;
+ font-size: 32px;
  font-weight: 600;
 }
 
@@ -73,6 +76,7 @@ button {
  list-style: none;
  height: 70px;
  line-height: 70px;
+ white-space: nowrap;
 }
 
 .main-nav li {
@@ -95,11 +99,11 @@ button {
  text-decoration: none;
  color: inherit;
  border-radius: var(--main-br-radius);
- transition: background var(--main-amin);
+ transition: background var(--main-anim);
 }
 
 .btn_contact {
- padding: 15px 20px;
+ padding: 15px 30px;
  color: inherit;
  border: var(--main-border);
  border-radius: var(--max-br-radius);
@@ -129,6 +133,7 @@ button {
 .hd-info {
  max-width: 50%;
  flex: 0 0 50%;
+ padding-right: 20px;
 }
 
 .hd-info h1 {
@@ -170,29 +175,82 @@ button {
  display: flex;
  align-items: center;
  justify-content: center;
- padding-left: 50px;
  background-color: rgba(255, 255, 255, 0.144);
 }
 
 .sc_icons {
  position: absolute;
  bottom: 20px;
- right: 0;
+ right: 5px;
 }
 
 .sc_icons ul {
+ display: flex;
  margin: 0;
  padding: 0;
  list-style: none;
 }
 
-.sc_icons li {
- display: inline-block;
+.sc_icons li:not(:last-child) {
+ margin-right: 5px;
 }
 
 .sc_icons a {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 30px;
+ height: 30px;
  text-decoration: none;
+ font-size: 15px;
  color: inherit;
+
+ transition: var(--main-anim);
+ border: 2px solid #fff;
+ border-radius: var(--max-br-radius);
+}
+
+.sc_icons a:hover {
+ opacity: 0.8;
 }
 
 /* Header block styles end */
+
+/* Video block styles */
+
+.video_block {
+ padding: var(--sc-padding);
+}
+
+.video_block__content {
+ display: flex;
+ align-items: stretch;
+ justify-content: space-between;
+}
+
+.vb_player,
+.vb_info {
+ flex: 0 0 50%;
+}
+
+.vb_player {
+ max-width: 50%;
+ min-height: 300px;
+ background-color: rgb(141, 141, 141);
+}
+
+.vb_info {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+
+.def-clickable,
+.def-clickable dt,
+.def-clickable dd {
+ margin: 0;
+ padding: 0;
+}
+
+
+/* Video block styles end */
