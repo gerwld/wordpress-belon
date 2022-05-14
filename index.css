@@ -298,16 +298,17 @@ p {
  left: 0;
  width: 100%;
  height: 100%;
- background-color: rgb(202, 112, 216, 0.75);
+ background-color: var(--main-color-prpl);
+ opacity: 0.75;
  transition: var(--main-anim);
 }
 
 .vb_content .play {
  position: absolute;
- top: calc(50% - 75px);
- left: calc(50% - 75px);
- width: 150px;
- height: 150px;
+ top: calc(50% - 60px);
+ left: calc(50% - 60px);
+ width: 120px;
+ height: 120px;
  background-color: #fff;
  border-radius: 50%;
  z-index: 100;
@@ -341,21 +342,21 @@ p {
 }
 
 .vb_content:hover .filter {
- background-color: rgb(202, 112, 216, 0.65);
+ opacity: 0.65;
 }
 
 .vb_content:hover .play {
- top: calc(50% - 80px);
- left: calc(50% - 80px);
- width: 160px;
- height: 160px;
+ top: calc(50% - 67.5px);
+ left: calc(50% - 67.5px);
+ width: 135px;
+ height: 135px;
 }
 
 .vb_content:active .play {
- top: calc(50% - 77.5px);
- left: calc(50% - 77.5px);
- width: 155px;
- height: 155px;
+ top: calc(50% - 64px);
+ left: calc(50% - 64px);
+ width: 128px;
+ height: 128px;
  transition: 0s;
 }
 
@@ -376,7 +377,7 @@ p {
  padding: 8px 25px 8px 0;
  margin-top: 10px;
 
-
+ font-family: 'Roboto';
  font-size: 17px;
  font-weight: 500;
  background-color: rgb(255, 255, 255);
@@ -420,8 +421,8 @@ p {
  bottom: 0;
  left: 0;
  width: 100%;
- height: 2px;
- background-color: var(--main-color);
+ height: 4px;
+ background-color: var(--main-color-prpl);
 }
 
 .def-clickable dt.opened + dd {
@@ -581,3 +582,52 @@ p {
 }
 
 /* Gallery block styles end */
+
+/* Benefits block styles */
+
+.benefits_block {
+ padding: var(--sc-padding);
+}
+
+.bb_info {
+ text-align: center;
+}
+
+.bb_info h2 {
+ max-width: 650px;
+ margin: 0 auto;
+}
+.bb_info p {
+ max-width: 550px;
+ margin: 10px auto;
+ line-height: 1.5em;
+}
+
+.bb_content {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: flex-start;
+ align-items: flex-start;
+ padding: 20px 0;
+}
+
+.bb_block {
+ flex: 0 0 32%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ max-width: 32%;
+ padding: 15px;
+ margin-bottom: 2%;
+ border: 1px solid gray;
+}
+
+.bb_block:not(:nth-child(3n)) {
+ margin-right: 2%;
+}
+
+.bb_block i {
+ order: -2;
+}
+
+/* Benefits block styles end */
