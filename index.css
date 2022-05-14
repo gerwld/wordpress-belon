@@ -4,7 +4,7 @@
  --main-color-prpl: #ca70d8;
  --main-color-light-prpl: #FDF2FF;
  --main-text-color: #000;
- --prim-text-color: #333333;
+ --prim-text-color: #919191;
  --prim-text-color_2: #797979;
  --main-text-gray: #e3e3e3;
 
@@ -88,6 +88,7 @@ p {
 
 .hd-navbar {
  display: flex;
+ flex-wrap: wrap;
  justify-content: space-between;
  align-items: center;
  padding-top: 20px;
@@ -212,6 +213,12 @@ p {
  background-color: rgba(255, 255, 255, 0.144);
 }
 
+.hd-image img {
+ max-width: 100%;
+ max-height: 100%;
+ object-fit: contain;
+}
+
 .sc_icons {
  position: absolute;
  bottom: 20px;
@@ -257,21 +264,20 @@ p {
  box-sizing: content-box;
 }
 
-.video_block,
-.vb_info {
+.video_block {
  min-height: 400px;
 }
-
 
 .vb_player {
  position: absolute;
  right: 0;
  top: 0;
- width: 50%;
+
+ height: calc(100% - 140px - 20px);
  max-width: 50vw;
- height: 400px;
+ width: 100%;
+ margin: 70px 0;
  background-color: rgba(141, 141, 141, 0.3);
- margin: var(--sc-padding);
 }
 
 .vb_content {
@@ -281,17 +287,76 @@ p {
  width: calc(100% - 20px);
  height: 100%;
  background-color: var(--main-color-prpl);
+ background: url('./img/fallback.jpg') 0 0 no-repeat blue;
+ background-size: cover;
+ cursor: pointer;
+}
+
+.vb_content .filter {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgb(202, 112, 216, 0.75);
+ transition: var(--main-anim);
+}
+
+.vb_content .play {
+ position: absolute;
+ top: calc(50% - 75px);
+ left: calc(50% - 75px);
+ width: 150px;
+ height: 150px;
+ background-color: #fff;
+ border-radius: 50%;
+ z-index: 100;
+ transition: var(--main-anim);
+}
+
+.vb_content .play::after {
+ content: '';
+ display: block;
+ width: 0;
+ height: 0;
+ position: absolute;
+ top: calc(50% - 22px);
+ left: calc(50% - 12px);
+
+ border-top: 24px solid transparent;
+ border-bottom: 24px solid transparent;
+ border-left: 35px solid var(--main-color-prpl);
 }
 
 .vb_info {
  max-width: 50%;
+ min-height: 460px;
  margin-top: 50px;
- padding-right: 20px;
+ padding-right: 40px;
 }
 
 .vb_info .pre_title {
  font-weight: 600;
  text-transform: uppercase;
+}
+
+.vb_content:hover .filter {
+ background-color: rgb(202, 112, 216, 0.65);
+}
+
+.vb_content:hover .play {
+ top: calc(50% - 80px);
+ left: calc(50% - 80px);
+ width: 160px;
+ height: 160px;
+}
+
+.vb_content:active .play {
+ top: calc(50% - 77.5px);
+ left: calc(50% - 77.5px);
+ width: 155px;
+ height: 155px;
+ transition: 0s;
 }
 
 /* Video block styles end */
@@ -462,7 +527,7 @@ p {
  width: 100%;
  height: 100%;
 
- padding: 25px;
+ padding: 15px 25px;
  background-color: rgba(0, 0, 0, 0.5);
  transition: var(--main-anim);
  cursor: pointer;
