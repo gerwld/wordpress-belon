@@ -309,7 +309,7 @@ h3 {
 .def-clickable dd {
  max-height: 0;
  overflow: hidden;
- transition: 0.2s ease;
+ transition: 0.3s ease;
  transform: translateY(-10px);
 }
 
@@ -344,7 +344,7 @@ h3 {
 
 .def-clickable dt.opened + dd {
  padding: 5px 0;
- max-height: 400px;
+ max-height: 100px;
  overflow: scroll;
  transform: translateY(0);
 }

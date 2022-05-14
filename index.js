@@ -12,4 +12,4 @@ def_clickable.addEventListener("click", (val) => {
       e.classList.remove("opened");
     }
   });
-});
+}, {passive: true});
