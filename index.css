@@ -16,6 +16,10 @@
  --main-tp-background: rgba(0, 0, 0, 0.04);
  --main-anim: 0.3s ease;
  --slow-anim: 0.4s ease;
+
+ --shadow-main: rgba(0, 0, 0, 0.06) 0px 2px 7px;
+ --shadow-main_2:   rgba(0, 0, 0, 0.10) 0px 4px 8px;
+ --shadow-main_3:   rgba(0, 0, 0, 0.12) 0px 8px 10px;
 }
 
 body,
@@ -51,6 +55,11 @@ h2 {
 h3 {
  font-size: 34px;
  margin: 0.3em 0;
+}
+
+h4 {
+ font-size: 20px;
+ margin: 5px 0;
 }
 
 p {
@@ -607,7 +616,6 @@ p {
  display: flex;
  flex-wrap: wrap;
  justify-content: flex-start;
- align-items: flex-start;
  padding: 20px 0;
 }
 
@@ -617,9 +625,16 @@ p {
  flex-direction: column;
  align-items: center;
  max-width: 32%;
- padding: 15px;
+ min-height: 150px;
+ padding: 20px 15px;
  margin-bottom: 2%;
- border: 1px solid gray;
+ text-align: center;
+ border: 1px solid rgb(243, 243, 243);
+ transition: var(--main-anim);
+}
+
+.bb_block p {
+ margin: 0;
 }
 
 .bb_block:not(:nth-child(3n)) {
@@ -628,6 +643,10 @@ p {
 
 .bb_block i {
  order: -2;
+}
+
+.bb_block:hover {
+ box-shadow: var( --shadow-main_3);
 }
 
 /* Benefits block styles end */
