@@ -1,7 +1,7 @@
 :root {
  --main-color: blue;
  --main-color-yell: #f8c008;
- --main-color-prpl: rgb(162, 63, 175);
+ --main-color-prpl: #ca70d8;
  --main-color-light-prpl: #FDF2FF;
  --main-text-color: #000;
  --prim-text-color: #333333;
@@ -22,7 +22,7 @@ body,
 html {
  margin: 0;
  padding: 0;
- font-family: 'Helvetica', "Montserrat", sans-serif;
+ font-family: "Montserrat", sans-serif;
  line-height: 1.35em;
  font-size: 16px;
 }
@@ -175,15 +175,16 @@ p {
 }
 
 .hd-info p {
- font-size: 22px;
+ font-size: 19px;
  line-height: 1.5em;
+ margin: 1.5em 0;
  color: #fff;
 }
 
 .btn_explore {
  padding: 12px 40px;
  margin-top: 10px;
- font-size: 22px;
+ font-size: 17px;
  background-color: var(--main-color-yell);
  border-radius: var(--max-br-radius);
 }
