@@ -6,10 +6,12 @@ const def_dt = def_clickable.querySelectorAll("dt");
 
 def_clickable.addEventListener("click", (val) => {
   def_dt.forEach((e) => {
-    if (e == val.target) {
-      e.classList.toggle("opened");
+   if(val.target.classList.contains('tt')) {
+    if (e === val.target) {
+      e.classList.add("opened");
     } else {
       e.classList.remove("opened");
     }
+   }
   });
 }, {passive: true});

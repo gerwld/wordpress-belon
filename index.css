@@ -1,7 +1,8 @@
 :root {
  --main-color: blue;
  --main-color-yell: #f8c008;
- --main-text-color: #fff;
+ --main-text-color: #000;
+ --prim-text-color: rgb(92, 92, 92);
  --main-text-gray: #e3e3e3;
 
  --main-br-radius: 5px;
@@ -267,7 +268,8 @@ h3 {
 
 .vb_info {
  max-width: 50%;
- margin-top: 70px;
+ margin-top: 60px;
+ padding-right: 20px;
 }
 
 .vb_info h3 {
@@ -309,7 +311,9 @@ h3 {
 .def-clickable dd {
  max-height: 0;
  overflow: hidden;
- transition: 0.3s ease;
+ line-height: 1.4em;
+ color: var(--prim-text-color);
+ transition: 0.4s ease;
  transform: translateY(-10px);
 }
 
@@ -344,7 +348,7 @@ h3 {
 
 .def-clickable dt.opened + dd {
  padding: 5px 0;
- max-height: 100px;
+ max-height: 120px;
  overflow: scroll;
  transform: translateY(0);
 }
@@ -353,7 +357,6 @@ h3 {
 .def-clickable dt:hover {
  color: #6d6d6d;
 }
-
 .def-clickable dt:hover::after {
  border-color: #6d6d6d;
 }
