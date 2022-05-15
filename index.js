@@ -29,14 +29,13 @@ const rb_viewbox = rb_slider.querySelector('.rb_viewbox');
 const rb_content = rb_slider.querySelector('.rb_content');
 const rb_block = rb_slider.querySelector('.rb_block');
 
-const btn_back = rb_slider.querySelector('.btn_back');
-const btn_fw = rb_slider.querySelector('.btn_fw');
-
 let elemWidth;
 let offsetLeft = 0;
 let paddingSize = 15;
 
 rb_slider.addEventListener("click", (e) => {
+ let btn_back = rb_slider.querySelector('.btn_back');
+ let btn_fw = rb_slider.querySelector('.btn_fw');
   if (e.target === btn_back) {
    offsetLeft += rb_block.offsetWidth + paddingSize;
   } else if (e.target === btn_fw) {
@@ -46,12 +45,15 @@ rb_slider.addEventListener("click", (e) => {
 });
 
 const ajustRbSlider = () => {
- var slider_r = rb_viewbox.getBoundingClientRect();
- let cards_r = rb_content.getBoundingClientRect();
-  if (offsetLeft > paddingSize) {
-    offsetLeft = rb_viewbox.offsetWidth - rb_content.offsetWidth;
+ let viewboxWidth = rb_viewbox.offsetWidth;
+ let contentWidth = rb_content.offsetWidth;
+ if(contentWidth < viewboxWidth) {
+  offsetLeft = 0;
+ }
+  else if (offsetLeft > paddingSize) {
+    offsetLeft = viewboxWidth - contentWidth;
   } 
-  else if (Math.abs(cards_r.width - slider_r.width) < Math.abs(offsetLeft + elemWidth)) {
+  else if (Math.abs(contentWidth - viewboxWidth) < Math.abs(offsetLeft + elemWidth)) {
    offsetLeft = 0;
  }
  rb_content.style.left = `${offsetLeft}px`;

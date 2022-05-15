@@ -731,6 +731,11 @@ p {
  box-shadow: var(--shadow-main_2);
 }
 
+.rb_nv button:active {
+ transform: scale(1.10) translateY(2px);
+ transition: 0s;
+}
+
 .rb_nv .btn_back {
  left: 5px;
 }
