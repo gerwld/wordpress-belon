@@ -723,6 +723,12 @@ p {
  border-radius: var(--max-br-radius);
  border: var(--main-border);
  box-shadow: var(--shadow-main_3);
+ transition: var(--main-anim);
+}
+
+.rb_nv button:hover {
+ transform: scale(1.15);
+ box-shadow: var(--shadow-main_2);
 }
 
 .rb_nv .btn_back {
@@ -730,6 +736,30 @@ p {
 }
 .rb_nv .btn_fw {
  right: 5px;
+}
+
+/** Triangle props **/
+.rb_nv i {
+ font-size: 0;
+ line-height: 0;
+ pointer-events: none;
+}
+.rb_nv i::after {
+ content: "";
+ display: inline-block;
+ width: 0;
+ height: 0;
+ margin-bottom: -2px;
+ border-top: 10px solid transparent;
+ border-bottom: 10px solid transparent;
+}
+.rb_nv .btn_back i::after {
+ border-right: 12px solid #919191;
+ margin-left: -5px;
+}
+.rb_nv .btn_fw i::after {
+ border-left: 12px solid #919191;
+ margin-right: -5px;
 }
 
 /* Reviews block styles end */

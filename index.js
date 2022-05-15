@@ -43,7 +43,6 @@ rb_slider.addEventListener("click", (e) => {
     offsetLeft -= rb_block.offsetWidth + paddingSize;
   }
   ajustRbSlider();
-  rb_content.style.left = `${offsetLeft}px`;
 });
 
 const ajustRbSlider = () => {
@@ -51,9 +50,12 @@ const ajustRbSlider = () => {
  let cards_r = rb_content.getBoundingClientRect();
   if (offsetLeft > paddingSize) {
     offsetLeft = rb_viewbox.offsetWidth - rb_content.offsetWidth;
-  } else if (cards_r.right - 2 < slider_r.right && Math.abs(offsetLeft - elemWidth - slider_r.width) > cards_r.width) {
+  } 
+  else if (Math.abs(cards_r.width - slider_r.width) < Math.abs(offsetLeft + elemWidth)) {
    offsetLeft = 0;
-}}
+ }
+ rb_content.style.left = `${offsetLeft}px`;
+}
 
 if(IS_AUTOSCROLL) {
 var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
