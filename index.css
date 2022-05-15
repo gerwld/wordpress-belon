@@ -329,7 +329,7 @@ ul.sc_icons {
  display: flex;
  justify-content: space-between;
  margin-top: 30px;
- min-height: calc(100vh - 120px);
+ min-height: calc(100vh - 140px);
  color: #fff;
 }
 
