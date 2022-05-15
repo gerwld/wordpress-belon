@@ -17,7 +17,7 @@ def_clickable.addEventListener("click", (val) => {
 }, {passive: true});
 
 
-// *** Rb slider *** //
+// **** Rb slider **** //
 
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
@@ -49,7 +49,7 @@ rb_slider.addEventListener("click", (e) => {
 const ajustRbSlider = () => {
  var slider_r = rb_viewbox.getBoundingClientRect();
  let cards_r = rb_content.getBoundingClientRect();
-  if (offsetLeft > 0) {
+  if (offsetLeft > paddingSize) {
     offsetLeft = rb_viewbox.offsetWidth - rb_content.offsetWidth;
   } else if (cards_r.right - 2 < slider_r.right && Math.abs(offsetLeft - elemWidth - slider_r.width) > cards_r.width) {
    offsetLeft = 0;
