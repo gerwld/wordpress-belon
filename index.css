@@ -17,6 +17,7 @@
 
  --main-border: 1px solid #e3e3e3;
  --main-tp-background: rgba(0, 0, 0, 0.04);
+ --main-tp-background_2: rgba(0, 0, 0, 0.15);
  --main-hover-background: rgba(57, 63, 97, 0.45);
 
  --main-anim: 0.3s ease;
@@ -92,6 +93,11 @@ input,
  box-sizing: border-box;
 }
 
+*::selection {
+ color: #fff;
+ background-color: rgba(79, 63, 218, 0.5);
+}
+
 .content_wrapper {
  max-width: 1280px;
  margin: 0 auto;
@@ -108,6 +114,7 @@ input,
  white-space: nowrap;
  background-color: transparent;
  transition: background var(--main-anim);
+ user-select: none;
 }
 
 
@@ -144,6 +151,7 @@ input,
  height: 100%;
  background: var(--main-gradient_2);
  z-index: 0;
+ pointer-events: none;
 }
 
 .sc_icons {
@@ -186,13 +194,54 @@ ul.sc_icons {
 /* Navbar styles */
 
 .hd-navbar {
+ position: relative;
+
+ padding: 20px 0;
+ font-size: 17px;
+ color: #fff;
+ z-index: 10000;
+}
+
+.hd-navbar_content {
+ position: relative;
  display: flex;
  flex-wrap: wrap;
  justify-content: space-between;
  align-items: center;
- padding-top: 20px;
- font-size: 17px;
- color: #fff;
+ z-index: 10;
+}
+
+.hd-navbar .bg {
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ opacity: 0;
+ background-color: rgba(73, 31, 128, 0.8);
+ z-index: 0;
+ transition: var(--main-anim);
+}
+
+.mn_fixed .hd-navbar {
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ animation: header 0.3s ease;
+}
+
+.mn_fixed .hd-navbar .bg {
+ opacity: 1;
+}
+
+@keyframes header {
+ 0% {
+  transform: translateY(-100px);
+ }
+ 100% {
+  transform: translateY(0);
+ }
 }
 
 .hd-navbar .logo {
@@ -244,6 +293,11 @@ ul.sc_icons {
 .btn_contact:hover,
 .main-nav li a:hover {
  background-color: var(--main-tp-background);
+}
+
+.mn_fixed .btn_contact:hover,
+.mn_fixed .main-nav li a:hover {
+ background-color: var(--main-tp-background_2);
 }
 
 /* Navbar styles end */
@@ -624,6 +678,10 @@ ul.sc_icons {
 
 .gb_nav a.opened {
  color: #000;
+}
+
+.gb_nav a:hover:not(.opened) {
+ color:#363636;
 }
 
 .gb_gallery {
@@ -1158,7 +1216,7 @@ ul.sc_icons {
  display: flex;
  justify-content: space-between;
  align-items: flex-start;
- padding: 50px 0 100px;
+ padding: 70px 0 80px;
 }
 
 .footer_nav > ul li:nth-child(1) {
@@ -1171,6 +1229,11 @@ ul.sc_icons {
 
 .sc_icons a:hover {
  text-decoration: none;
+}
+
+.th_copyright {
+ font-size: 15px;
+ color: var(--prim-text-color);
 }
 
 /* Footer styles end */
