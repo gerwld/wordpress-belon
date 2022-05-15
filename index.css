@@ -196,7 +196,7 @@ ul.sc_icons {
 .hd-navbar {
  position: relative;
 
- padding: 20px 0;
+ padding: 15px 0;
  font-size: 17px;
  color: #fff;
  z-index: 10000;
@@ -329,7 +329,7 @@ ul.sc_icons {
  display: flex;
  justify-content: space-between;
  margin-top: 30px;
- min-height: calc(100vh - 140px);
+ min-height: calc(100vh - 130px);
  color: #fff;
 }
 

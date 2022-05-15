@@ -106,12 +106,12 @@ const mn_nav = mn_hd.querySelector('.hd-navbar');
 const handleScroll = () => {
   let navHeight = mn_nav.offsetHeight;
   let wOffset = window.pageYOffset;
-  
+
   if(navHeight < wOffset) {
     mn_hd.style.paddingTop = `${navHeight}px`;
     mn_hd.classList.add('mn_fixed');
   } 
-  else if(navHeight + 100 > wOffset) {
+  else if(navHeight + 10 > wOffset) {
     mn_hd.style.paddingTop = `0px`;
     mn_hd.classList.remove('mn_fixed');
   }
