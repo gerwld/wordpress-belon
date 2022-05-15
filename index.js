@@ -21,7 +21,7 @@ def_clickable.addEventListener("click", (val) => {
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const IS_AUTOSCROLL = true;
-const AUTOSCROLL_TIMEOUT = 1000;
+const AUTOSCROLL_TIMEOUT = 5000;
 
 const rb_slider = document.getElementById('rb_slider');
 const rb_viewbox = rb_slider.querySelector('.rb_viewbox');

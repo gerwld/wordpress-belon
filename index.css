@@ -862,7 +862,7 @@ ul.sc_icons {
  display: flex;
  align-items: stretch;
  justify-content: flex-start;
- transition: var(--main-anim);
+ transition: var(--slow-anim);
  padding: 8px;
 }
 
