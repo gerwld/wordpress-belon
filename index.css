@@ -4,9 +4,10 @@
  --main-color-prpl: #ca70d8;
  --main-color-light-prpl: #FDF2FF;
  --main-text-color: #000;
+ --main-text-gray: #e3e3e3;
  --prim-text-color: #919191;
  --prim-text-color_2: #797979;
- --main-text-gray: #e3e3e3;
+ --prim-text-color_3: #363636;
 
  --main-br-radius: 5px;
  --max-br-radius: 100px;
@@ -608,7 +609,8 @@ p {
 }
 .bb_info p {
  max-width: 550px;
- margin: 10px auto;
+ margin: 15px auto;
+ color: var(--prim-text-color_3);
  line-height: 1.5em;
 }
 
@@ -650,3 +652,84 @@ p {
 }
 
 /* Benefits block styles end */
+
+/* Reviews block styles */
+
+.reviews_block {
+ padding: var(--sc-padding);
+}
+
+.rb_info {
+ text-align: center;
+}
+
+.rb_info h2 {
+ max-width: 650px;
+ margin: 0 auto;
+}
+.rb_info p {
+ max-width: 550px;
+ margin: 15px auto;
+ color: var(--prim-text-color_3);
+ line-height: 1.5em;
+}
+
+.rb_slider {
+ position: relative;
+ padding: 0 60px;
+}
+
+.rb_viewbox {
+ position: relative;
+ height: 200px;
+ padding: 5px 5px 15px 5px;
+ overflow: hidden;
+}
+
+.rb_content {
+ position: absolute;
+ left: 0;
+ top: 0;
+ display: flex;
+ align-items: stretch;
+ justify-content: flex-start;
+ transition: var(--main-anim);
+ padding: 8px;
+}
+
+.rb_block {
+ flex: 0 0 360px;
+ width: 360px;
+
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ 
+ min-height: 150px;
+ padding: 20px 15px;
+ box-shadow: var( --shadow-main_3);
+}
+
+.rb_block:not(:last-child) {
+ margin-right: 15px;
+}
+
+.rb_nv button {
+ position: absolute;
+ top: calc(50% - 22.5px);
+ width: 45px;
+ height: 45px;
+ background-color: rgb(255, 255, 255);
+ border-radius: var(--max-br-radius);
+ border: var(--main-border);
+ box-shadow: var(--shadow-main_3);
+}
+
+.rb_nv .btn_back {
+ left: 5px;
+}
+.rb_nv .btn_fw {
+ right: 5px;
+}
+
+/* Reviews block styles end */
