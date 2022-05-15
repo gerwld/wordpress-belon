@@ -91,7 +91,7 @@ const resizeRbBlock = () => {
  offsetLeft = 0;
  elemWidth = rb_block ? rb_block.offsetWidth : 360;
  rb_content.style.left = `${offsetLeft}px`;
- rb_viewbox.style.height = `${rb_content.offsetHeight + 20}px`;
+ rb_viewbox.style.height = `${rb_content.offsetHeight + 30}px`;
 }
 
 window.addEventListener("onlaod", resizeRbBlock);

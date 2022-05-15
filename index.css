@@ -67,6 +67,10 @@ p {
  color: var(--prim-text-color);
 }
 
+img {
+ font-size: 0;
+}
+
 *{
  box-sizing: border-box;
 }
@@ -703,15 +707,47 @@ p {
 
  display: flex;
  flex-direction: column;
- align-items: center;
+ align-items: flex-start;
  
  min-height: 150px;
- padding: 20px 15px;
+ padding: 25px 18px 40px;
  box-shadow: var( --shadow-main_3);
+ border: 1px solid #eee;
 }
 
 .rb_block:not(:last-child) {
  margin-right: 15px;
+}
+
+.rb_block blockquote {
+ font-size: 16px;
+ padding: 0;
+ margin: 0;
+}
+
+.rb_block q {
+ display: block;
+ margin: 20px 0;
+ color: var(--prim-text-color);
+}
+
+.rb_block sources {
+ font-weight: 600;
+}
+
+.rb_block .photo {
+ height: 70px;
+ width: 70px;
+ overflow: hidden;
+ border-radius: var(--max-br-radius);
+ background-color: rgb(236, 230, 230);
+ user-select: none;
+}
+
+.rb_block .photo img {
+ width: 70px;
+ height: 70px;
+ object-fit: cover;
 }
 
 .rb_nv button {
