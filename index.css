@@ -16,12 +16,11 @@
  --sc-padding: 50px 0;
 
  --main-border: 1px solid #e3e3e3;
- --main-tp-background: rgba(0, 0, 0, 0.04);
+ --main-tp-background: rgba(0, 0, 0, 0.07);
  --main-tp-background_2: rgba(0, 0, 0, 0.15);
  --main-hover-background: rgba(57, 63, 97, 0.45);
 
  --main-anim: 0.3s ease;
- --main-anim_2: 0.4s ease;
  --slow-anim: 0.4s ease;
 
  --shadow-main: rgba(0, 0, 0, 0.06) 0px 2px 7px;
@@ -478,7 +477,7 @@ ul.sc_icons {
  width: 100%;
  height: 100%;
  object-fit: cover;
- transition: var(--main-anim_2);
+ transition: var(--slow-anim);
 }
 
 .vb_player .filter {
@@ -1104,7 +1103,7 @@ ul.sc_icons {
 .lb_article .bg img,
 .lb_article .bg::after,
 .lb_article h4 {
- transition: transform var(--main-anim_2), background 0.2s ease;
+ transition: transform var(--slow-anim), background 0.2s ease;
 }
 
 .lb_article:hover .content {

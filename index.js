@@ -21,8 +21,8 @@ def_clickable.addEventListener("click", (val) => {
 
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
-const IS_AUTOSCROLL = false;
-const AUTOSCROLL_TIMEOUT = 1000;
+const IS_AUTOSCROLL = true;
+const AUTOSCROLL_TIMEOUT = 3000;
 
 const rb_slider = document.getElementById('rb_slider');
 const rb_viewbox = rb_slider.querySelector('.rb_viewbox');
@@ -100,6 +100,7 @@ resizeRbBlock();
 
 
 //**** Navbar ****//
+
 const mn_hd = document.getElementById('mn_header');
 const mn_nav = mn_hd.querySelector('.hd-navbar');
 
@@ -116,6 +117,5 @@ const handleScroll = () => {
     mn_hd.classList.remove('mn_fixed');
   }
 }
-
 
 window.addEventListener("scroll", handleScroll, {passive: true});
