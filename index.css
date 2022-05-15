@@ -16,6 +16,8 @@
 
  --main-border: 1px solid #e3e3e3;
  --main-tp-background: rgba(0, 0, 0, 0.04);
+ --main-hover-background: rgba(57, 63, 97, 0.45);
+
  --main-anim: 0.3s ease;
  --main-anim_2: 0.4s ease;
  --slow-anim: 0.4s ease;
@@ -25,6 +27,7 @@
  --shadow-main_3:   rgba(0, 0, 0, 0.12) 0px 8px 10px;
 
  --main-gradient_1: linear-gradient( 100deg,  #5636b6 11.2%, #c267d4 91.2% );
+ --main-gradient_2: linear-gradient( 100deg,  #7c59e6 11.2%, #dc88ec 91.2% );
 }
 
 body,
@@ -128,7 +131,7 @@ input:focus {
  bottom: -20px;
  width: 100%;
  height: 100%;
- background-color: rgba(102, 96, 96, 0.1);
+ background: var(--main-gradient_2);
  z-index: 0;
 }
 
@@ -372,7 +375,7 @@ ul.sc_icons {
 .vb_player .filter {
  opacity: 0.45;
  transition: var(--main-anim);
- background-color: var(--main-color-prpl);
+ background-color: var(--main-hover-background);
 }
 
 .vb_player .play {
@@ -415,7 +418,7 @@ ul.sc_icons {
 }
 
 .vb_player:hover .filter {
- opacity: 0.55;
+ opacity: 0.85;
 }
 
 .vb_player:hover .play {
@@ -998,7 +1001,7 @@ ul.sc_icons {
 }
 
 .lb_article:hover .bg::after {
- background-color: rgba(57, 63, 97, 0.45);
+ background-color: var(--main-hover-background);
 }
 
 /* Blog block styles end */
