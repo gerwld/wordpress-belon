@@ -21,7 +21,7 @@ def_clickable.addEventListener("click", (val) => {
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const IS_AUTOSCROLL = true;
-const AUTOSCROLL_TIMEOUT = 5000;
+const AUTOSCROLL_TIMEOUT = 3000;
 
 const rb_slider = document.getElementById('rb_slider');
 const rb_viewbox = rb_slider.querySelector('.rb_viewbox');
@@ -59,7 +59,7 @@ const ajustRbSlider = () => {
 }
 
 if (IS_AUTOSCROLL) {
-  let autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+  var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
   function toggleScroll(isScroll) {
     if (isScroll) {
       autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
