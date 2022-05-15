@@ -12,8 +12,7 @@ def_clickable.addEventListener("click", (val) => {
     } else {
       e.classList.remove("opened");
     }
-   }
-  });
+   }});
 }, {passive: true});
 
 
@@ -22,7 +21,7 @@ def_clickable.addEventListener("click", (val) => {
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const IS_AUTOSCROLL = true;
-const AUTOSCROLL_TIMEOUT = 3000;
+const AUTOSCROLL_TIMEOUT = 1000;
 
 const rb_slider = document.getElementById('rb_slider');
 const rb_viewbox = rb_slider.querySelector('.rb_viewbox');
@@ -59,13 +58,24 @@ const ajustRbSlider = () => {
  rb_content.style.left = `${offsetLeft}px`;
 }
 
-if(IS_AUTOSCROLL) {
-var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
-function autoScrollTm() {
-  offsetLeft -= elemWidth + paddingSize;
-  ajustRbSlider();
-  rb_content.style.left = `${offsetLeft}px`;
-}
+if (IS_AUTOSCROLL) {
+  let autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+  function toggleScroll(isScroll) {
+    if (isScroll) {
+      autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+    } 
+    else clearInterval(autoScroll);
+  }
+  function autoScrollTm() {
+    offsetLeft -= elemWidth + paddingSize;
+    ajustRbSlider();
+    rb_content.style.left = `${offsetLeft}px`;
+  }
+
+  rb_slider.addEventListener('mouseover', () => toggleScroll(false));
+  rb_slider.addEventListener('mouseleave', () => toggleScroll(true));
+  rb_slider.addEventListener('touchstart', () => toggleScroll(false));
+  rb_slider.addEventListener('touchend', () => toggleScroll(true));
 }
 
 const resizeRbBlock = () => {
