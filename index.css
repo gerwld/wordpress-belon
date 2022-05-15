@@ -1005,6 +1005,11 @@ ul.sc_icons {
 
 /* Footer styles */
 
+.main-footer {
+ background: url('./img/footer_bg.png') 0 0 no-repeat;
+ background-size: 100% auto;
+}
+
 .ft_block_1_wrapper {
  border-bottom: var(--main-border);
 }
