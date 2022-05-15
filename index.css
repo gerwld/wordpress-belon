@@ -17,6 +17,7 @@
  --main-border: 1px solid #e3e3e3;
  --main-tp-background: rgba(0, 0, 0, 0.04);
  --main-anim: 0.3s ease;
+ --main-anim_2: 0.4s ease;
  --slow-anim: 0.4s ease;
 
  --shadow-main: rgba(0, 0, 0, 0.06) 0px 2px 7px;
@@ -852,6 +853,13 @@ img {
  min-height: 550px;
 }
 
+.lb_article h4 {
+ display: inline-block;
+ padding: 2px 10px 2px 3px;
+ border-radius: 5px;
+ transition: var(--main-anim);
+}
+
 .lb_article .bg,
 .lb_article .bg::after {
  position: absolute;
@@ -867,7 +875,7 @@ img {
 .lb_article .bg::after {
  content: '';
  display: block;
- background-color: rgba(63, 67, 90, 0.4);
+ background-color: rgba(57, 63, 97, 0.4);
 }
 
 .lb_article .bg {
@@ -879,18 +887,21 @@ img {
  width: 100%;
  height: 100%;
  object-fit: cover;
+ transition: var(--main-anim_2);
 }
 
 .lb_article .content {
+ position: relative;
  z-index: 100;
  color: #fff;
+ transition: var(--main-anim_2);
 }
 
 .lb_article p {
  color: #fff;
  opacity: 0.85;
  line-height: 1.25em;
- margin: 1em 0;
+ margin: 0.4em 0 1em;
 }
 
 .lb_article .credentials {
@@ -921,5 +932,20 @@ img {
  font-size: 15px;
 }
 
+.ar_link {
+ text-decoration: none;
+}
+
+.lb_article:hover .content {
+ transform: translateY(15px);
+}
+
+.lb_article:hover .bg img {
+ transform: scale(1.1);
+}
+
+.lb_article:hover h4 {
+ background-color: rgba(255, 255, 255, 0.3);
+}
 
 /* Blog block styles end */
