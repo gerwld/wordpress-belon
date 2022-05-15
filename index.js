@@ -94,8 +94,8 @@ const resizeRbBlock = () => {
  rb_viewbox.style.height = `${rb_content.offsetHeight + 30}px`;
 }
 
-window.addEventListener("onlaod", resizeRbBlock);
-window.addEventListener("resize", resizeRbBlock);
+window.addEventListener("onlaod", resizeRbBlock, {passive: true});
+window.addEventListener("resize", resizeRbBlock, {passive: true});
 resizeRbBlock();
 
 
@@ -118,4 +118,4 @@ const handleScroll = () => {
 }
 
 
-window.addEventListener("scroll", handleScroll);
+window.addEventListener("scroll", handleScroll, {passive: true});
