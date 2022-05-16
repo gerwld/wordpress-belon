@@ -3,6 +3,7 @@
  --main-color-yell: #f8c008;
  --main-color-prpl: #c267d4;
  --main-color-dark-prpl: #ab5bbb;
+ --main-color-dark-prpl_2:  #664e85;
  --main-color-light-prpl: #f8f2ff;
 
  --main-text-color: #000;
@@ -179,13 +180,13 @@ ul.sc_icons {
  padding: 0;
  justify-content: center;
  align-items: center;
- width: 30px;
- height: 30px;
+ width: 34px;
+ height: 34px;
  text-decoration: none;
  font-size: 15px;
  color: inherit;
  transition: var(--main-anim);
- border: 2px solid #fff;
+ border: 1.5px solid #fff;
  border-radius: var(--max-br-radius);
 }
 
@@ -816,12 +817,20 @@ ul.sc_icons {
  margin: 0;
 }
 
+.bb_block h4 {
+ margin-bottom: 5px 0 10px;
+}
+
 .bb_block:not(:nth-child(3n)) {
  margin-right: 2%;
 }
 
-.bb_block i {
+.bb_block svg {
+ width: 38px;
+ height: auto;
  order: -2;
+ margin-bottom: 15px;
+ color: var(--main-color-dark-prpl);
 }
 
 .bb_block:hover {
@@ -922,6 +931,7 @@ ul.sc_icons {
  border-radius: var(--max-br-radius);
  background-color: rgb(236, 230, 230);
  user-select: none;
+ border: var(--main-border);
 }
 
 .rb_block .photo img {
@@ -975,11 +985,11 @@ ul.sc_icons {
  border-bottom: 10px solid transparent;
 }
 .rb_nv .btn_back i::after {
- border-right: 12px solid #664e85;
+ border-right: 10px solid var(--main-color-dark-prpl_2);
  margin-left: -5px;
 }
 .rb_nv .btn_fw i::after {
- border-left: 12px solid #664e85;
+ border-left: 10px solid var(--main-color-dark-prpl_2);
  margin-right: -5px;
 }
 
@@ -1231,7 +1241,8 @@ ul.sc_icons {
 }
 
 .footer_nav .sc_icons a {
- border-color: #797979;
+ border-color: var(--prim-text-color);
+ color: var(--prim-text-color);
 }
 
 .sc_icons a:hover {
