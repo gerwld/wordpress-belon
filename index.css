@@ -236,7 +236,7 @@ ul.sc_icons {
 
 @keyframes header {
  0% {
-  transform: translateY(-100px);
+  transform: translateY(-120px);
  }
  100% {
   transform: translateY(0);
