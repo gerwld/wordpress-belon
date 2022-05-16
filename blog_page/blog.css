@@ -1,3 +1,18 @@
 .apt_block {
  margin-bottom: 50px;
 }
+
+.apt_block .entry_content p {
+ display: inline;
+ line-height: 1.7em;
+}
+
+.apt_block .entry_title {
+ line-height: 1em;
+ margin: 0.5em 0;
+}
+
+.btn_more {
+ display: inline-block;
+ margin-left: 5px;
+}
