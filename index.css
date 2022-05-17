@@ -1332,7 +1332,7 @@ ul.sc_icons {
  align-items: center;
  width: 32%;
  flex: 0 0 32%;
- padding: 45px 0;
+ padding: 45px 15px;
  margin-right: 2%;
  background-color: #fff;
  border-radius: var(--main-small-br-radius);
@@ -1448,3 +1448,57 @@ ul.sc_icons {
 }
 
 /* Plans block end */
+
+
+/* features_block styles */
+
+.features_block {
+ padding: 80px 0;
+ background-color: var(--main-color-light-prpl);
+ border-top: var(--main-border);
+} 
+
+.fb_content {
+ display: flex;
+ justify-content: flex-start;
+ align-items: stretch;
+ flex-wrap: wrap;
+ padding: 20px 0;
+}
+
+.fb_block {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: flex-start;
+ width: 32%;
+ flex: 0 0 32%;
+ padding: 45px 35px;
+ margin-right: 2%;
+ background-color: #fff;
+ border-radius: var(--main-small-br-radius);
+ box-shadow: var(--shadow-main_3);
+ overflow: hidden;
+}
+
+.fb_block:nth-child(3n) {
+ margin-right: 0;
+}
+
+.fb_block .icon {
+ width: 50px;
+ height: 50px;
+}
+
+.fb_block .icon img {
+ height: 100%;
+ width: auto;
+}
+
+.fb_block .icon {
+ font-size: 42px;
+ color: var(--main-color-dark-prpl);
+ margin-bottom: 15px;
+}
+
+/* features_block styles end */
