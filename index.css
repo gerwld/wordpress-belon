@@ -1499,6 +1499,7 @@ ul.sc_icons {
  border-radius: var(--main-small-br-radius);
  box-shadow: var(--shadow-main_3);
  overflow: hidden;
+ transition: var(--main-anim);
 }
 
 .fb_block:nth-child(3n) {
@@ -1508,6 +1509,7 @@ ul.sc_icons {
 .fb_block .icon {
  width: 50px;
  height: 50px;
+ transition: var(--main-anim);
 }
 
 .fb_block .icon img {
@@ -1519,6 +1521,16 @@ ul.sc_icons {
  font-size: 42px;
  color: var(--main-color-dark-prpl);
  margin-bottom: 15px;
+ filter: saturate(0.5);
+}
+
+.fb_block:hover > .icon {
+ transform: rotate(15deg);
+ filter: saturate(1);
+}
+
+.fb_block:hover {
+ transform: scale(1.04);
 }
 
 /* features_block styles end */
