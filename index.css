@@ -274,8 +274,10 @@ ul.sc_icons {
  }
 }
 
-.hd-navbar .logo {
+.hd-navbar .logo a {
  text-transform: uppercase;
+ text-decoration: none;
+ color: #fff;
  font-size: 32px;
  font-weight: 700;
 }
