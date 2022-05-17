@@ -493,21 +493,22 @@ ul.sc_icons__dark a {
 }
 
 .hd-info {
- flex: 0 0 50%;
- width: 50%;
+ flex: 0 0 48%;
+ width: 48%;
  display: flex;
  flex-direction: column;
  align-items: flex-start;
  justify-content: center;
- padding-right: 15px;
 }
 
 .hd-image {
+ flex: 0 0 52%;
+ width: 52%;
+ min-height: 685px;
+ aspect-ratio: 9/16;
  position: relative;
- flex: 0 0 50%;
- max-width: 50%;
  background: url('./img/hd_bg.svg') 90% 90% no-repeat;
- background-size: contain;
+ background-size: 97% auto;
 }
 
 .hd-image img {
