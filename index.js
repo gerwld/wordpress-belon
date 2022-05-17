@@ -162,6 +162,6 @@ const mn_header = document.getElementById("mn_header");
     parallax(e, b_2, 20, 98, 20);
     parallax(e, b_3, 50, 20, 105);
     parallax(e, b_4, 105, 105, 108);
-    parallax(e, ills, 10, 90, 90);
+    parallax(e, ills, 10, 90, 80);
   }
 })();
