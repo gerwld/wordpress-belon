@@ -979,8 +979,7 @@ ul.sc_icons {
  height: 45px;
  background-color: rgb(255, 255, 255);
  border-radius: var(--max-br-radius);
- border: var(--main-border);
- box-shadow: var(--shadow-main_3);
+ border: 1px solid var(--main-color-dark-prpl_2);
  transition: var(--main-anim);
 }
 
@@ -992,6 +991,10 @@ ul.sc_icons {
 .rb_nv button:active {
  transform: scale(1.10) translateY(2px);
  transition: 0s;
+}
+
+.rb_nv button:focus {
+ outline: none;
 }
 
 .rb_nv .btn_back {
@@ -1326,7 +1329,7 @@ ul.sc_icons {
  align-items: center;
  width: 32%;
  flex: 0 0 32%;
- padding: 40px 0;
+ padding: 45px 0;
  margin-right: 2%;
  background-color: #fff;
  border-radius: var(--main-small-br-radius);
@@ -1345,7 +1348,7 @@ ul.sc_icons {
  justify-content: flex-start;
  align-items: center;
  padding: 0;
- margin: 20px 0 30px;
+ margin: 26px 0 36px;
  text-align: center;
  list-style: none;
 }
