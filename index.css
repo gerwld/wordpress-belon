@@ -4,6 +4,7 @@
  --main-color-yell_hv:  #dfae0c;
  --main-color-prpl: #c267d4;
  --main-color-dark-prpl: #ab5bbb;
+ --main-color-dark-prpl_tr: rgba(172, 86, 189, 0.3);
  --main-color-dark-prpl_2:  #664e85;
  --main-color-light-prpl: #f8f2ff;
 
@@ -1534,3 +1535,48 @@ ul.sc_icons {
 }
 
 /* features_block styles end */
+
+/* Transparent block styles */
+
+.transparent_block {
+ color: #fff;
+ background: url('./img/fallback.jpg');
+ background-attachment: fixed;
+ background-size: cover;
+}
+
+.transparent_block .content {
+ padding: 90px 0;
+ background-color: #650074b2;
+}
+
+.tb_content {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+}
+
+.tb_content h2 {
+ font-size: 42px;
+ font-weight: 700;
+ max-width: 650px;
+ margin: 0 0 20px 0;
+}
+.tb_content p {
+ max-width: 760px;
+ margin: 0 0 40px 0;
+ color: #fff;
+ line-height: 1.7em;
+}
+
+.btn_trns {
+ background-color: var(--main-color-yell);
+}
+
+.btn_trns:hover {
+ background-color: var(--main-color-yell_hv);
+}
+
+/* Transparent block styles end */
