@@ -1608,3 +1608,27 @@ ul.sc_icons__dark a {
 /* Transparent block styles end */
 
 /**** Media queries ****/
+
+@media only screen and (max-width: 1100px) {
+ .hd-info h1 {
+  font-size: 68px;
+ }
+
+ .hd-info p {
+  font-size: 17px;
+ }
+
+ .hd-blocks {
+  margin-top: 20px;
+ }
+
+ .hd-info {
+  width: 46%;
+  flex: 0 0 46%;
+ }
+
+ .hd-image {
+  min-height: 590px;
+
+ }
+}
