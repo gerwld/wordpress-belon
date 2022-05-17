@@ -32,6 +32,9 @@
 
  --main-gradient_1: linear-gradient( 100deg,  #5636b6 11.2%, #c267d4 91.2% );
  --main-gradient_2: linear-gradient( 100deg,  #7c59e6 11.2%, #dc88ec 91.2% );
+
+ --main-gradient_3: linear-gradient( 65deg,  #5636b6 11.2%, #c34ddb 91.2% );
+ --main-gradient_4: linear-gradient( 65deg,  #7c59e6 11.2%, #dc88ec 91.2% );
 }
 
 body,
@@ -1415,7 +1418,7 @@ ul.sc_icons {
 
 /** styled block styles **/
 .pb_block__styled {
- background: var(--main-gradient_1);
+ background: var(--main-gradient_3);
 }
 
 .pb_block__styled,
