@@ -136,9 +136,8 @@ window.addEventListener("scroll", handleScroll, {passive: true});
 const mn_header = document.getElementById("mn_header");
 
 (function () {
-  // Add event listener
   mn_header.addEventListener("mousemove", parallaxGrab);
-  // Magic happens here
+
   function parallax(e, elem, delay = 10, _posY = 100, _posX = 100) {
     let _w = window.innerWidth / 2;
     let _h = window.innerHeight / 2;

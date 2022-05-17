@@ -194,18 +194,42 @@ ul.sc_icons {
  text-decoration: none;
  font-size: 15px;
  color: inherit;
- transition: var(--main-anim);
  border: 2px solid #fff;
  border-radius: var(--max-br-radius);
 }
 
-.sc_icons a:hover {
- opacity: 0.8;
+.sc_icons a,
+.sc_icons a svg {
+ transition: 0.2s ease;
 }
+
+.sc_icons a:hover {
+ transform: scale(1.1);
+ border-color: transparent;
+}
+
+.sc_icons a:hover svg {
+ fill: #fff;
+ stroke: transparent;
+}
+
+.sc_icons .fb a:hover {
+ background-color: #4267B2;
+}
+
+.sc_icons .tw a:hover {
+ background-color: #1DA1F2;
+}
+
+.sc_icons .in a:hover {
+ background-color: #0E76a8;
+}
+
 
 .sc_icons svg {
  max-width: 70%;
  height: 70%;
+ transition: var(--main-anim);
 }
 
 .opened_line::before {
@@ -1307,11 +1331,6 @@ ul.sc_icons {
  border: 2px solid #363636;
  color: #363636;
  background-color: #fff;
-}
-
-.sc_icons__dark a:hover {
- border-color: var(--main-color-dark-prpl);
- color: var(--main-color-dark-prpl);
 }
 
 .th_copyright {
