@@ -16,3 +16,20 @@
  display: inline-block;
  margin-left: 5px;
 }
+
+.blog_header {
+ background: var(--main-gradient_1);
+ margin-bottom: 60px;
+}
+
+.blog_title {
+ text-align: center;
+ padding-top: 30px;
+ padding-bottom: 30px;
+}
+
+.blog_title h1 {
+ font-size: 80px;
+ font-weight: 300;
+ color: #fff;
+}

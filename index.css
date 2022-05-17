@@ -60,6 +60,7 @@ h1 {
 
 h1, h2, h3, h4, h5, h6, p {
  margin: 0.3em 0;
+ line-height: 1em;
 }
 
 h1 {
@@ -1546,8 +1547,8 @@ ul.sc_icons {
 }
 
 .transparent_block .content {
- padding: 90px 0;
- background-color: #650074b2;
+ padding: 100px 0;
+ background-color: rgba(116, 7, 133, 0.7);
 }
 
 .tb_content {
