@@ -320,7 +320,7 @@ ul.sc_icons {
 }
 
 .main-header .anim_bg {
- position: absolute;
+ /* position: absolute;  */
  right: -50px;
  bottom: -50px;
  width: calc(100vw + 50px);
@@ -331,6 +331,32 @@ ul.sc_icons {
  pointer-events: none;
  user-select: none;
  transition: 0s;
+}
+
+.main-header .anim_bg > div {
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left:0;
+ right: 0;
+ width: 100vw;
+ height: 100vh;
+}
+
+.main-header .anim_bg .block_1 {
+ background: url('./img/hd_bg/oval_1.svg') 82% 30% no-repeat;
+}
+
+.main-header .anim_bg .block_2 {
+ background: url('./img/hd_bg/oval_2.svg') 98% 20% no-repeat;
+}
+
+.main-header .anim_bg .block_3 {
+ background: url('./img/hd_bg/oval_3.svg') 20% 105% no-repeat;
+}
+
+.main-header .anim_bg .block_4 {
+ background: url('./img/hd_bg/oval_4.svg') 105% 108% no-repeat;
 }
 
 .hd-blocks {
