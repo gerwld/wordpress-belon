@@ -135,12 +135,22 @@ window.addEventListener("scroll", handleScroll, {passive: true});
 
 const anim_bg = document.getElementById("anim_bg");
 
-let j_range = true;
-const onAnimBg = () => {
-  if(j_range) {
-    anim_bg.style.backgroundPositionY = `${80}%`;
-  } else anim_bg.style.backgroundPositionY = `${100}%`;
-  j_range = !j_range;
-}
-onAnimBg();
-let anim = setInterval(onAnimBg, 1250);
+(function() {
+  // Add event listener
+  document.addEventListener("mousemove", parallax);
+  // Magic happens here
+  function parallax(e) {
+      let _w = window.innerWidth/2;
+      let _h = window.innerHeight/2;
+      let _pos = 100;
+      let _mouseX = e.clientX;
+      let _mouseY = e.clientY;
+      let _depth1 = `${_pos - (_mouseX - _w) * 0.01 / 10}% ${_pos - (_mouseY - _h) * 0.01 / 10}%`;
+      let _depth2 = `${_pos - (_mouseX - _w) * 0.02 / 10}% ${_pos - (_mouseY - _h) * 0.02 / 10}%`;
+      let _depth3 = `${_pos - (_mouseX - _w) * 0.06 / 10}% ${_pos - (_mouseY - _h) * 0.06 / 10}%`;
+      let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+      console.log(x);
+      anim_bg.style.backgroundPosition = x;
+  }
+
+})();

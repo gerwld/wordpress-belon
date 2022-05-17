@@ -330,7 +330,7 @@ ul.sc_icons {
  z-index: 0;
  pointer-events: none;
  user-select: none;
- transition: 1200ms ease-in-out;
+ transition: 0s;
 }
 
 .hd-blocks {
