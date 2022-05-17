@@ -1,6 +1,7 @@
 :root {
  --main-color: blue;
  --main-color-yell: #f8c008;
+ --main-color-yell_hv:  #dfae0c;
  --main-color-prpl: #c267d4;
  --main-color-dark-prpl: #ab5bbb;
  --main-color-dark-prpl_2:  #664e85;
@@ -408,7 +409,7 @@ ul.sc_icons {
 
 .btn_explore:hover {
  padding: 15px 60px 15px 30px;
- background-color: #dfae0c;
+ background-color:  var(--main-color-yell_hv);
 }
 
 .btn_explore::before {
@@ -1350,20 +1351,22 @@ ul.sc_icons {
  display: inline;
  position: relative;
  padding-left: 10px;
+ font-size: 15px;
+ text-transform: capitalize;
  color: var(--prim-text-color);
 }
 
 .pb_block li:not(:last-child) {
- margin-bottom: 10px;
+ margin-bottom: 7px;
 }
 
 .pb_block li::before {
  content: '';
  position: absolute;
  left: 0;
- bottom: calc(50% - 3px);
- width: 5px;
- height: 5px;
+ bottom: calc(50% - 2px);
+ width: 4.5px;
+ height: 4.5px;
  border-radius: var(--max-br-radius);
  background-color: var(--prim-text-color);
 }
@@ -1395,6 +1398,41 @@ ul.sc_icons {
  color: var(--main-color-dark-prpl);
  border: 1px solid var(--main-color-dark-prpl);
  border-radius: var(--max-br-radius);
+ transition: var(--main-anim);
+}
+
+.btn_buypl:hover {
+ color: #fff;
+ background-color: var(--main-color-dark-prpl);
+ transform: scale(1.05);
+}
+
+/** styled block styles **/
+.pb_block__styled {
+ background: var(--main-gradient_1);
+}
+
+.pb_block__styled,
+.pb_block__styled .price .sup,
+.pb_block__styled .btn_buypl  {
+ color: #fff;
+}
+
+.pb_block__styled li {
+ color: rgba(255, 255, 255, 0.8);
+}
+
+.pb_block__styled li::before {
+ background-color: rgba(255, 255, 255, 0.8);
+}
+
+.pb_block__styled .btn_buypl {
+ background-color: var(--main-color-yell);
+ border: var(--main-color-yell);
+}
+
+.pb_block__styled .btn_buypl:hover {
+ background-color: var(--main-color-yell_hv);
 }
 
 /* Plans block end */
