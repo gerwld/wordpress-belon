@@ -169,6 +169,8 @@ input,
  right: 5px;
 }
 
+/* Soc. icons styles */
+
 ul.sc_icons {
  display: flex;
  margin: 0;
@@ -177,7 +179,7 @@ ul.sc_icons {
 }
 
 .sc_icons li:not(:last-child) {
- margin-right: 5px;
+ margin-right: 8px;
 }
 .sc_icons a,
 .sc_icons li {
@@ -231,6 +233,14 @@ ul.sc_icons {
  height: 70%;
  transition: var(--main-anim);
 }
+
+ul.sc_icons__dark a {
+ border: 2px solid #363636;
+ color: #363636;
+ background-color: #fff;
+}
+
+/* Soc. icons styles end */
 
 .opened_line::before {
  content: '';
@@ -1325,12 +1335,6 @@ ul.sc_icons {
 
 .footer_nav > ul li:nth-child(1) {
  margin-top: 10px;
-}
-
-.sc_icons__dark a {
- border: 2px solid #363636;
- color: #363636;
- background-color: #fff;
 }
 
 .th_copyright {
