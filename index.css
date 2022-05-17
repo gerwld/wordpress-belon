@@ -319,8 +319,7 @@ ul.sc_icons {
  overflow: hidden;
 }
 
-.main-header::before {
- content: '';
+.main-header .anim_bg {
  position: absolute;
  right: -50px;
  bottom: -50px;
@@ -331,6 +330,7 @@ ul.sc_icons {
  z-index: 0;
  pointer-events: none;
  user-select: none;
+ transition: 1200ms ease-in-out;
 }
 
 .hd-blocks {
@@ -349,13 +349,13 @@ ul.sc_icons {
 }
 
 .hd-info h1 {
- font-size: 78px;
+ font-size: 74px;
  line-height: 0.95em;
  margin: 0.5em 0 0;
 }
 
 .hd-info p {
- font-size: 19px;
+ font-size: 18px;
  line-height: 1.5em;
  margin: 1.5em 0;
  color: #fff;
@@ -366,7 +366,7 @@ ul.sc_icons {
 .btn_explore {
  position: relative;
  padding: 15px 40px 15px 30px;
- margin-top: 10px;
+ margin: 10px 0 20%;
  font-size: 17px;
  background-color: var(--main-color-yell);
  border-radius: var(--max-br-radius);
@@ -417,7 +417,7 @@ ul.sc_icons {
 .hd-image {
  flex: 0 0 50%;
  max-width: 50%;
- height: calc(100vh - 150px);
+ height: calc(100vh - 160px);
  min-height: 500px;
 }
 
@@ -431,7 +431,7 @@ ul.sc_icons {
 .hd-image {
  position: relative;
  display: flex;
- align-items: center;
+ align-items: flex-end;
  justify-content: center;
 }
 

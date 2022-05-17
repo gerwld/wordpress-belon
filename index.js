@@ -130,3 +130,17 @@ const handleScroll = () => {
 }
 
 window.addEventListener("scroll", handleScroll, {passive: true});
+
+//**** Header animation ****/
+
+const anim_bg = document.getElementById("anim_bg");
+
+let j_range = true;
+const onAnimBg = () => {
+  if(j_range) {
+    anim_bg.style.backgroundPositionY = `${80}%`;
+  } else anim_bg.style.backgroundPositionY = `${100}%`;
+  j_range = !j_range;
+}
+onAnimBg();
+let anim = setInterval(onAnimBg, 1250);
