@@ -13,6 +13,7 @@
  --prim-text-color_3: #363636;
 
  --main-br-radius: 5px;
+ --main-small-br-radius: 3px;
  --max-br-radius: 100px;
  --sc-padding: 50px 0;
 
@@ -152,6 +153,7 @@ input,
  background: var(--main-gradient_2);
  z-index: 0;
  pointer-events: none;
+ border-radius: var(--main-small-br-radius);
 }
 
 .hd-image .sc_icons {
@@ -483,6 +485,7 @@ ul.sc_icons {
  height: calc(100% - 140px - 20px);
  margin: 70px 0;
  cursor: pointer;
+ border-radius: var(--main-small-br-radius);
 }
 
 .vb_player .bg,
@@ -493,6 +496,7 @@ ul.sc_icons {
  width: 100%;
  height: 100%;
  z-index: 10;
+ border-radius: var(--main-small-br-radius);
 }
 
 .vb_player .bg {
@@ -637,6 +641,7 @@ ul.sc_icons {
  width: 100%;
  height: 4px;
  background: var(--main-gradient_1);
+ border-radius: var(--main-small-br-radius);
 }
 
 .def-clickable dt.opened + dd {
@@ -726,6 +731,8 @@ ul.sc_icons {
  height: 300px;
  margin-bottom: 20px;
  background-color: #fff;
+ border-radius: var(--main-small-br-radius);
+ overflow: hidden;
 }
 
 .gb_block:not(:nth-child(3n)) {
@@ -830,6 +837,7 @@ ul.sc_icons {
  text-align: center;
  border: 1px solid rgb(243, 243, 243);
  transition: var(--main-anim);
+ border-radius: var(--main-small-br-radius);
 }
 
 .bb_block p {
@@ -917,6 +925,7 @@ ul.sc_icons {
  border: 1px solid #eee;
  background-color: #fff;
  transition: var(--main-anim);
+ border-radius: var(--main-small-br-radius);
 }
 
 .rb_block:hover {
@@ -1072,6 +1081,7 @@ ul.sc_icons {
  width: 100%;
  height: 100%;
  user-select: none;
+ border-radius: var(--main-small-br-radius);
 }
 
 .lb_article .bg::after {
@@ -1197,7 +1207,7 @@ ul.sc_icons {
  width: 360px;
  margin-right: 25px;
  border: 1px solid #dddbdb;
- background-color: rgb(244, 244, 248);
+ background-color: rgb(255, 255, 255);
  font-size: 20px;
  border-radius: 5px;
 }

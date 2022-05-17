@@ -133,7 +133,6 @@ window.addEventListener("scroll", handleScroll, {passive: true});
 
 //**** Header parallax ****/
 
-const anim_bg = document.getElementById("anim_bg");
 const mn_header = document.getElementById("mn_header");
 
 (function () {
