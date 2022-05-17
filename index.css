@@ -320,13 +320,6 @@ ul.sc_icons {
 }
 
 .main-header .anim_bg {
- /* position: absolute;  */
- right: -50px;
- bottom: -50px;
- width: calc(100vw + 50px);
- height: calc(100% + 50px);
- max-width: 1200px;
- background: url('./img/hd_asset_1.svg') 100% 100% no-repeat;
  z-index: 0;
  pointer-events: none;
  user-select: none;

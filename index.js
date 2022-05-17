@@ -136,33 +136,32 @@ window.addEventListener("scroll", handleScroll, {passive: true});
 const anim_bg = document.getElementById("anim_bg");
 const mn_header = document.getElementById("mn_header");
 
-(function() {
+(function () {
   // Add event listener
   mn_header.addEventListener("mousemove", parallaxGrab);
   // Magic happens here
   function parallax(e, elem, delay = 10, _posY = 100, _posX = 100) {
-      let _w = window.innerWidth/2;
-      let _h = window.innerHeight/2;
-      let _mouseX = e.clientX;
-      let _mouseY = e.clientY;
-      let _depth1 = `${_posY - (_mouseX - _w) * 0.01 / delay}% ${_posX - (_mouseY - _h) * 0.01 / delay}%`;
-      let _depth2 = `${_posY - (_mouseX - _w) * 0.02 / delay}% ${_posX - (_mouseY - _h) * 0.02 / delay}%`;
-      let _depth3 = `${_posY - (_mouseX - _w) * 0.06 / delay}% ${_posX - (_mouseY - _h) * 0.06 / delay}%`;
-      let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+    let _w = window.innerWidth / 2;
+    let _h = window.innerHeight / 2;
+    let _mouseX = e.clientX;
+    let _mouseY = e.clientY;
+    let _depth1 = `${_posY - ((_mouseX - _w) * 0.01) / delay}% ${_posX - ((_mouseY - _h) * 0.01) / delay}%`;
+    let _depth2 = `${_posY - ((_mouseX - _w) * 0.02) / delay}% ${_posX - ((_mouseY - _h) * 0.02) / delay}%`;
+    let _depth3 = `${_posY - ((_mouseX - _w) * 0.06) / delay}% ${_posX - ((_mouseY - _h) * 0.06) / delay}%`;
+    let x = `${_depth3}, ${_depth2}, ${_depth1}`;
 
-      elem.style.backgroundPosition = x;
+    elem.style.backgroundPosition = x;
   }
 
   function parallaxGrab(e) {
-    let b_1 = mn_header.querySelector('.block_1');
-    let b_2 = mn_header.querySelector('.block_2');
-    let b_3 = mn_header.querySelector('.block_3');
-    let b_4 = mn_header.querySelector('.block_4');
+    let b_1 = mn_header.querySelector(".block_1");
+    let b_2 = mn_header.querySelector(".block_2");
+    let b_3 = mn_header.querySelector(".block_3");
+    let b_4 = mn_header.querySelector(".block_4");
 
     parallax(e, b_1, 100, 82, 30);
     parallax(e, b_2, 20, 98, 20);
     parallax(e, b_3, 50, 20, 105);
     parallax(e, b_4, 50, 105, 108);
   }
-
 })();
