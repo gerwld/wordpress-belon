@@ -195,7 +195,7 @@ ul.sc_icons {
  font-size: 15px;
  color: inherit;
  transition: var(--main-anim);
- border: 1.5px solid #fff;
+ border: 2px solid #fff;
  border-radius: var(--max-br-radius);
 }
 
@@ -1303,13 +1303,15 @@ ul.sc_icons {
  margin-top: 10px;
 }
 
-.footer_nav .sc_icons a {
- border-color: var(--prim-text-color);
- color: var(--prim-text-color);
+.sc_icons__dark a {
+ border: 2px solid #363636;
+ color: #363636;
+ background-color: #fff;
 }
 
-.sc_icons a:hover {
- text-decoration: none;
+.sc_icons__dark a:hover {
+ border-color: var(--main-color-dark-prpl);
+ color: var(--main-color-dark-prpl);
 }
 
 .th_copyright {
