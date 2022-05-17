@@ -8,9 +8,9 @@ def_clickable.addEventListener("click", (val) => {
   def_dt.forEach((e) => {
    if(val.target.classList.contains('tt')) {
     if (e === val.target) {
-      e.classList.add("opened");
+      e.classList.add("opened", "opened_line");
     } else {
-      e.classList.remove("opened");
+      e.classList.remove("opened", "opened_line");
     }
    }});
 }, {passive: true});
