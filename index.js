@@ -157,10 +157,12 @@ const mn_header = document.getElementById("mn_header");
     let b_2 = mn_header.querySelector(".block_2");
     let b_3 = mn_header.querySelector(".block_3");
     let b_4 = mn_header.querySelector(".block_4");
+    let ills = document.getElementById('hd_img');
 
-    parallax(e, b_1, 100, 82, 30);
+    parallax(e, b_1, 50, 82, 30);
     parallax(e, b_2, 20, 98, 20);
     parallax(e, b_3, 50, 20, 105);
-    parallax(e, b_4, 50, 105, 108);
+    parallax(e, b_4, 105, 108, 105);
+    parallax(e, ills, 10, 90, 90);
   }
 })();
