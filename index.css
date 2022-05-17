@@ -49,8 +49,12 @@ button {
  font-size: inherit;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1 {
  margin: 0.5em 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+ margin: 0.3em 0;
 }
 
 h1 {
@@ -60,17 +64,14 @@ h1 {
 h2 {
  font-size: 34px;
  line-height: 1.25em;
- margin: 0.3em 0;
 }
 
 h3 {
  font-size: 34px;
- margin: 0.3em 0;
 }
 
 h4 {
- font-size: 20px;
- margin: 5px 0;
+ font-size: 22px;
 }
 
 p {
@@ -870,7 +871,6 @@ ul.sc_icons {
 
 .reviews_block {
  padding: var(--sc-padding);
- border-top: var(--main-border);
 }
 
 .rb_info {
@@ -1208,7 +1208,7 @@ ul.sc_icons {
  margin-right: 25px;
  border: 1px solid #dddbdb;
  background-color: rgb(255, 255, 255);
- font-size: 20px;
+ font-size: 17px;
  border-radius: 5px;
 }
 
@@ -1284,3 +1284,117 @@ ul.sc_icons {
 }
 
 /* Footer styles end */
+
+/* Plans block */
+
+.plans_block {
+ padding: 80px 0;
+ background-color: var(--main-color-light-prpl);
+} 
+
+.pb_info {
+ text-align: center;
+}
+
+.pb_info h2 {
+ max-width: 650px;
+ margin: 0 auto;
+}
+.pb_info p {
+ max-width: 550px;
+ margin: 15px auto;
+ color: var(--prim-text-color_3);
+ line-height: 1.5em;
+}
+
+.pb_content {
+ display: flex;
+ justify-content: flex-start;
+ align-items: stretch;
+ flex-wrap: wrap;
+ padding: 20px 0;
+}
+
+.pb_block {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: center;
+ width: 32%;
+ flex: 0 0 32%;
+ padding: 40px 0;
+ margin-right: 2%;
+ background-color: #fff;
+ border-radius: var(--main-small-br-radius);
+ box-shadow: var(--shadow-main_3);
+ overflow: hidden;
+}
+
+.pb_block:nth-child(3n) {
+ margin-right: 0;
+}
+
+.pb_block ul {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: center;
+ padding: 0;
+ margin: 20px 0 30px;
+ text-align: center;
+ list-style: none;
+}
+
+.pb_block li {
+ display: inline;
+ position: relative;
+ padding-left: 10px;
+ color: var(--prim-text-color);
+}
+
+.pb_block li:not(:last-child) {
+ margin-bottom: 10px;
+}
+
+.pb_block li::before {
+ content: '';
+ position: absolute;
+ left: 0;
+ bottom: calc(50% - 3px);
+ width: 5px;
+ height: 5px;
+ border-radius: var(--max-br-radius);
+ background-color: var(--prim-text-color);
+}
+
+.pb_block h4 {
+ margin: 10px 0 0;
+}
+
+.pb_block .price {
+ display: block;
+ height: 78px;
+ font-size: 78px;
+ line-height: 78px;
+ font-weight: bold;
+ padding: 0;
+ margin-bottom: 10px;
+}
+
+.pb_block .price .sup {
+ margin-left: 5px;
+ font-size: 16px;
+ font-weight: 600;
+ color:rgb(48, 48, 48);
+}
+
+.btn_buypl {
+ font-size: 16px;
+ padding: 12px 30px;
+ color: var(--main-color-dark-prpl);
+ border: 1px solid var(--main-color-dark-prpl);
+ border-radius: var(--max-br-radius);
+}
+
+/* Plans block end */
