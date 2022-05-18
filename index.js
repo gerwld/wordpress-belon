@@ -143,7 +143,7 @@ if(rb_block) {
   offsetLeft = 0;
   elemWidth = rb_block.offsetWidth;
   rb_content.style.left = `${offsetLeft}px`;
-  console.log(rb_content.offsetHeight, rb_content, rb_block.offsetHeight);
+  console.log(rb_content.offsetHeight, rb_content, rb_block.offsetHeight, rb_content.getBoundingClientRect().height);
   rb_viewbox.style.height = `${Math.floor(rb_content.offsetHeight) + 30}px`;
   }
 
