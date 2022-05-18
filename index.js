@@ -165,3 +165,14 @@ const mn_header = document.getElementById("mn_header");
     parallax(e, ills, 10, 90, 85);
   }
 })();
+
+// *** Mobile menu *** //
+
+mn_header.addEventListener('click', e => {
+  let btn_mob = mn_header.querySelector('.btn_mobmenu');
+  let mob_nav = mn_header.querySelector('.main-mob-nav');
+  if (e.target === btn_mob) {
+    mob_nav.classList.toggle('mob_mn_opened');
+    document.body.classList.toggle('no-scroll');
+  }
+}) 
