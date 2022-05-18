@@ -147,8 +147,8 @@ if(rb_block) {
   rb_viewbox.style.height = `${Math.floor(rb_content.offsetHeight) + 30}px`;
   }
 
-  resizeRbBlock();
-  window.addEventListener("onlaod", resizeRbBlock, {passive: true});
+
+  window.onload = resizeRbBlock;
   window.addEventListener("resize", resizeRbBlock, {passive: true});
 }
 
