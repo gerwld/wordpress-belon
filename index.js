@@ -143,7 +143,8 @@ if(rb_block) {
   offsetLeft = 0;
   elemWidth = rb_block.offsetWidth;
   rb_content.style.left = `${offsetLeft}px`;
-  rb_viewbox.style.height = `${rb_content.offsetHeight + 30}px`;
+  console.log(rb_content.offsetHeight, rb_content);
+  rb_viewbox.style.height = `${Math.floor(rb_content.offsetHeight) + 30}px`;
   }
 
   window.addEventListener("onlaod", resizeRbBlock, {passive: true});
