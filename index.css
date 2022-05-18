@@ -1208,22 +1208,6 @@ ul.sc_icons__dark a {
  right: 5px;
 }
 
-.first_slide_Anim {
- transition: 0s;
- animation: appear_slide 0.4s ease;
-}
-
-@keyframes appear_slide {
- 0% {
-  transform: translateX(50px);
- }
- 50% {
-  transform: translateX(-20px);
- }
- 100% {
-  transform: translateX(0px);
- }
-}
 
 /** Triangle props **/
 .rb_nv i {

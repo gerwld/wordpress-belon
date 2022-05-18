@@ -85,25 +85,18 @@ if(rb_block) {
     ajustRbSlider();
   });
 
-  const ajustRbSlider = (isAutoscroll) => {
-  let viewboxWidth = rb_viewbox.offsetWidth;
-  let contentWidth = rb_content.offsetWidth;
-  if (contentWidth < viewboxWidth) {
-    offsetLeft = 0;
-  } else if (offsetLeft > paddingSize) {
-    offsetLeft = viewboxWidth - contentWidth;
-  } 
-  else if (Math.abs(contentWidth - viewboxWidth) < Math.abs(offsetLeft + elemWidth)) {
-    if (isAutoscroll) {
-      rb_content.classList.add("first_slide_Anim");
-      setTimeout(() => {
-        rb_content.classList.remove("first_slide_Anim");
-      }, 400);
+  const ajustRbSlider = () => {
+    let viewboxWidth = rb_viewbox.offsetWidth;
+    let contentWidth = rb_content.offsetWidth;
+    if (contentWidth < viewboxWidth) {
+      offsetLeft = 0;
+    } else if (offsetLeft > paddingSize) {
+      offsetLeft = viewboxWidth - contentWidth;
+    } else if (Math.abs(contentWidth - viewboxWidth) < Math.abs(offsetLeft + elemWidth)) {
+      offsetLeft = 0;
     }
-    offsetLeft = 0;
-  }
-  rb_content.style.left = `${offsetLeft}px`;
-  }
+    rb_content.style.left = `${offsetLeft}px`;
+  };
 
   if (IS_AUTOSCROLL) {
     var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
@@ -115,7 +108,7 @@ if(rb_block) {
     }
     function autoScrollTm() {
       offsetLeft -= elemWidth + paddingSize;
-      ajustRbSlider(true);
+      ajustRbSlider();
       rb_content.style.left = `${offsetLeft}px`;
     }
 
