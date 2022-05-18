@@ -62,7 +62,7 @@ const mobileMenuToggle = (e) => {
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const IS_AUTOSCROLL = true;
-const AUTOSCROLL_TIMEOUT = 4000;
+const AUTOSCROLL_TIMEOUT = 3000;
 
 const rb_slider = document.getElementById('rb_slider');
 const rb_viewbox = rb_slider.querySelector('.rb_viewbox');
@@ -85,16 +85,21 @@ if(rb_block) {
     ajustRbSlider();
   });
 
-  const ajustRbSlider = () => {
+  const ajustRbSlider = (isAutoscroll) => {
   let viewboxWidth = rb_viewbox.offsetWidth;
   let contentWidth = rb_content.offsetWidth;
-  if(contentWidth < viewboxWidth) {
+  if (contentWidth < viewboxWidth) {
     offsetLeft = 0;
-  }
-    else if (offsetLeft > paddingSize) {
-      offsetLeft = viewboxWidth - contentWidth;
-    } 
-    else if (Math.abs(contentWidth - viewboxWidth) < Math.abs(offsetLeft + elemWidth)) {
+  } else if (offsetLeft > paddingSize) {
+    offsetLeft = viewboxWidth - contentWidth;
+  } 
+  else if (Math.abs(contentWidth - viewboxWidth) < Math.abs(offsetLeft + elemWidth)) {
+    if (isAutoscroll) {
+      rb_content.classList.add("first_slide_Anim");
+      setTimeout(() => {
+        rb_content.classList.remove("first_slide_Anim");
+      }, 400);
+    }
     offsetLeft = 0;
   }
   rb_content.style.left = `${offsetLeft}px`;
@@ -110,7 +115,7 @@ if(rb_block) {
     }
     function autoScrollTm() {
       offsetLeft -= elemWidth + paddingSize;
-      ajustRbSlider();
+      ajustRbSlider(true);
       rb_content.style.left = `${offsetLeft}px`;
     }
 
