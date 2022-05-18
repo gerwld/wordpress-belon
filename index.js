@@ -174,13 +174,9 @@ mn_header.addEventListener('click', e => {
     if(mn_header.classList.contains('mob_mn_opened')) {
       document.body.classList.remove('no-scroll');
       mn_header.classList.remove('mob_mn_opened');
-      btn_mob.querySelector('.line_1').style.animation = `line-up-mob_1 0.5s ease`;
-      btn_mob.querySelector('.line_2').style.animation = `line-down-mob_1 0.5s ease`;
-      setTimeout(() => {
-        btn_mob.querySelector('.line_1').style.animation = ``;
-        btn_mob.querySelector('.line_2').style.animation = ``;
-      }, 500)
+      mn_header.classList.add('mob_mn_closed');
     } else {
+      mn_header.classList.remove('mob_mn_closed');
       document.body.classList.add('no-scroll');
       mn_header.classList.add('mob_mn_opened');
     }

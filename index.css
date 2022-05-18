@@ -259,7 +259,7 @@ ul.sc_icons__dark a {
  border-radius: var(--main-small-br-radius);
 }
 
-/* Mob. menu button */
+/*** Mob. menu button ***/
 .btn_mobmenu span {
  content: '123';
  display: block;
@@ -292,15 +292,19 @@ ul.sc_icons__dark a {
 .mob_mn_opened .btn_mobmenu .line_2 {
  animation: line-down-mob 0.5s ease forwards;
 }
+.mob_mn_closed .btn_mobmenu .line_1 {
+ animation: line-up-mob_1 0.5s ease forwards;
+}
+.mob_mn_closed .btn_mobmenu .line_2 {
+ animation: line-down-mob_1 0.5s ease forwards;
+}
 
 @keyframes line-up-mob {
  0% {
   transform: translateY(0);
- }
- 50% {
+ }50% {
   transform: translateY(10px);
- }
- 100%{
+ }100%{
   transform: translateY(9px) rotate(45deg);
  }
 }
@@ -308,11 +312,9 @@ ul.sc_icons__dark a {
 @keyframes line-down-mob {
  0% {
   transform: translateY(0px);
- }
- 50% {
+ }50% {
   transform: translateY(-10px);
- }
- 100%{
+ }100%{
   transform: translateY(-9px) rotate(-45deg);
  }
 }
@@ -329,14 +331,12 @@ ul.sc_icons__dark a {
 @keyframes line-up-mob_1 {
  0% {
   transform: translateY(9px);
- }
- 100%{
+ }100%{
   transform: translateY(0px);
  }
 }
 
-
-/* Mob. menu button end */
+/*** Mob. menu button end ***/
 
 /* Navbar styles */
 
@@ -465,7 +465,7 @@ ul.sc_icons__dark a {
  padding-top: 74px;
  background-color: #fff;
  box-shadow: var(--shadow-main_3);
- transition: 0.4s ease;
+ transition: 0.4s ease 0.3s;
  opacity: 0.3;
 }
 
