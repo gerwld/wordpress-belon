@@ -170,9 +170,21 @@ const mn_header = document.getElementById("mn_header");
 
 mn_header.addEventListener('click', e => {
   let btn_mob = mn_header.querySelector('.btn_mobmenu');
-  let mob_nav = mn_header.querySelector('.main-mob-nav');
   if (e.target === btn_mob) {
-    mob_nav.classList.toggle('mob_mn_opened');
-    document.body.classList.toggle('no-scroll');
+    if(mn_header.classList.contains('mob_mn_opened')) {
+      document.body.classList.remove('no-scroll');
+      mn_header.classList.remove('mob_mn_opened');
+      btn_mob.querySelector('.line_1').style.animation = `line-up-mob_1 0.5s ease`;
+      btn_mob.querySelector('.line_2').style.animation = `line-down-mob_1 0.5s ease`;
+      setTimeout(() => {
+        btn_mob.querySelector('.line_1').style.animation = ``;
+        btn_mob.querySelector('.line_2').style.animation = ``;
+      }, 500)
+    } else {
+      document.body.classList.add('no-scroll');
+      mn_header.classList.add('mob_mn_opened');
+    }
+
+    
   }
 }) 
