@@ -1132,7 +1132,7 @@ ul.sc_icons__dark a {
  box-shadow: var( --shadow-main_3);
  border: 1px solid #eee;
  background-color: #fff;
- transition: var(--main-anim);
+ transition: transform var(--main-anim);
  border-radius: var(--main-small-br-radius);
 }
 
