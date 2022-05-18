@@ -73,81 +73,83 @@ let elemWidth;
 let offsetLeft = 0;
 let paddingSize = 15;
 
-rb_slider.addEventListener("click", (e) => {
- let btn_back = rb_slider.querySelector('.btn_back');
- let btn_fw = rb_slider.querySelector('.btn_fw');
-  if (e.target === btn_back) {
-   offsetLeft += rb_block.offsetWidth + paddingSize;
-  } else if (e.target === btn_fw) {
-    offsetLeft -= rb_block.offsetWidth + paddingSize;
-  }
-  ajustRbSlider();
-});
-
-const ajustRbSlider = () => {
- let viewboxWidth = rb_viewbox.offsetWidth;
- let contentWidth = rb_content.offsetWidth;
- if(contentWidth < viewboxWidth) {
-  offsetLeft = 0;
- }
-  else if (offsetLeft > paddingSize) {
-    offsetLeft = viewboxWidth - contentWidth;
-  } 
-  else if (Math.abs(contentWidth - viewboxWidth) < Math.abs(offsetLeft + elemWidth)) {
-   offsetLeft = 0;
- }
- rb_content.style.left = `${offsetLeft}px`;
-}
-
-if (IS_AUTOSCROLL) {
-  var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
-  function toggleScroll(isScroll) {
-    if (isScroll) {
-      autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
-    } 
-    else clearInterval(autoScroll);
-  }
-  function autoScrollTm() {
-    offsetLeft -= elemWidth + paddingSize;
+if(rb_block) {
+  rb_slider.addEventListener("click", (e) => {
+  let btn_back = rb_slider.querySelector('.btn_back');
+  let btn_fw = rb_slider.querySelector('.btn_fw');
+    if (e.target === btn_back) {
+    offsetLeft += rb_block.offsetWidth + paddingSize;
+    } else if (e.target === btn_fw) {
+      offsetLeft -= rb_block.offsetWidth + paddingSize;
+    }
     ajustRbSlider();
-    rb_content.style.left = `${offsetLeft}px`;
+  });
+
+  const ajustRbSlider = () => {
+  let viewboxWidth = rb_viewbox.offsetWidth;
+  let contentWidth = rb_content.offsetWidth;
+  if(contentWidth < viewboxWidth) {
+    offsetLeft = 0;
+  }
+    else if (offsetLeft > paddingSize) {
+      offsetLeft = viewboxWidth - contentWidth;
+    } 
+    else if (Math.abs(contentWidth - viewboxWidth) < Math.abs(offsetLeft + elemWidth)) {
+    offsetLeft = 0;
+  }
+  rb_content.style.left = `${offsetLeft}px`;
   }
 
-  rb_slider.addEventListener('mouseover', () => toggleScroll(false));
-  rb_slider.addEventListener('mouseleave', () => toggleScroll(true));
-  rb_slider.addEventListener('touchstart', () => toggleScroll(false));
-  rb_slider.addEventListener('touchend', () => toggleScroll(true));
-}
+  if (IS_AUTOSCROLL) {
+    var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+    function toggleScroll(isScroll) {
+      if (isScroll) {
+        autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+      } 
+      else clearInterval(autoScroll);
+    }
+    function autoScrollTm() {
+      offsetLeft -= elemWidth + paddingSize;
+      ajustRbSlider();
+      rb_content.style.left = `${offsetLeft}px`;
+    }
 
-const resizeRbBlock = () => {
- let blocks = rb_content.querySelectorAll(".rb_block");
- if (rb_viewbox.offsetWidth >= THREE_BL_WIDTH) {
-  blocks.forEach((e) => {
-     let size = rb_viewbox.offsetWidth / 3 - paddingSize;
-     e.style = `max-width: ${size}px; width: ${size}px; flex: 0 0 ${size}px`;
-   });
- }
- if (rb_viewbox.offsetWidth >= ONE_BL_WIDTH && rb_viewbox.offsetWidth < THREE_BL_WIDTH) {
-  blocks.forEach((e) => {
-     let size = rb_viewbox.offsetWidth / 2 - paddingSize;
-     e.style = `max-width: ${size}px; width: ${size}px; flex: 0 0 ${size}px`;
-   });
- }
- if (rb_viewbox.offsetWidth < ONE_BL_WIDTH) {
-  blocks.forEach((e) => {
-     let size = rb_viewbox.offsetWidth - paddingSize;
-     e.style = `max-width: ${size}px; width: ${size}px; flex: 0 0 ${size}px`;
-   });
- }
- offsetLeft = 0;
- elemWidth = rb_block ? rb_block.offsetWidth : 360;
- rb_content.style.left = `${offsetLeft}px`;
- rb_viewbox.style.height = `${rb_content.offsetHeight + 30}px`;
-}
+    rb_slider.addEventListener('mouseover', () => toggleScroll(false));
+    rb_slider.addEventListener('mouseleave', () => toggleScroll(true));
+    rb_slider.addEventListener('touchstart', () => toggleScroll(false));
+    rb_slider.addEventListener('touchend', () => toggleScroll(true));
+  }
 
-window.addEventListener("onlaod", resizeRbBlock, {passive: true});
-window.addEventListener("resize", resizeRbBlock, {passive: true});
-resizeRbBlock();
+  const resizeRbBlock = () => {
+  let blocks = rb_content.querySelectorAll(".rb_block");
+  if (rb_viewbox.offsetWidth >= THREE_BL_WIDTH) {
+    blocks.forEach((e) => {
+      let size = rb_viewbox.offsetWidth / 3 - paddingSize;
+      e.style = `max-width: ${size}px; width: ${size}px; flex: 0 0 ${size}px`;
+    });
+  }
+  if (rb_viewbox.offsetWidth >= ONE_BL_WIDTH && rb_viewbox.offsetWidth < THREE_BL_WIDTH) {
+    blocks.forEach((e) => {
+      let size = rb_viewbox.offsetWidth / 2 - paddingSize;
+      e.style = `max-width: ${size}px; width: ${size}px; flex: 0 0 ${size}px`;
+    });
+  }
+  if (rb_viewbox.offsetWidth < ONE_BL_WIDTH) {
+    blocks.forEach((e) => {
+      let size = rb_viewbox.offsetWidth - paddingSize;
+      e.style = `max-width: ${size}px; width: ${size}px; flex: 0 0 ${size}px`;
+    });
+  }
+  offsetLeft = 0;
+  elemWidth = rb_block.offsetWidth;
+  rb_content.style.left = `${offsetLeft}px`;
+  rb_viewbox.style.height = `${rb_content.offsetHeight + 30}px`;
+  }
+
+  window.addEventListener("onlaod", resizeRbBlock, {passive: true});
+  window.addEventListener("resize", resizeRbBlock, {passive: true});
+  resizeRbBlock();
+}
 
 
 //**** Navbar fixed / static ****//
