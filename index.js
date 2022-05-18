@@ -168,19 +168,32 @@ const mn_header = document.getElementById("mn_header");
 
 // *** Mobile menu *** //
 
-mn_header.addEventListener('click', e => {
-  let btn_mob = mn_header.querySelector('.btn_mobmenu');
-  if (e.target === btn_mob) {
-    if(mn_header.classList.contains('mob_mn_opened')) {
-      document.body.classList.remove('no-scroll');
-      mn_header.classList.remove('mob_mn_opened');
-      mn_header.classList.add('mob_mn_closed');
-    } else {
-      mn_header.classList.remove('mob_mn_closed');
-      document.body.classList.add('no-scroll');
-      mn_header.classList.add('mob_mn_opened');
-    }
+mn_header.addEventListener("click", (e) => {
+  let btn_mob = mn_header.querySelector(".btn_mobmenu");
+  let mobNav = mn_header.querySelector(".main-mob-nav");
+  let navBar = mn_header.querySelector(".hd-navbar");
+  let mobLinks = mobNav.querySelectorAll("a");
 
-    
+  if (e.target === btn_mob) {
+    if (mn_header.classList.contains("mob_mn_opened")) {
+      closeMobMenu();
+    } else {
+      mn_header.classList.remove("mob_mn_closed");
+      document.body.classList.add("no-scroll");
+      mn_header.classList.add("mob_mn_opened");
+    }
+  } else if (!mobNav.contains(e.target) && !navBar.contains(e.target)) {
+    closeMobMenu();
   }
-}) 
+  //Close when click on link
+  mobLinks.forEach((mobL) => {
+    if (e.target === mobL) {
+      closeMobMenu();
+    }
+  });
+  function closeMobMenu() {
+    document.body.classList.remove("no-scroll");
+    mn_header.classList.remove("mob_mn_opened");
+    mn_header.classList.add("mob_mn_closed");
+  }
+}); 
