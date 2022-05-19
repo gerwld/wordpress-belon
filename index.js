@@ -12,7 +12,7 @@ window.addEventListener("click", onClickEverywhere, {passive: true});
 
 // **** Toggle def_clickable **** //
 
-const onTermTitleBlClick = (val) => {
+function onTermTitleBlClick(val) {
   let def_dt = def_clickable.querySelectorAll("dt");
   def_dt.forEach((e) => {
     if(val.target.classList.contains('def_tt')) {
@@ -26,7 +26,7 @@ const onTermTitleBlClick = (val) => {
 
 // *** Mobile menu *** //
 
-const mobileMenuToggle = (e) => {
+function mobileMenuToggle(e) {
   let btn_mob = mn_header.querySelector(".btn_mobmenu");
   let mobNav = mn_header.querySelector(".main-mob-nav");
   let navBar = mn_header.querySelector(".hd-navbar");
@@ -85,7 +85,7 @@ if(rb_block) {
     ajustRbSlider();
   });
 
-  const ajustRbSlider = () => {
+  function ajustRbSlider() {
     let viewboxWidth = rb_viewbox.offsetWidth;
     let contentWidth = rb_content.offsetWidth;
     if (contentWidth < viewboxWidth) {
@@ -118,7 +118,7 @@ if(rb_block) {
     rb_slider.addEventListener('touchend', () => toggleScroll(true));
   }
 
-  const resizeRbBlock = () => {
+  function resizeRbBlock() {
   let blocks = rb_content.querySelectorAll(".rb_block");
   if (rb_viewbox.offsetWidth >= THREE_BL_WIDTH) {
     blocks.forEach((e) => {
@@ -154,7 +154,7 @@ if(rb_block) {
 
 const mn_nav = mn_header.querySelector('.hd-navbar');
 
-const handleScroll = () => {
+function handleScroll() {
   let navHeight = mn_nav.offsetHeight;
   let wOffset = window.pageYOffset;
   let gap = 10;
@@ -203,3 +203,31 @@ window.addEventListener("scroll", handleScroll, {passive: true});
     parallax(e, ills, 10, 30, 85);
   }
 })();
+
+//**** Show anim only when visible ****/
+
+function onVisibilityChange(el, callback) {
+  var old_visible;
+  return function () {
+      var visible = isElementInViewport(el);
+      if (visible != old_visible) {
+          old_visible = visible;
+          if (typeof callback == 'function') {
+              callback();
+          }
+      }
+  }
+}
+
+function isElementInViewport (el) {
+  if (typeof jQuery === "function" && el instanceof jQuery) {
+      el = el[0];
+  }
+  var rect = el.getBoundingClientRect();
+  return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+  );
+}
