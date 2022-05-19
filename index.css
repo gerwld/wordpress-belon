@@ -1859,19 +1859,20 @@ ul.sc_icons__dark a {
    /* plans section */
    .pb_content {
     align-items: center;
-    justify-content: start;
+    justify-content: center;
    }
    .pb_content .pb_block {
-    flex: 0 0 49%;
+    min-width: 246px;
+    flex: 0 0 42%;
     margin-right: 0;
    }
 
    .pb_content .pb_block:nth-child(1) {
-    margin-right: 2%;
+    margin-right: 3%;
    }
 
    .pb_content .pb_block:last-child {
-    margin: 2% auto 0;
+    margin: 3% auto 0;
    }
    /* plans section end */
 
@@ -1996,7 +1997,6 @@ body {
 }
 
 /* header block */
-
  .hd-image {
   display: flex;
   justify-content: center;
@@ -2190,7 +2190,17 @@ body {
   margin-bottom: 10px;
  }
  /* benefits block end */
-
+/* transparent block */
+.transparent_block .content {
+ padding: 70px 0;
+}
+.tb_content h2 {
+ margin-bottom: 15px;
+}
+.tb_content p {
+ margin-bottom: 20px;
+}
+/* transparent block end */
 }
 
 @media only screen and (max-width: 560px)  {
