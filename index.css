@@ -178,6 +178,10 @@ input,
  right: 5px;
 }
 
+.hd-image .hd-image_tablet {
+ display: none;
+}
+
 /* Soc. icons styles */
 
 ul.sc_icons {
@@ -649,7 +653,6 @@ ul.sc_icons__dark a {
  flex: 0 0 52%;
  width: 52%;
  min-height: 685px;
- aspect-ratio: 9/16;
  position: relative;
  background: url('./img/hd_bg.svg') 90% 85% no-repeat;
  background-size: 97% auto;
@@ -1753,6 +1756,13 @@ ul.sc_icons__dark a {
 
 /**** Media queries ****/
 
+@media only screen and (min-width: 480px) and (max-width: 1260px) {
+ .hd-image {
+  min-height: 540px;
+  background-position-y: 55%!important;
+ }
+}
+
 @media only screen and (min-width: 480px) and (max-width: 1100px) {
  .hd-navbar {
   padding: 8px 0;
@@ -1784,13 +1794,8 @@ ul.sc_icons__dark a {
 
  .hd-image {
   min-height: 540px;
-  background: url('./img/hd_bg_tablet.svg') 90% 80% no-repeat;
-  background-size: 97% auto;
+  background-position-y: 60%!important;
  }
-
-
-
-
 
  .btn_contact {
   padding: 12px 20px;
@@ -1805,10 +1810,6 @@ ul.sc_icons__dark a {
 
 
 @media only screen and (min-width: 480px) and (max-width: 920px) {
- .hd-image {
-  background-position-y: 50%!important;
- }
-
  .main-header .anim_bg .block_1 {
   background-size: 100px auto;
  }
@@ -1824,7 +1825,6 @@ ul.sc_icons__dark a {
  .main-header .anim_bg .block_4 {
   background-size: 300px auto;
  }
-
 }
 
 
@@ -1843,10 +1843,6 @@ ul.sc_icons__dark a {
   margin-top: 0;
  }
 
- .hd-image {
- min-height: 470px;
- }
-
  .hd-info {
   align-self: flex-start;
  }
@@ -1857,12 +1853,30 @@ ul.sc_icons__dark a {
   max-height: 550px;
 }
 
+.hd-image .hd-image_tablet {
+ margin-bottom: 5vh;
+}
+
 .hd-blocks {
  min-height: auto;
 }
-
-
 }
+
+@media only screen and (max-width: 920px) {
+ .hd-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  background-position: 0% 0%!important;
+ }
+
+ .hd-image .hd-image_tablet {
+  flex: 1;
+  display: block;
+ }
+}
+
 
 @media only screen and (max-width: 820px) {
  .desktop_menu_el {
@@ -1895,40 +1909,56 @@ ul.sc_icons__dark a {
  }
 }
 
+@media only screen and (max-width: 760px) {
+ .hd-blocks {
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 10px;
+ }
+
+ .hd-info,
+ .hd-image,
+ .hd-image_tablet {
+  flex: 1;
+  width: 100%;
+  height: unset;
+  min-height: unset;
+  max-height: unset;
+ }
+
+ .hd-image_tablet {
+  padding: 0 3vw;
+ }
+
+ .hd-image .sc_icons {
+  right: calc(3vw + 5px);
+ }
+
+ .hd-info {
+  padding: 30px 0;
+ }
+
+ .btn_explore {
+  margin-bottom: 0;
+ }
+}
+
 @media only screen and (max-width: 480px)  {
+ .hd-blocks {
+  margin-top: 0;
+ }
  .main-mob-nav a {
   padding: 25px 20px;
   font-size: 18px;
  }
 
- .hd-blocks {
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
- }
-
- .hd-info,
- .hd-image {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  min-height: auto;
-  max-height: auto;
- }
-
- .hd-image {
-  height: 500px;
-  background-position: 50% 0%!important;
-  background-size: contain;
+ .hd-image_tablet {
+  padding: 0;
  }
 
  .hd-info {
-  margin: 0 0 15px;
-  
- }
-
- .btn_explore {
-  margin-bottom: 0;
+  padding: 20px 0;
+  margin: 0;
  }
 
  .btn_sz_1 {
@@ -1948,7 +1978,7 @@ ul.sc_icons__dark a {
  }
 
  .hd-info p {
-  font-size: 19px;
+  font-size: 17px;
   margin: 1.1em 0;
  }
 
@@ -1966,13 +1996,20 @@ ul.sc_icons__dark a {
   width: 50px;
   height: 50px;
  }
+
+ .main-header .anim_bg .block_4 {
+  background-size: 160px auto;
+  background-position: 110% 105%!important;
+}
+}
+
+@media only screen and (max-width: 440px)  {
+ .content_wrapper {
+  padding: 0 15px;
+ }
 }
 
 @media only screen and (max-width: 380px)  {
- .content_wrapper {
-  padding: 0 12px;
- }
-
  .main-mob-nav a {
   padding: 22px 20px;
  }
@@ -1981,7 +2018,6 @@ ul.sc_icons__dark a {
   height: 55vh;
   max-height: 350px;
   min-height: 300px;
-  background-size: 100% auto;
  }
 
  .hd-info h1 {
@@ -2012,12 +2048,11 @@ ul.sc_icons__dark a {
  }
 }
 
-@media only screen and (max-height: 920px) {
- /* Add fullsize menu */
- /* .main-mob-nav {
-  height: 100vh;
-  opacity: 0;
-  transition: top 0s linear 0.25s, opacity 0.35s ease 0.1s;
- } */
-
+@media only screen and (max-width: 330px)  {
+ .hd-info {
+  padding: 5px 0;
+ }
+ .hd-info p {
+  font-size: 16px;
+ }
 }

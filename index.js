@@ -200,6 +200,6 @@ window.addEventListener("scroll", handleScroll, {passive: true});
     parallax(e, b_2, 20, 98, 20);
     parallax(e, b_3, 50, 20, 105);
     parallax(e, b_4, 105, 105, 108);
-    parallax(e, ills, 10, 90, 85);
+    parallax(e, ills, 10, 30, 85);
   }
 })();
