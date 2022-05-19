@@ -1863,7 +1863,7 @@ ul.sc_icons__dark a {
     justify-content: center;
    }
    .pb_content .pb_block {
-    min-width: 246px;
+    min-width: 260px;
     flex: 0 0 42%;
     margin-right: 0;
    }
@@ -1951,11 +1951,11 @@ ul.sc_icons__dark a {
   .fb_content {
    display: block;
   }
-.fb_block:nth-child(1n) {
+  .fb_block:nth-child(1n) {
    width: 100%;
    margin-right: 0;
    padding: 35px;
-   margin-bottom: 3%;
+   margin-bottom: 4%;
   }
 
   .fb_block:nth-last-child(1) {
@@ -1965,7 +1965,7 @@ ul.sc_icons__dark a {
   .fb_block:hover {
    transform: none;
   }
-    /* features_block end */
+   /* features_block end */
 }
 
 
@@ -2247,40 +2247,15 @@ body {
 /* transparent block end */
 }
 
-@media only screen and (max-width: 560px)  {
- /* benefits block */
- .bb_content {
-  justify-content: center;
- }
-
- .bb_block {
-  max-width: 320px;
-  flex: 0 0 100%;
-  padding: 30px 15px;
-  border: none;
- }
-
- .bb_block svg {
-  width: 40px;
- }
-
- .bb_block p {
-  font-size: 16px;
- }
-
- .bb_block h4 {
-  font-size: 20px;
-  margin: 0.5em 0;
- }
- /* benefits block end */
+@media only screen and (max-width: 590px)  {
  /* plans block */
  .plans_block {
   padding: 60px 0;
  }
-
  .pb_content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-bottom: 0;
  }
  .pb_block {
@@ -2294,6 +2269,68 @@ body {
   margin: 0 0 18px 0;
  }
  /* plans block end */
+ /* reviews (slider) block */
+ .rb_info p {
+  padding: 0 20px;
+ }
+ .rb_slider {
+  padding: 0 20px;
+ }
+ .rb_nv {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+ }
+ .rb_nv button {
+  position: static;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-main_3);
+ }
+ .rb_nv button:nth-child(1) {
+  margin-right: 10px;
+ }
+ .reviews_block .content_wrapper {
+  padding: 0;
+ }
+ .rb_block:hover {
+  transform: none;
+ }
+ .rb_nv button:hover {
+  transform: none;
+  background-color: rgb(206, 206, 206, 0.3);
+ }
+ .rb_nv button:active {
+  transform: translateY(3px);
+ }
+ /* reviews (slider) block end */
+}
+
+@media only screen and (max-width: 560px)  {
+  /* benefits block */
+  .bb_content {
+   justify-content: center;
+  }
+ 
+  .bb_block {
+   max-width: 350px;
+   flex: 0 0 100%;
+   padding: 30px 15px;
+   border: none;
+  }
+ 
+  .bb_block svg {
+   width: 40px;
+  }
+ 
+  .bb_block p {
+   font-size: 16px;
+  }
+ 
+  .bb_block h4 {
+   font-size: 20px;
+   margin: 0.5em 0;
+  }
+  /* benefits block end */
 }
 
 
