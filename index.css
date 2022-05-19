@@ -2410,6 +2410,9 @@ body {
  .content_wrapper {
   padding: 0 15px;
  }
+ .rb_slider {
+  padding: 0 5px;
+ }
 
 }
 
@@ -2450,6 +2453,9 @@ body {
  }
 
  .main-mob-nav ul {
+  padding: 0;
+ }
+ .rb_slider {
   padding: 0;
  }
  /* header block end */
