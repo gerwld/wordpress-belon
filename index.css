@@ -1537,6 +1537,7 @@ ul.sc_icons__dark a {
  align-items: center;
  width: 32%;
  flex: 0 0 32%;
+ flex-wrap: wrap;
  padding: 45px 15px;
  margin-right: 2%;
  background-color: #fff;
@@ -1855,6 +1856,25 @@ ul.sc_icons__dark a {
    font-size: 14px;
   }
    /* video section end */
+   /* plans section */
+   .pb_content {
+    align-items: center;
+    justify-content: start;
+   }
+   .pb_content .pb_block {
+    flex: 0 0 49%;
+    margin-right: 0;
+   }
+
+   .pb_content .pb_block:nth-child(1) {
+    margin-right: 2%;
+   }
+
+   .pb_content .pb_block:last-child {
+    margin: 2% auto 0;
+   }
+   /* plans section end */
+
 }
 
 @media only screen and (max-width: 920px) {
@@ -1868,7 +1888,6 @@ ul.sc_icons__dark a {
  }
 
  /* video block */
-
  .vb_player {
   top: calc(50% - 175px);
   height: 350px;
@@ -1941,12 +1960,10 @@ ul.sc_icons__dark a {
 }
 /* header block end */
 /* gallery block */
-
 .gb_block {
  flex: 0 0 32.6666%;
  width: 32.6666%;
 }
-
 
 .gb_block .hover {
  padding: 10px;
@@ -1970,7 +1987,6 @@ ul.sc_icons__dark a {
 .gb_block:not(:nth-child(3n)) {
  margin-right: 1%;
 }
-
 /* gallery block end */
 }
 
@@ -2027,7 +2043,6 @@ body {
  .btn_mobmenu {
   display: block;
  }
-
   /* header block end */
 }
 
@@ -2108,7 +2123,7 @@ body {
   border-bottom-right-radius: 0;
  }
 
-  /* video block end */
+ /* video block end */
  /* gallery block */
 
  .gb_infowrap {
@@ -2149,6 +2164,8 @@ body {
   padding: 25px 20px;
  }
 
+ /* gallery block end */
+
  .btn_allpr {
   margin-top: 40px;
  }
@@ -2172,9 +2189,12 @@ body {
   width: 34px;
   margin-bottom: 10px;
  }
+ /* benefits block end */
+
 }
 
 @media only screen and (max-width: 560px)  {
+ /* benefits block */
  .bb_content {
   justify-content: center;
  }
@@ -2198,6 +2218,28 @@ body {
   font-size: 20px;
   margin: 0.5em 0;
  }
+ /* benefits block end */
+ /* plans block */
+ .plans_block {
+  padding: 60px 0;
+ }
+
+ .pb_content {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+ }
+ .pb_block {
+  max-width: 370px;
+  width: 100%;
+  padding: 50px 15px;
+ }
+ .pb_block,
+ .pb_content .pb_block:nth-child(1),
+ .pb_content .pb_block:last-child {
+  margin: 0 0 18px 0;
+ }
+ /* plans block end */
 }
 
 
@@ -2319,8 +2361,7 @@ body {
  .main-mob-nav ul {
   padding: 0;
  }
-
- /*  block */
+ /* header block end */
 }
 
 @media only screen and (max-width: 330px)  {
