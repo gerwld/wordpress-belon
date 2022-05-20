@@ -1,8 +1,7 @@
 const def_clickable = document.getElementById("def_clickable");
 const mn_header = document.getElementById("mn_header");
 
-// *** Global event listeners *** //
-
+// *** Global listeners *** //
 function onClickEverywhere(ev) {
   mobileMenuToggle(ev);
   onTermTitleBlClick(ev);
@@ -12,8 +11,14 @@ function onResizeWindow(ev) {
   resizeRbBlock(ev);
 }
 
+function onScrollWindow(ev) {
+  handleScroll(ev);
+  IS_AUTOSCROLL && animOnlyWhenVisible();
+}
+
 window.addEventListener("click", onClickEverywhere, {passive: true});
 window.addEventListener("resize", onResizeWindow, {passive: true});
+window.addEventListener("scroll", onScrollWindow, {passive: true})
 
 // **** Toggle def_clickable **** //
 
@@ -104,23 +109,36 @@ if(rb_block) {
   };
 
   if (IS_AUTOSCROLL) {
-    var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
-    function toggleScroll(isScroll) {
-      if (isScroll) {
-        autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
-      } 
-      else clearInterval(autoScroll);
+    let slider_old_visible;
+    var autoScroll;
+
+    //scroll event arg func
+    function animOnlyWhenVisible() {
+      let scroll_block = document.querySelector(".reviews_block");
+      onVisibilityChange(scroll_block, toggleScroll, slider_old_visible)();
     }
+
+    //toggle interval
+    function toggleScroll(isScroll) {
+      if (slider_old_visible != isScroll) {
+        slider_old_visible = isScroll;
+        if (isScroll) {
+          autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+        } else clearInterval(autoScroll);
+      }
+    }
+
+    //interval arg func
     function autoScrollTm() {
       offsetLeft -= elemWidth + paddingSize;
       ajustRbSlider();
       rb_content.style.left = `${offsetLeft}px`;
     }
 
-    rb_slider.addEventListener('mouseover', () => toggleScroll(false));
-    rb_slider.addEventListener('mouseleave', () => toggleScroll(true));
-    rb_slider.addEventListener('touchstart', () => toggleScroll(false));
-    rb_slider.addEventListener('touchend', () => toggleScroll(true));
+    rb_slider.addEventListener("mouseover", () => toggleScroll(false));
+    rb_slider.addEventListener("mouseleave", () => toggleScroll(true));
+    rb_slider.addEventListener("touchstart", () => toggleScroll(false));
+    rb_slider.addEventListener("touchend", () => toggleScroll(true));
   }
 
   function resizeRbBlock() {
@@ -173,8 +191,6 @@ function handleScroll() {
   }
 }
 
-const nav_fixed = window.addEventListener("scroll", handleScroll, {passive: true});
-
 //**** Header parallax ****/
 
 (function () {
@@ -209,18 +225,26 @@ const nav_fixed = window.addEventListener("scroll", handleScroll, {passive: true
 })();
 
 //**** Show anim only when visible ****/
-
-function onVisibilityChange(el, callback) {
-  var old_visible;
+function onVisibilityChange(el, callback, old_visible) {
   return function () {
-      var visible = isElementInViewport(el);
-      if (visible != old_visible) {
-          old_visible = visible;
-          if (typeof callback == 'function') {
-              callback();
-          }
+    var visible = isAnyPartOfElementInViewport(el);
+    if (visible != old_visible) {
+      if (typeof callback == "function") {
+        callback(visible);
       }
-  }
+    }
+  };
+}
+
+function isAnyPartOfElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+
+  const vertInView = rect.top <= windowHeight && rect.top + rect.height >= 0;
+  const horInView = rect.left <= windowWidth && rect.left + rect.width >= 0;
+
+  return vertInView && horInView;
 }
 
 function isElementInViewport (el) {
