@@ -53,6 +53,7 @@ button {
  cursor: pointer;
  font-family: inherit;
  font-size: inherit;
+ line-height: 1em;
 }
 
 h1 {
@@ -1428,8 +1429,9 @@ ul.sc_icons__dark a {
 }
 
 .ft_form input {
+ flex: 0 1 360px;
  padding: 10px 15px;
- width: 360px;
+ min-width: 10px;
  margin-right: 25px;
  border: 1px solid #dddbdb;
  background-color: rgb(255, 255, 255);
@@ -2466,7 +2468,10 @@ body {
   padding: 30px 0 40px;
 }
   /* lastblog block end */
-
+ /* footer block */
+ .ft_form input {
+  margin-right: 15px;
+ }
 }
 
 @media only screen and (max-width: 440px)  {
@@ -2476,7 +2481,25 @@ body {
  .rb_slider {
   padding: 0 5px;
  }
-
+ /* footer block */
+ .ft_block_1 {
+  padding: 80px 0;
+ }
+.ft_form {
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ height: auto;
+}
+.ft_form input {
+ padding: 15px 20px;
+ flex: 1 1 100%;
+ width: 100%;
+ margin: 0 0 20px 0;
+}
+.ft_contact h2 {
+ font-size: 40px;
+}
 }
 
 @media only screen and (max-width: 380px)  {
@@ -2504,7 +2527,7 @@ body {
 
  .btn_sz_1 {
   font-size: 17px;
-  padding: 14px 35px;
+  padding: 16px 35px;
  }
 
  .btn_explore,
