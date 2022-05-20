@@ -98,6 +98,10 @@ input,
  font-family: inherit;
 }
 
+*::placeholder {
+ user-select: none;
+}
+
 *{
  box-sizing: border-box;
 }
