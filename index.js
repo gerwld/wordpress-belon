@@ -20,6 +20,11 @@ window.addEventListener("click", onClickEverywhere, {passive: true});
 window.addEventListener("resize", onResizeWindow, {passive: true});
 window.addEventListener("scroll", onScrollWindow, {passive: true})
 
+window.onload = () => {
+  handleScroll();
+  resizeRbBlock();
+};
+
 // **** Toggle def_clickable **** //
 
 function onTermTitleBlClick(val) {
@@ -168,9 +173,6 @@ if(rb_block) {
   rb_content.style.left = `${offsetLeft}px`;
   rb_viewbox.style.height = `${Math.floor(rb_content.offsetHeight) + 30}px`;
   }
-
-
-  window.onload = resizeRbBlock;
 }
 
 
