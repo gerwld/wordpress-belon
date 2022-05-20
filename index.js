@@ -8,7 +8,12 @@ function onClickEverywhere(ev) {
   onTermTitleBlClick(ev);
 }
 
+function onResizeWindow(ev) {
+  resizeRbBlock(ev);
+}
+
 window.addEventListener("click", onClickEverywhere, {passive: true});
+window.addEventListener("resize", onResizeWindow, {passive: true});
 
 // **** Toggle def_clickable **** //
 
@@ -146,7 +151,6 @@ if(rb_block) {
 
 
   window.onload = resizeRbBlock;
-  window.addEventListener("resize", resizeRbBlock, {passive: true});
 }
 
 
@@ -158,18 +162,18 @@ function handleScroll() {
   let navHeight = mn_nav.offsetHeight;
   let wOffset = window.pageYOffset;
   let gap = 10;
-
-  if(navHeight + gap < wOffset) {
-    mn_header.style.paddingTop = `${navHeight}px`;
-    mn_header.classList.add('mn_fixed');
-  } 
-  else if(gap > wOffset) {
-    mn_header.style.paddingTop = `0px`;
-    mn_header.classList.remove('mn_fixed');
+  if (window.innerWidth > 820) {
+    if (navHeight + gap < wOffset) {
+      mn_header.style.paddingTop = `${navHeight}px`;
+      mn_header.classList.add("mn_fixed");
+    } else if (gap > wOffset) {
+      mn_header.style.paddingTop = `0px`;
+      mn_header.classList.remove("mn_fixed");
+    }
   }
 }
 
-window.addEventListener("scroll", handleScroll, {passive: true});
+const nav_fixed = window.addEventListener("scroll", handleScroll, {passive: true});
 
 //**** Header parallax ****/
 
