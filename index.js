@@ -72,7 +72,7 @@ function mobileMenuToggle(e) {
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const IS_AUTOSCROLL = true;
-const AUTOSCROLL_TIMEOUT = 3000;
+const AUTOSCROLL_TIMEOUT = 2000;
 
 const rb_slider = document.getElementById('rb_slider');
 const rb_viewbox = rb_slider.querySelector('.rb_viewbox');
@@ -108,6 +108,7 @@ if(rb_block) {
     rb_content.style.left = `${offsetLeft}px`;
   };
 
+  /* Autoscroll */
   if (IS_AUTOSCROLL) {
     let slider_old_visible;
     var autoScroll;
@@ -141,6 +142,7 @@ if(rb_block) {
     rb_slider.addEventListener("touchend", () => toggleScroll(true));
   }
 
+  /* Blocks resizing when parent wd changes */
   function resizeRbBlock() {
   let blocks = rb_content.querySelectorAll(".rb_block");
   if (rb_viewbox.offsetWidth >= THREE_BL_WIDTH) {
@@ -191,6 +193,7 @@ function handleScroll() {
   }
 }
 
+
 //**** Header parallax ****/
 
 (function () {
@@ -225,6 +228,7 @@ function handleScroll() {
 })();
 
 //**** Show anim only when visible ****/
+
 function onVisibilityChange(el, callback, old_visible) {
   return function () {
     var visible = isAnyPartOfElementInViewport(el);
