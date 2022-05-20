@@ -242,9 +242,9 @@ ul.sc_icons {
 
 
 .sc_icons svg {
- max-width: 70%;
- height: 70%;
- transition: var(--main-anim);
+  max-width: 70%;
+  height: auto;
+  transition: var(--main-anim);
 }
 
 ul.sc_icons__dark a {
@@ -1278,6 +1278,7 @@ ul.sc_icons__dark a {
 }
 
 .lb_article {
+ flex: 1 1 50%;
  position: relative;
  display: flex;
  flex-direction: column;
@@ -1286,7 +1287,7 @@ ul.sc_icons__dark a {
 
  padding: 35px;
  background-color: transparent;
- min-height: 550px;
+ aspect-ratio: 1;
 }
 
 .lb_article h4 {
@@ -2088,6 +2089,30 @@ body {
   display: block;
  }
   /* header block end */
+  /* lastblog block */
+.lb_info h2 {
+ font-size: 25px;
+}
+.lb_article {
+ padding: 20px;
+}
+.lb_article h4 {
+ font-size: 18px;
+ line-height: 1.2em;
+}
+
+.lb_info {
+ margin-top: 25px;
+ padding-right: 30px;
+}
+.lastblog_block {
+ padding: 70px 0;
+}
+.lb_article .avatar {
+ width: 40px;
+ height: 40px;
+}
+/* lastblog block end */
 }
 
 @media only screen and (max-width: 760px) {
@@ -2245,6 +2270,26 @@ body {
  margin-bottom: 20px;
 }
 /* transparent block end */
+/* lastblog block */
+.lastblog_content {
+ flex-direction: column;
+ align-items: center;
+ justify-content: flex-start;
+}
+.lb_info {
+ max-width: 100%;
+ flex: 1;
+ margin-bottom: 30px;
+}
+.lb_article {
+ flex: 0 1 600px;
+ width: calc(100% - 20px);
+ max-height: 500px;
+ max-width: 100%;
+ padding: 40px;
+ aspect-ratio: 16 / 9;
+}
+/* lastblog block end */
 }
 
 @media only screen and (max-width: 590px)  {
@@ -2331,6 +2376,14 @@ body {
    margin: 0.5em 0;
   }
   /* benefits block end */
+ /* lastblog block */
+ .lb_article {
+  flex: 1;
+  width: calc(100% - 20px);
+  padding: 30px 20px;
+  aspect-ratio: 1;
+ }
+ /* lastblog block end */
 }
 
 
@@ -2399,10 +2452,20 @@ body {
  }
   /* header block end */
 
+  /* lastblog block */
  .rect_shadow::before {
   left: -10px;
   bottom: -10px;
  }
+
+ .lb_article {
+  width: calc(100% - 10px);
+ }
+
+ .lastblog_block {
+  padding: 30px 0 40px;
+}
+  /* lastblog block end */
 
 }
 
@@ -2459,6 +2522,13 @@ body {
   padding: 0;
  }
  /* header block end */
+  /* lastblog block */
+ .lb_article {
+  flex: 1;
+  padding: 30px 20px;
+  aspect-ratio: unset;
+ }
+  /* lastblog block end */
 }
 
 @media only screen and (max-width: 330px)  {
