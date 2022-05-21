@@ -1935,10 +1935,12 @@ p {
 
 /* single_block */
 .single_block {
-    padding: 50px 20px;
+  max-width: 1200px;
+  padding: 50px 20px;
 }
 .single_block img,
-.single_block div {
+.single_block div,
+.single_block section {
   max-width: 100%;
 }
 /* single_block end */
