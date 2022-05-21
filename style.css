@@ -667,7 +667,7 @@ margin-right: 5px;
 .main-header {
  position: relative;
  background: var(--main-gradient_1);
- overflow: hidden;
+ /* overflow: hidden; */
 }
 
 .main-header .anim_bg {

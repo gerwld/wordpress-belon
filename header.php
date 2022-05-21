@@ -27,12 +27,14 @@
   wp_body_open();
   ?>
   <header class="main-header" id="mn_header">
+    <?php if(get_option('show_header', true)) { ?>
     <div class="anim_bg" id="anim_bg">
       <div class="block_1" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_1.svg"); ?>');"></div>
       <div class="block_2" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_2.svg"); ?>');"></div>
       <div class="block_3" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_3.svg"); ?>');"></div>
       <div class="block_4" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_4.svg"); ?>');"></div>
     </div>
+    <?php } ?>
     <div class="hd-navbar">
       <div class="hd-navbar_content content_wrapper">
         <div class="logo"><a href="<?php echo get_home_url(); ?>">Belon</a></div>
