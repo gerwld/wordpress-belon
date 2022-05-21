@@ -52,6 +52,7 @@
       <div class="bg"></div>
     </div>
 
+    <?php if(get_option('show_header', true)) {?>
     <div class="content_wrapper">
       <div class="hd-blocks">
         <div class="hd-info h3-height-hotfix">
@@ -89,5 +90,6 @@
           </nav>
         </div>
       </div>
+      <?php }?>
     </div>
   </header>
