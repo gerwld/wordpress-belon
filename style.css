@@ -680,7 +680,7 @@ justify-content: center;
 }
 
 .main-mob-nav .menu > li {
-  border-top: 1px solid rgb(241, 236, 236);
+  /* border-top: 1px solid rgb(241, 236, 236); */
 }
 
 .main-mob-nav .sub-menu {
@@ -1601,7 +1601,7 @@ justify-content: center;
 /* Footer styles */
 
 .main-footer {
- background-size: 100% auto;
+ background-color: #fff;
 }
 
 .ft_block_1_wrapper {

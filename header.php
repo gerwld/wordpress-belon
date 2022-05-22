@@ -28,7 +28,7 @@
   wp_body_open();
   ?>
   <header class="main-header" id="mn_header">
-    <?php if (get_option('show_header', true)) { ?>
+    <?php if (get_option('sandbox_theme_display_options', true)['show_header']) { ?>
       <div class="anim_bg" id="anim_bg">
         <div class="block_1" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_1.svg"); ?>');"></div>
         <div class="block_2" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_2.svg"); ?>');"></div>
@@ -82,7 +82,7 @@
       <div class="bg"></div>
     </div>
 
-    <?php if (get_option('show_header', true)) { ?>
+    <?php if (get_option('sandbox_theme_display_options', true)['show_header']) { ?>
       <div class="content_wrapper">
         <div class="hd-blocks">
           <div class="hd-info h3-height-hotfix">

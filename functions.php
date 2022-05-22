@@ -29,8 +29,6 @@ function enqueue_scripts()
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
 
-
-
 //add theme support
 if (function_exists('add_theme_support')) {
  add_theme_support('menus');
@@ -40,134 +38,8 @@ if (function_exists('add_theme_support')) {
 add_filter( 'show_admin_bar', '__return_false' );
 
 
-
-
-
-
-
-
-
-
-
-
-//add new menu for theme-options page with page callback theme-options-page.
-
-/* ---------------------------------------------------------------- 
- * Регистрация настроек 
- * ----------------------------------------------------------------
-*/
-
-/* Инициализация страницы опций темы, регистрация секций, полей и настроек.
- * Эта функция регистрируется с помощью хука  admin_init. 
-*/
-function sandbox_initialize_theme_options()
-{
- //Сначала мы регистрируем секцию. Это необходимо, так как объявляемые далее опции будут принадлежать именно к этой секции.
- add_settings_section(
-  'general_settings_section',           // ID, который будет использоваться для идентификации этой секции и по которому мы будем регистрировать опции
-  'Опции Sandbox',                      // Заголовок, который будет отображаться на странице административной панели
-  'sandbox_general_options_callback',   // Вызов, который используется для отображения описания секции  
-  'general'                             // Страница, на которую будет добавлена секция  
- );
- // Далее, мы создадим поле для переключения видимости контейнеров в шаблоне  
- add_settings_field(
-  'show_header',                      // Идентификатор, используемый для идентификации поля внутри темы  
-  'Контейнер header',                 // Метка слева от элемента интерфейса
-  'sandbox_toggle_header_callback',   // Имя функции, ответственной за вывод элемента интерфейса  
-  'general',                          // Страница, на которую будет выведена опция  
-  'general_settings_section',         // Имя секции, которой принадлежит поле
-  array(                              // Массив-аргументов, передаваемый callback-функции. В нашем случае просто описание.  
-   'Активируйте эту опцию, чтобы отобразить контейнер header.'
-  )
- );
- add_settings_field(  
-  'show_content',  
-  'Контейнер content',  
-  'sandbox_toggle_content_callback',  
-  'general',  
-  'general_settings_section',  
-  array(  
-      'Активируйте эту опцию, чтобы отобразить контейнер content.'  
-  )  
-);
-add_settings_field(  
- 'show_footer',  
- 'Контейнер footer',  
- 'sandbox_toggle_footer_callback',  
- 'general',  
- 'general_settings_section',  
- array(  
-     'Активируйте эту опцию, чтобы отобразить контейнер footer.'  
- )  
-);
- // Регистрируем поля в WordPress  
- register_setting(
-  'general',
-  'show_header'
- );
- register_setting(
-  'general',
-  'show_content'
- );
- register_setting(
-  'general',
-  'show_footer'
- );
-} // Конец функции sandbox_initialize_theme_options
-
-add_action('admin_init', 'sandbox_initialize_theme_options');  
-  
-/* ----------------------------------------------------------------
- * Callback-функции для секций
- * ----------------------------------------------------------------
-*/   
-  
-/* 
- * Эта функция предоставляет простое описание страницы "Общие настройки".  
- * Она вызывается из функции sandbox_initialize_theme_options и передается в нее как параметр
-*/  
-
-function sandbox_general_options_callback() {  
-    echo '<p>Выберите, какие секции вы хотите показывать на странице.</p>';  
-} // Конец функции sandbox_general_options_callback  
-
-
-
-/** 
- * Эта функция выводит элемент интерфейса для изменения видимости контейнера header. 
- *  
- * Она получает массив аргументов, в котором первым идет описание,
- * которое будет отображено после чекбокса. 
- */  
-function sandbox_toggle_header_callback($args) {  
-      
- // Заметьте, что идентификатор и имя атрибута элемента должны совпадать с указанными в функции add_settings_field  
- $html = '<input type="checkbox" id="show_header" name="show_header" value="1" ' . checked(1, get_option('show_header'), false) . '/>';  
-   
- // Берем первый элемент массива и добавляем его к метке чекбокса  
- $html .= '<label for="show_header"> '  . $args[0] . '</label>';  
-   
- echo $html;  
-   
-} // конец функции sandbox_toggle_header_callback
-
-function sandbox_toggle_content_callback($args) {
- $html = '<input type="checkbox" id="show_content" name="show_content" value="1" ' . checked(1, get_option('show_content'), false) . '/>'; 
- $html .= '<label for="show_content"> '  . $args[0] . '</label>'; 
- echo $html;
-}
-
-function sandbox_toggle_footer_callback($args) {
- $html = '<input type="checkbox" id="show_footer" name="show_footer" value="1" ' . checked(1, get_option('show_footer'), false) . '/>'; 
- $html .= '<label for="show_footer"> '  . $args[0] . '</label>'; 
- echo $html;
-}
-
-
-
 //add the new menu page (admin panel)
-
-function sandbox_create_menu_page() {  
+function belon_create_menu_page() {  
  add_menu_page(  
   'Belon Pro Theme Settings',              // Текст заголовка для данного меню в браузере
   'Belon Pro',                    // Текст пункта меню  
@@ -195,7 +67,7 @@ add_submenu_page(
 );
 }  
 
-add_action('admin_menu', 'sandbox_create_menu_page');  
+add_action('admin_menu', 'belon_create_menu_page');  
   
 function belon_pro_menu_page_display() {  
  $html = '<div class="wrap admin_block_st_wrapper">';  
@@ -222,33 +94,12 @@ $html .= '</div>';
 echo $html;
 }
 
-function add_newline_theme_menu() {
- add_theme_page(
-  'Тема Sandbox',             // Текст в заголовке браузера  
-  'Тема Sandbox',             // Текст самого пункта меню в боковом меню WordPress  
-  'administrator',            // Группы пользователей, имеющих доступ к данному меню  
-  'sandbox_theme_options',    // Уникальный ID -псевдоним – для данного пункта меню  
-  'sandbox_theme_display' 
- );
-}
-
-add_action('admin_menu', 'add_newline_theme_menu');
-
-
-function sandbox_theme_display(){
- $html = '<div class="wrap admin_block_st_wrapper">';
- $html .= '<h2>Theme Settings</h2>';
- $html .= '</div>';
- echo $html;
-}
-
 //Add admin panel css
 function my_admin_enqueue( $hook_suffix ) {
  if(strpos($hook_suffix, 'belon') !== false) {       
      wp_enqueue_style('my-theme-settings', get_template_directory_uri() . '/assets/styles/theme-settings.css');        
  }
-}
-add_action( 'admin_enqueue_scripts', 'my_admin_enqueue', 10 );
+} add_action( 'admin_enqueue_scripts', 'my_admin_enqueue', 10 );
 
 
 //Add menu sections
@@ -260,13 +111,10 @@ function wpb_custom_new_menu() {
      'footer-menu-2' => __( 'Footer Menu 2' ),
      'footer-menu-3' => __( 'Footer Menu 3' ),
    )
- );
-}
-add_action( 'init', 'wpb_custom_new_menu' );
+ );} add_action( 'init', 'wpb_custom_new_menu' );
 
 
 //Theme customizer.php new settings
-
 function set_menus_panel($wp_customize)
 {
  $wp_customize->add_panel(
@@ -426,4 +274,245 @@ function true_validate_cbtn_text( $validity, $value ){
 		$validity->add( 'empty_copy', 'Button text value cannot be greater that 15 symbols' );
  }
 	return $validity;
+}
+
+function belon_theme_sanitize_urls( $input ) {  
+ $output = array();  
+ foreach( $input as $key => $val ) {  
+     if( isset ( $input[$key] ) ) {  
+         $output[$key] = esc_url_raw( strip_tags( stripslashes( $input[$key] ) ) );  
+     } 
+ } 
+ return apply_filters( 'belon_theme_sanitize_urls', $output, $input );  
+}
+
+
+
+// Test code 
+/* Инициализация страницы опций темы, регистрация секций, полей и настроек.
+ * Эта функция регистрируется с помощью хука  admin_init. 
+*/
+function sandbox_initialize_theme_options() {  
+ if( false == get_option( 'sandbox_theme_display_options' ) ) {    
+  add_option( 'sandbox_theme_display_options' );  
+} // Конец конструкции if
+
+ //Сначала мы регистрируем секцию. Это необходимо, так как объявляемые далее опции будут принадлежать именно к этой секции.
+ add_settings_section(  
+     'general_settings_section',           // ID, который будет использоваться для идентификации этой секции и по которому мы будем регистрировать опции
+     'Опции отображения',                      // Заголовок, который будет отображаться на странице административной панели
+     'sandbox_general_options_callback',   // Вызов, который используется для отображения описания секции  
+     'sandbox_theme_display_options'                             // Страница, на которую будет добавлена секция  
+ );
+
+ // Далее, мы создадим поле для переключения видимости контейнеров в шаблоне  
+ add_settings_field(   
+     'show_header',                      // Идентификатор, используемый для идентификации поля внутри темы  
+     'Контейнер header',                 // Метка слева от элемента интерфейса
+     'sandbox_toggle_header_callback',   // Имя функции, ответственной за вывод элемента интерфейса  
+     'sandbox_theme_display_options',                          // Страница, на которую будет выведена опция  
+     'general_settings_section',         // Имя секции, которой принадлежит поле
+     array(                              // Массив-аргументов, передаваемый callback-функции. В нашем случае просто описание.  
+         'Активируйте эту опцию, чтобы отобразить контейнер header.'  
+     )  
+ );
+
+ add_settings_field(  
+     'show_content',  
+     'Контейнер content',  
+     'sandbox_toggle_content_callback',  
+     'sandbox_theme_display_options',  
+     'general_settings_section',  
+     array(  
+         'Активируйте эту опцию, чтобы отобразить контейнер content.'  
+     )  
+ );
+
+ add_settings_field(   
+     'show_footer',                        
+     'Контейнер Footer',                 
+     'sandbox_toggle_footer_callback',     
+     'sandbox_theme_display_options',                            
+     'general_settings_section',           
+     array(                                
+         'Активируйте эту опцию, чтобы отобразить контейнер footer.'  
+     )  
+ );
+
+ // Регистрируем поля в WordPress  
+ register_setting(  
+  'sandbox_theme_display_options',  
+  'sandbox_theme_display_options'  
+);
+
+} // Конец функции sandbox_initialize_theme_options
+add_action('admin_init', 'sandbox_initialize_theme_options');  
+  
+
+function sandbox_general_options_callback() {  
+ echo '<p>Выберите, какие секции вы хотите показывать на странице.</p>';  
+} // Конец функции sandbox_general_options_callback  
+
+/* ------------------------------------------------------------------------ * 
+ * Callback-функции для полей
+ * ------------------------------------------------------------------------
+*/
+
+/* 
+ * Эта функция выводит элемент интерфейса для изменения видимости контейнера header.
+ * Она получает массив аргументов, в котором первым идет описание, которое будет отображено после чекбокса. 
+*/
+
+function sandbox_toggle_header_callback($args) {  
+  
+ $options = get_option('sandbox_theme_display_options');  
+
+ $html = '<input type="checkbox" id="show_header" name="sandbox_theme_display_options[show_header]" value="1" ' . checked(1, $options['show_header'], false) . '/>';   
+ $html .= '<label for="show_header"> '  . $args[0] . '</label>';   
+
+ echo $html;  
+
+} // Конец функции sandbox_toggle_header_callback  
+
+function sandbox_toggle_content_callback($args) {  
+
+ $options = get_option('sandbox_theme_display_options');  
+
+ $html = '<input type="checkbox" id="show_content" name="sandbox_theme_display_options[show_content]" value="1" ' . checked(1, $options['show_content'], false) . '/>';   
+ $html .= '<label for="show_content"> '  . $args[0] . '</label>';   
+
+ echo $html;  
+
+} // Конец функции sandbox_toggle_content_callback  
+
+function sandbox_toggle_footer_callback($args) {  
+
+ $options = get_option('sandbox_theme_display_options');  
+
+ $html = '<input type="checkbox" id="show_footer" name="sandbox_theme_display_options[show_footer]" value="1" ' . checked(1, $options['show_footer'], false) . '/>';   
+ $html .= '<label for="show_footer"> '  . $args[0] . '</label>';   
+
+ echo $html;  
+
+} // Конец функции sandbox_toggle_footer_callback
+
+function sandbox_example_theme_menu() {  
+  
+ add_theme_page(  
+     'Тема Sandbox',             // Текст в заголовке браузера  
+     'Тема Sandbox',             // Текст самого пункта меню в боковом меню WordPress  
+     'administrator',            // Группы пользователей, имеющих доступ к данному меню  
+     'sandbox_theme_options',    // Уникальный ID - псевдоним – для данного пункта меню  
+     'sandbox_theme_display'     // Имя функции, используемой для вывода страницы пункта меню на экран 
+ );  
+
+}  // Конец функции sandbox_example_theme_menu
+
+add_action('admin_menu', 'sandbox_example_theme_menu');
+
+function sandbox_theme_display() {  
+ ?>  
+     <!-- Создаем заголовок в стандартном контейнере «wrap» -->  
+     <div class="wrap">  
+   
+         <!-- Добавляем иконку к странице -->  
+         <h2>Опции темы Sandbox</h2>  
+   
+         <!-- Делаем вызов функции WordPress для вывода ошибок, возникающих при сохранении настроек. -->  
+         <?php settings_errors(); ?>  
+   
+         <!-- Создаем форму, которая будет использоваться для вывода наших опций -->  
+         <form method="post" action="options.php">  
+             <?php settings_fields( 'sandbox_theme_display_options' ); ?>  
+             <?php do_settings_sections( 'sandbox_theme_display_options' ); ?> 
+
+             <?php settings_fields( 'belon_theme_social_options' ); ?>  
+             <?php do_settings_sections( 'belon_theme_social_options' ); ?>   
+             <?php submit_button(); ?>  
+         </form>  
+     </div> 
+ <?php  
+ } // Конец функции sandbox_theme_display
+
+
+
+ function init_belon_social_settings() {
+  if( false == get_option( 'belon_theme_social_options' ) ) {    
+   add_option( 'belon_theme_social_options' );  
+  }
+
+  add_settings_section(
+   'social_settings_section',
+   'Настройки социальных сетей',
+   'social_settings_callback',
+   'belon_theme_social_options'
+  );
+
+
+ add_settings_field(   
+  'twitter',                        
+  'Twitter',                            
+  'twitter_settings_callback',   
+  'belon_theme_social_options',   
+  'social_settings_section'
+);
+
+add_settings_field(   
+ 'facebook',                        
+ 'Facebook',                            
+ 'facebook_settings_callback',   
+ 'belon_theme_social_options',   
+ 'social_settings_section'
+);
+
+
+add_settings_field(   
+ 'linkedin',                        
+ 'LinkedIn',                            
+ 'linkedin_settings_callback',   
+ 'belon_theme_social_options',   
+ 'social_settings_section'
+);
+
+
+
+ register_setting(
+  'belon_theme_social_options',  
+  'belon_theme_social_options',
+  'belon_theme_sanitize_urls');
+ }
+
+ add_action('admin_init', 'init_belon_social_settings');
+
+
+ function social_settings_callback() {
+  echo '<p>Настройки социальных сетей ниже:</p>';
+ }
+
+ function twitter_settings_callback1() {
+  echo '<p>Настройки социальных сетей ниже:</p>';
+ }
+
+ function twitter_settings_callback() {  
+  $options = get_option( 'belon_theme_social_options' );  
+  $url = ''; 
+  if( isset( $options['twitter'] ) ) { 
+      $url = $options['twitter']; 
+  } echo '<input type="text" id="twitter" name="belon_theme_social_options[twitter]" value="' . $url . '" />';  
+}
+
+function facebook_settings_callback() {  
+ $options = get_option( 'belon_theme_social_options' );  
+ $url = ''; 
+ if( isset( $options['facebook'] ) ) { 
+     $url = $options['facebook']; 
+ } echo '<input type="text" id="twitter" name="belon_theme_social_options[facebook]" value="' . $url . '" />';  
+}
+
+function linkedin_settings_callback() {  
+ $options = get_option( 'belon_theme_social_options' );  
+ $url = ''; 
+ if( isset( $options['linkedin'] ) ) { 
+     $url = $options['linkedin']; 
+ } echo '<input type="text" id="twitter" name="belon_theme_social_options[linkedin]" value="' . $url . '" />';  
 }
