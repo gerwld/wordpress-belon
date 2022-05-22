@@ -1,0 +1,55 @@
+:root {
+ --main-color: blue;
+ --main-color-yell: #f8c008;
+ --main-color-yell_hv:  #dfae0c;
+ --main-color-prpl: #c267d4;
+ --main-color-dark-prpl: #ab5bbb;
+ --main-color-dark-prpl_tr: rgba(172, 86, 189, 0.3);
+ --main-color-dark-prpl_2:  #664e85;
+ --main-color-light-prpl: #f8f2ff;
+
+ --footer-link-color: #252525;
+ --footer-sublink-color: #9b8aac;
+ --footer-link-line: #a0a0a0;
+
+ --main-text-color: #000;
+ --main-text-gray: #e3e3e3;
+ --prim-text-color: #919191;
+ --prim-text-color_2: #797979;
+ --prim-text-color_3: #363636;
+ --prim-text-color_4: #313131;
+
+ --main-br-radius: 5px;
+ --main-small-br-radius: 3px;
+ --max-br-radius: 100px;
+ --sc-padding: 50px 0;
+
+ --main-border: 1px solid #e3e3e3;
+ --main-tp-background: rgba(0, 0, 0, 0.07);
+ --main-tp-background_2: rgba(0, 0, 0, 0.15);
+ --main-hover-background: rgba(57, 63, 97, 0.45);
+
+ --main-anim: 0.3s ease;
+ --slow-anim: 0.4s ease;
+ --fast-anim: 0.2s ease;
+
+ --shadow-main: rgba(0, 0, 0, 0.06) 0px 2px 7px;
+ --shadow-main_2:   rgba(0, 0, 0, 0.10) 0px 4px 8px;
+ --shadow-main_3:   rgba(0, 0, 0, 0.12) 0px 8px 10px;
+
+ --main-gradient_1: linear-gradient( 100deg,  #5636b6 11.2%, #c267d4 91.2% );
+ --main-gradient_2: linear-gradient( 100deg,  #7c59e6 11.2%, #dc88ec 91.2% );
+ --main-gradient_3: linear-gradient( 65deg,  #5636b6 11.2%, #c267d4 91.2% );
+ --main-gradient_4: linear-gradient( 65deg,  #7c59e6 11.2%, #dc88ec 91.2% );
+}
+
+.admin_block_st {
+ width: 100%;
+ min-height: 80vh;
+ padding: 30px;
+ margin: 20px 0;
+ background-color: #fff;
+ box-sizing: border-box;
+ border-radius: var(--main-br-radius);
+ box-shadow: var(--shadow-main);
+}
