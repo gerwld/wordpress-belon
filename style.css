@@ -15,8 +15,9 @@ Version: 1.1
  --main-color-dark-prpl_2:  #664e85;
  --main-color-light-prpl: #f8f2ff;
 
- --footer-link-color: #555555;
- --footer-sublink-color: #55338f;
+ --footer-link-color: #252525;
+ --footer-sublink-color: #9b8aac;
+ --footer-link-line:#bdc0c5;
 
  --main-text-color: #000;
  --main-text-gray: #e3e3e3;
@@ -1654,10 +1655,26 @@ margin-right: 5px;
  font-size: 15px;
  color: var(--footer-link-color);
  text-decoration: none;
+ cursor: pointer;
 }
 
-.footer_nav a:hover {
- text-decoration: underline;
+.footer_nav a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--footer-link-line);
+  transition: var(--fast-anim);
+  pointer-events: none;
+}
+
+/* ul.sub-menu a::after {
+  background-color: var(--footer-sublink-color);
+} */
+
+.footer_nav a:hover::after {
+  width: 100%;
 }
 
 .cp_block {
