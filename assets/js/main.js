@@ -94,6 +94,8 @@ function handleScroll() {
 //**** Header parallax ****/
 
 (function () {
+  let anim_bg = document.getElementById('anim_bg');
+  if(anim_bg) {
   mn_header.addEventListener("mousemove", parallaxGrab);
 
   function parallax(e, elem, delay = 10, _posY = 100, _posX = 100) {
@@ -122,6 +124,7 @@ function handleScroll() {
     parallax(e, b_4, 105, 105, 108);
     parallax(e, ills, 10, 30, 85);
   }
+}
 })();
 
 //**** Show anim only when visible ****/

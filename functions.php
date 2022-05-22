@@ -218,40 +218,41 @@ echo $html;
 
 //Theme customizer.php new settings
 
-
- function true_header_title($wp_customize){
-
- // $wp_customize->add_panel('header_panel',array(
- //     'title'=>'Header',
- //     'description'=> 'This is panel Description',
- //     'priority'=> 10,
- // ));
- 
- 
+ function true_header_title($wp_customize){ 
  $wp_customize->add_section('header_sect_title',array(
-     'title'=>'Header title',
+     'title'=>'Header settings',
      'priority'=>10,
-     // 'panel'=>'header_panel',
  ));
- 
- 
+
  $wp_customize->add_setting('header_setting',array(
      'validate_callback' => 'true_validate_header',
      'sanitize_callback' => 'true_sanitize_header',
      'default' => 'Belon'
  ));
- 
+
+ $wp_customize->add_setting('header_subtitle',array(
+  'default' => false
+));
  
  $wp_customize->add_control('header_title_control',array(
      'label'=>'Change header title',
      'type'=>'text',
      'section'=>'header_sect_title',
      'settings'=>'header_setting',
- ));}   
+ ));
+
+ $wp_customize->add_control('header_subtitle_control',array(
+  'label'=>'Show header description',
+  'type'=>'checkbox',
+  'section'=>'header_sect_title',
+  'settings'=>'header_subtitle',
+ )); 
+}   
  add_action('customize_register','true_header_title');
 
- function set_menus_panel($wp_customize) {
 
+
+ function set_menus_panel($wp_customize) {
   $wp_customize -> add_panel('menu_select_panel', 
   array(
    'title' => 'Menu settings',
@@ -298,9 +299,7 @@ echo $html;
    'section'=>'menu_secondary_section',
     'settings'=>'menu_secondary_select',
   ));
-
   //secondary section end
-
  } add_action('customize_register','set_menus_panel');
 
 
@@ -320,5 +319,17 @@ function true_validate_header( $validity, $value ){
  }
  
 	return $validity;
- 
 }
+
+//Добавляение кастомного меню
+function wpb_custom_new_menu() {
+ register_nav_menus(
+   array(
+     'primary-menu' => __( 'Primary' ),
+     'footer-menu' => __( 'Footer Menu 1' ),
+     'footer-menu-2' => __( 'Footer Menu 2' ),
+     'footer-menu-3' => __( 'Footer Menu 3' ),
+   )
+ );
+}
+add_action( 'init', 'wpb_custom_new_menu' );

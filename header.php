@@ -39,9 +39,20 @@
       <div class="hd-navbar_content content_wrapper">
         <div class="logo"><a href="<?php echo get_home_url(); ?>">
         <?php echo get_theme_mod('header_setting') ?>
-        </a></div>
-        <nav class="main-nav desktop_menu_el">
-          <?php wp_nav_menu(array('menu' => 'primary')); ?>
+        </a>
+        <?php if(get_theme_mod('header_subtitle')) { ?>
+        <p class="site-description">
+          <?php echo get_bloginfo( 'description', 'display' ); ?>
+        </p>
+        <?php } ?>
+      </div>
+        <nav class="main-nav desktop_menu_el" id="main-desktop-nav">
+        <?php $has_items_prim = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'echo' => false )) !== false;?>
+          <?php if($has_items_prim) { 
+            wp_nav_menu( array( 
+              'theme_location' => 'primary-menu', 
+              'container_class' => 'custom-menu-class' ) ); 
+          } else wp_nav_menu(array('menu' => 'primary')); ?>
         </nav>
         <button class="btn btn_contact desktop_menu_el" type="button">Contact Us</button>
         <button class="btn btn_mobmenu" id="mob_mn_btn">
@@ -51,7 +62,12 @@
         </button>
       </div>
       <nav class="main-mob-nav mobile_menu_el" id="main-mob-nav">
-        <?php wp_nav_menu(array('menu' => 'primary')); ?>
+      <?php $has_items_prim = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'echo' => false )) !== false;?>
+          <?php if($has_items_prim) { 
+            wp_nav_menu( array( 
+              'theme_location' => 'primary-menu', 
+              'container_class' => 'custom-menu-class' ) ); 
+          } else wp_nav_menu(array('menu' => 'any')); ?>
       </nav>
       <div class="bg"></div>
     </div>
