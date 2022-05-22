@@ -252,55 +252,96 @@ echo $html;
 
 
 
- function set_menus_panel($wp_customize) {
-  $wp_customize -> add_panel('menu_select_panel', 
+function set_menus_panel($wp_customize)
+{
+ $wp_customize->add_panel(
+  'menu_select_panel',
   array(
    'title' => 'Menu settings',
    'description' => "Settings for the primary and secondary menu's",
    'priority' => 10,
   )
-  );
-  //primary section
-  $wp_customize -> add_section('menu_primary_section', 
+ );
+
+ //primary section contact button
+ $wp_customize->add_section(
+  'contactbtn_menu_primary_section',
   array(
-   'title' => 'Primary Menu',
+   'title' => 'Header Button',
    'priority' => 10,
    'panel' => 'menu_select_panel'
-  ));
-  $wp_customize -> add_setting('menu_primary_select', 
-  array(
-   'default' => 'Belon'
   )
  );
-  $wp_customize -> add_control('menu_primary_control',
+
+ $wp_customize->add_setting(
+  'contactbtn_menu_primary_text',
   array(
-   'label'=>'Select Primary Menu',
-   'type'=>'text',
-   'section'=>'menu_primary_section',
-    'settings'=>'menu_primary_select',
-  ));
-  //primary section end
-  //secondary section
-  $wp_customize -> add_section('menu_secondary_section', 
-  array(
-   'title' => 'Secondary Menu',
-   'priority' => 10,
-   'panel' => 'menu_select_panel'
-  ));
-  $wp_customize -> add_setting('menu_secondary_select', 
-  array(
-   'default' => 'Belon'
+   'default' => 'Contact Us'
   )
  );
-  $wp_customize -> add_control('menu_secondary_control',
+ $wp_customize->add_setting(
+  'contactbtn_menu_primary_link',
   array(
-   'label'=>'Select Secondary Menu',
-   'type'=>'text',
-   'section'=>'menu_secondary_section',
-    'settings'=>'menu_secondary_select',
-  ));
-  //secondary section end
- } add_action('customize_register','set_menus_panel');
+   'default' => '#contact-us'
+  )
+ );
+ $wp_customize->add_setting(
+  'contactbtn_menu_primary_show',
+  array(
+   'default' => true
+  )
+ );
+ $wp_customize->add_setting(
+  'contactbtn_menu_primary_innewwindow',
+  array(
+   'default' => false
+  )
+ );
+
+ $wp_customize->add_control(
+  'contactbtn_menu_primary_control-3',
+  array(
+   'label' => 'Show button',
+   'type' => 'checkbox',
+   'section' => 'contactbtn_menu_primary_section',
+   'settings' => 'contactbtn_menu_primary_show',
+  )
+ );
+
+ $wp_customize->add_control(
+  'contactbtn_menu_primary_control-1',
+  array(
+   'label' => 'Button text',
+   'type' => 'text',
+   'section' => 'contactbtn_menu_primary_section',
+   'settings' => 'contactbtn_menu_primary_text',
+  )
+ );
+
+ $wp_customize->add_control(
+  'contactbtn_menu_primary_control-2',
+  array(
+   'label' => 'Button link',
+   'type' => 'text',
+   'description' => 'http://*, https://*, /* or #id',
+   'section' => 'contactbtn_menu_primary_section',
+   'settings' => 'contactbtn_menu_primary_link',
+  )
+ );
+
+ $wp_customize->add_control(
+  'contactbtn_menu_primary_control-4',
+  array(
+   'label' => 'Open link in new window',
+   'type' => 'checkbox',
+   'section' => 'contactbtn_menu_primary_section',
+   'settings' => 'contactbtn_menu_primary_innewwindow',
+  )
+ );
+ //primary section contact button end
+
+}
+add_action('customize_register', 'set_menus_panel');
 
 
 
