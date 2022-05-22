@@ -37,7 +37,9 @@
     <?php } ?>
     <div class="hd-navbar">
       <div class="hd-navbar_content content_wrapper">
-        <div class="logo"><a href="<?php echo get_home_url(); ?>">Belon</a></div>
+        <div class="logo"><a href="<?php echo get_home_url(); ?>">
+        <?php echo get_theme_mod('header_setting') ?>
+        </a></div>
         <nav class="main-nav desktop_menu_el">
           <?php wp_nav_menu(array('menu' => 'primary')); ?>
         </nav>
