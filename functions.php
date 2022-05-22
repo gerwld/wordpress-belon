@@ -215,53 +215,64 @@ echo $html;
 }
 
 
+//Add menu sections
+function wpb_custom_new_menu() {
+ register_nav_menus(
+   array(
+     'primary-menu' => __( 'Primary' ),
+     'footer-menu' => __( 'Footer Menu 1' ),
+     'footer-menu-2' => __( 'Footer Menu 2' ),
+     'footer-menu-3' => __( 'Footer Menu 3' ),
+   )
+ );
+}
+add_action( 'init', 'wpb_custom_new_menu' );
+
 
 //Theme customizer.php new settings
-
- function true_header_title($wp_customize){ 
- $wp_customize->add_section('header_sect_title',array(
-     'title'=>'Header settings',
-     'priority'=>10,
- ));
-
- $wp_customize->add_setting('header_setting',array(
-     'validate_callback' => 'true_validate_header',
-     'sanitize_callback' => 'true_sanitize_header',
-     'default' => 'Belon'
- ));
-
- $wp_customize->add_setting('header_subtitle',array(
-  'default' => false
-));
- 
- $wp_customize->add_control('header_title_control',array(
-     'label'=>'Change header title',
-     'type'=>'text',
-     'section'=>'header_sect_title',
-     'settings'=>'header_setting',
- ));
-
- $wp_customize->add_control('header_subtitle_control',array(
-  'label'=>'Show header description',
-  'type'=>'checkbox',
-  'section'=>'header_sect_title',
-  'settings'=>'header_subtitle',
- )); 
-}   
- add_action('customize_register','true_header_title');
-
-
 
 function set_menus_panel($wp_customize)
 {
  $wp_customize->add_panel(
   'menu_select_panel',
   array(
-   'title' => 'Menu settings',
+   'title' => 'Header settings',
    'description' => "Settings for the primary and secondary menu's",
    'priority' => 10,
   )
  );
+
+ //header title settings
+ $wp_customize->add_section('header_sect_title',array(
+  'title'=>'Header Title',
+  'priority'=>10,
+  'panel' => 'menu_select_panel'
+));
+
+$wp_customize->add_setting('header_setting',array(
+  'validate_callback' => 'true_validate_header',
+  'sanitize_callback' => 'true_sanitize_header',
+  'default' => 'Belon'
+));
+
+$wp_customize->add_setting('header_subtitle',array(
+'default' => false
+));
+
+$wp_customize->add_control('header_title_control',array(
+  'label'=>'Change header title',
+  'type'=>'text',
+  'section'=>'header_sect_title',
+  'settings'=>'header_setting',
+));
+
+$wp_customize->add_control('header_subtitle_control',array(
+'label'=>'Show header description',
+'type'=>'checkbox',
+'section'=>'header_sect_title',
+'settings'=>'header_subtitle',
+)); 
+ //header title settings end
 
  //primary section contact button
  $wp_customize->add_section(
@@ -276,12 +287,16 @@ function set_menus_panel($wp_customize)
  $wp_customize->add_setting(
   'contactbtn_menu_primary_text',
   array(
+   'validate_callback' => 'true_validate_cbtn_text',
+   'sanitize_callback' => 'sanitize_text_field',
    'default' => 'Contact Us'
   )
  );
  $wp_customize->add_setting(
   'contactbtn_menu_primary_link',
   array(
+   'validate_callback' => 'true_validate_cbtn_link',
+   'sanitize_callback' => 'sanitize_text_field',
    'default' => '#contact-us'
   )
  );
@@ -352,25 +367,26 @@ function true_sanitize_header( $value ) {
 }
 
 function true_validate_header( $validity, $value ){
- 
-	if( '' === $value ) { // если значение пустое, то валидацию не проходит
+	if( '' === $value ) {
 		$validity->add( 'empty_copy', 'Header title cannot be empty' );
 	} else if(strlen($value) > 12) {
 		$validity->add( 'empty_copy', 'Header title cannot be greater that 12 symbols' );
  }
- 
 	return $validity;
 }
 
-//Добавляение кастомного меню
-function wpb_custom_new_menu() {
- register_nav_menus(
-   array(
-     'primary-menu' => __( 'Primary' ),
-     'footer-menu' => __( 'Footer Menu 1' ),
-     'footer-menu-2' => __( 'Footer Menu 2' ),
-     'footer-menu-3' => __( 'Footer Menu 3' ),
-   )
- );
+function true_validate_cbtn_link( $validity, $value ){
+	if( '' === $value ) {
+		$validity->add( 'empty_copy', 'Button link cannot be empty' );
+	} 
+	return $validity;
 }
-add_action( 'init', 'wpb_custom_new_menu' );
+
+function true_validate_cbtn_text( $validity, $value ){
+	if( '' === $value ) { 
+		$validity->add( 'empty_copy', 'Button text value cannot be empty' );
+	} else if(strlen($value) > 15) {
+		$validity->add( 'empty_copy', 'Button text value cannot be greater that 15 symbols' );
+ }
+	return $validity;
+}
