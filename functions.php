@@ -187,7 +187,8 @@ function belon_theme_init_sect1_options()
   array(
    'id' => 'twitter',
    'option' => 'belon_theme_sect1_options',
-   'type' => 'text'
+   'type' => 'text',
+   'placeholder' => 'link'
   )
  );
  add_settings_field(
@@ -199,7 +200,8 @@ function belon_theme_init_sect1_options()
   array(
    'id' => 'facebook',
    'option' => 'belon_theme_sect1_options',
-   'type' => 'text'
+   'type' => 'text',
+   'placeholder' => 'link'
   )
  );
  add_settings_field(
@@ -211,7 +213,8 @@ function belon_theme_init_sect1_options()
   array(
    'id' => 'linkedin',
    'option' => 'belon_theme_sect1_options',
-   'type' => 'text'
+   'type' => 'text',
+   'placeholder' => 'link'
   )
  );
  add_settings_field(
@@ -223,7 +226,8 @@ function belon_theme_init_sect1_options()
   array(
    'id' => 'youtube',
    'option' => 'belon_theme_sect1_options',
-   'type' => 'text'
+   'type' => 'text',
+   'placeholder' => 'link'
   )
  );
  add_settings_field(
@@ -235,7 +239,8 @@ function belon_theme_init_sect1_options()
   array(
    'id' => 'instagram',
    'option' => 'belon_theme_sect1_options',
-   'type' => 'text'
+   'type' => 'text',
+   'placeholder' => 'link'
   )
  );
  add_settings_field(
@@ -247,7 +252,8 @@ function belon_theme_init_sect1_options()
   array(
    'id' => 'dribble',
    'option' => 'belon_theme_sect1_options',
-   'type' => 'text'
+   'type' => 'text',
+   'placeholder' => 'link'
   )
  );
  add_settings_field(
@@ -259,7 +265,8 @@ function belon_theme_init_sect1_options()
   array(
    'id' => 'github',
    'option' => 'belon_theme_sect1_options',
-   'type' => 'text'
+   'type' => 'text',
+   'placeholder' => 'link'
   )
  );
 
@@ -480,15 +487,19 @@ function belon_op_field_callback($args) {
  $option = $args['option'];
  $options = get_option($option);
  $val = '';
+ $placeholder = '';
  if (isset($options[$id])) {
   $val = $options[$id];
  } 
+ if($args['placeholder'] === 'link') {
+  $placeholder = 'https://'. $id .'.com/*';
+ }
  if($args['type'] === 'textarea') {
  echo '<textarea size="36" rows="8" cols="36" style="resize: none;" id="' . $id . '" name="'. $option .'[' . $id . ']">'. $val .'</textarea>';
  }else if($args['type'] === 'checkbox') {
   echo '<input type="checkbox" id="' . $id . '" name="'. $option .'[' . $id . ']" value="1" ' . checked(1, $options[$id], false) . '/>';
  } else {
-  echo '<input type="' . $args['type'] . '" size="36" id="' . $id . '" name="'. $option .'[' . $id . ']" value="' . $val . '"/>';
+  echo '<input type="' . $args['type'] . '" placeholder="'. $placeholder .'" size="36" id="' . $id . '" name="'. $option .'[' . $id . ']" value="' . $val . '"/>';
  }
 }
 
