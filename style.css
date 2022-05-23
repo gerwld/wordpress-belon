@@ -274,7 +274,7 @@ ul.sc_icons {
   transition: var(--main-anim);
 }
 
-ul.sc_icons__dark a {
+.sc_icons__dark ul a {
  border: 2px solid #363636;
  color: #363636;
  background-color: #fff;
@@ -677,10 +677,6 @@ justify-content: center;
 
 .main-mob-nav .menu > li:not(:nth-last-child(1)) {
   margin-bottom: 10px;
-}
-
-.main-mob-nav .menu > li {
-  /* border-top: 1px solid rgb(241, 236, 236); */
 }
 
 .main-mob-nav .sub-menu {
