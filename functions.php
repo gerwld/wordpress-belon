@@ -434,6 +434,19 @@ function belon_theme_init_header_options()
  );
 
  add_settings_field(
+  'belon_header_hd_btn_newtab',
+  'Open in a new tab',
+  'belon_op_field_callback',
+  'belon_theme_header_options',
+  'belon_header_btn_hd',
+  array(
+   'id' => 'belon_header_hd_btn_newtab',
+   'type' => 'checkbox',
+   'option' => 'belon_theme_header_options'
+  )
+ );
+
+ add_settings_field(
   'belon_header_hd_il_choose',
   'Select Illustration',
   'belon_op_field_callback',
