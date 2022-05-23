@@ -149,6 +149,21 @@ function belon_pro_contactus_display(){
  <?php
  }
 
+ function belon_pro_header_display() {
+  ?>
+  <div class="wrap">
+   <h2>Настройки Header Section</h2>
+   <!-- вывод ошибок -->
+   <?php settings_errors(); ?>
+   <form method="post" action="options.php" class="h2_hidden">
+    <?php settings_fields('belon_theme_header_options'); ?>
+    <?php do_settings_sections('belon_theme_header_options'); ?>
+    <?php submit_button(); ?>
+   </form>
+  </div>
+ <?php
+ }
+
 
 //**** set main page in admin panel ****//
 function belon_theme_init_sect1_options()
@@ -229,6 +244,7 @@ function belon_theme_init_sect1_options()
 add_action('admin_init', 'belon_theme_init_sect1_options');
 
 
+//**** init & set contact subpage ****//
 function belon_theme_init_contact_options() {
  if(false == get_option('belon_theme_contact_options')) {
   add_option('belon_theme_contact_options');
@@ -304,7 +320,95 @@ function belon_theme_init_contact_options() {
  );
 } add_action('admin_init', 'belon_theme_init_contact_options');
 
+//**** init & set header subpage ****//
+function belon_theme_init_header_options() {
+ if(false === get_option('belon_theme_header_options')) {
+  add_option('belon_theme_header_options');
+ }
+ add_settings_section(
+  'belon_header_hd',
+  'Header Block Options',
+  'belon_header_hd_callback',
+  'belon_theme_header_options'
+ );
 
+ add_settings_section(
+  'belon_header_btn_hd',
+  'Header Button Options',
+  'belon_header_btn_hd_callback',
+  'belon_theme_header_options'
+ );
+
+ add_settings_section(
+  'belon_header_il_hd',
+  'Header Illustration Options',
+  'belon_header_il_hd_callback',
+  'belon_theme_header_options'
+ );
+
+ add_settings_field(
+  'belon_header_hd_title',
+  'Header Title',
+  'belon_op_field_callback',
+  'belon_theme_header_options',
+  'belon_header_hd',
+  array(
+   'id' => 'belon_header_hd_title',
+   'type' => 'text',
+   'option' => 'belon_theme_header_options'
+  ));
+  add_settings_field(
+   'belon_header_hd_desc',
+   'Header Description',
+   'belon_op_field_callback',
+   'belon_theme_header_options',
+   'belon_header_hd',
+   array(
+    'id' => 'belon_header_hd_desc',
+    'type' => 'text',
+    'option' => 'belon_theme_header_options'
+   ));
+
+   add_settings_field(
+    'belon_header_hd_btn_title',
+    'Button text',
+    'belon_op_field_callback',
+    'belon_theme_header_options',
+    'belon_header_btn_hd',
+    array(
+     'id' => 'belon_header_hd_btn_title',
+     'type' => 'text',
+     'option' => 'belon_theme_header_options'
+    ));
+   add_settings_field(
+    'belon_header_hd_btn_link',
+    'Button Link',
+    'belon_op_field_callback',
+    'belon_theme_header_options',
+    'belon_header_btn_hd',
+    array(
+     'id' => 'belon_header_hd_btn_link',
+     'type' => 'text',
+     'option' => 'belon_theme_header_options'
+    ));
+
+    add_settings_field(
+     'belon_header_hd_il_choose',
+     'Select Illustration',
+     'belon_op_field_callback',
+     'belon_theme_header_options',
+     'belon_header_il_hd',
+     array(
+      'id' => 'belon_header_hd_il_choose',
+      'type' => 'text',
+      'option' => 'belon_theme_header_options'
+     ));
+
+ register_setting(
+  'belon_theme_header_options',
+  'belon_theme_header_options'
+ );
+} add_action('admin_init', 'belon_theme_init_header_options');
 
 
 //callbacks for show info
@@ -330,16 +434,44 @@ function belon_contact_hd_cb_input($args){
   $val = $options[$id];
  } 
  if($args['type'] === 'textarea') {
- echo '<textarea id="' . $id . '" name="belon_theme_contact_options[' . $id . ']">'. $val .'</textarea>';
+ echo '<textarea id="' . $id . '" size="36" rows="8" cols="36" style="resize: none;" name="belon_theme_contact_options[' . $id . ']">'. $val .'</textarea>';
  } else if($args['type'] === 'checkbox') {
-  echo '<input type="' . $args['type'] . '" id="' . $id . '" name="belon_theme_contact_options[' . $id . ']" value="1" ' . checked(1, $options['belon_contact_hd_hide'], false) . '/>';
- }
- else {
-  echo '<input type="' . $args['type'] . '" id="' . $id . '" name="belon_theme_contact_options[' . $id . ']" value="' . $val . '"/>';
+  echo '<input type="' . $args['type'] . '" size="36" id="' . $id . '" name="belon_theme_contact_options[' . $id . ']" value="1" ' . checked(1, $options['belon_contact_hd_hide'], false) . '/>';
+ } else {
+  echo '<input type="' . $args['type'] . '" size="36" id="' . $id . '" name="belon_theme_contact_options[' . $id . ']" value="' . $val . '"/>';
  }
 }
 
-function set_default_contact_hd() {
+//callbacks for header section
+function belon_header_hd_callback() {
+ echo '<h3>Заголовок и подзаголовок:</h3>';
+}
+function belon_header_btn_hd_callback() {
+ echo '<h3>Настройки кнопки:</h3>';
+}
+
+function belon_header_il_hd_callback() {
+ echo '<h3>Настройки иллюстрации:</h3>';
+ }
+
+
+function belon_op_field_callback($args) {
+ $id = $args['id'];
+ $option = $args['option'];
+ $options = get_option($option);
+ $val = '';
+ if (isset($options[$id])) {
+  $val = $options[$id];
+ } 
+ if($args['type'] === 'textarea') {
+ echo '<textarea size="36" id="' . $id . '" name="'. $option .'[' . $id . ']">'. $val .'</textarea>';
+ } else {
+  echo '<input type="' . $args['type'] . '" size="36" id="' . $id . '" name="'. $option .'[' . $id . ']" value="' . $val . '"/>';
+ }
+}
+
+//default values setters
+function set_default_contact_hd(){
  $options = get_option('belon_theme_contact_options');
  $setdefault = array(
   'belon_contact_hd_title' => $options['belon_contact_hd_title'] ? $options['belon_contact_hd_title'] : 'Contact Us',
@@ -348,12 +480,10 @@ function set_default_contact_hd() {
   'belon_contact_hd_btn_text' => $options['belon_contact_hd_btn_text'] ? $options['belon_contact_hd_btn_text'] : 'Send',
   'belon_contact_hd_hide' => $options['belon_contact_hd_hide'],
  );
-update_option( 'belon_theme_contact_options', $setdefault );
+ update_option('belon_theme_contact_options', $setdefault);
+} set_default_contact_hd();
 
 
-}
-
-set_default_contact_hd();
 //**** set main page in admin panel end ****//
 
 
