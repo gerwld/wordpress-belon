@@ -43,6 +43,14 @@
  --main-gradient_4: linear-gradient( 65deg,  #7c59e6 11.2%, #dc88ec 91.2% );
 }
 
+/* fix admin panel overflow bug in some locales (ru, fr) */
+#adminmenu div.wp-menu-name {
+ padding: 8px 6px 8px 33px;
+}
+
+#adminmenu a[href="admin.php?page=belon_pro_menu"] {
+}
+
 .admin_block_st {
  width: 100%;
  min-height: 80vh;
@@ -52,4 +60,8 @@
  box-sizing: border-box;
  border-radius: var(--main-br-radius);
  box-shadow: var(--shadow-main);
+}
+
+.h2_hidden h2 {
+ display: none;
 }

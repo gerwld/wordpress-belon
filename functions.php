@@ -50,12 +50,12 @@ function wpb_custom_new_menu(){
  );} add_action('init', 'wpb_custom_new_menu');
 
  // //Add admin panel css styles
-function my_admin_enqueue($suffix){
- if (strpos($suffix, 'belon') !== false) {
+function belon_enqueue_styles($post_suffix){
+ if (strpos($post_suffix, 'belon') !== false) {
   wp_enqueue_style('my-theme-settings', get_template_directory_uri() . '/assets/styles/theme-settings.css');
  }
-}
-add_action('admin_enqueue_scripts', 'my_admin_enqueue', 10);
+ wp_enqueue_style('my-theme-settings', get_template_directory_uri() . '/assets/styles/admin-settings.css');
+}add_action('admin_enqueue_scripts', 'belon_enqueue_styles', 10);
 //*** add theme functional with hooks / params (end) ***//
 
 
@@ -69,35 +69,63 @@ function belon_create_menu_page()
   'administrator',
   'belon_pro_menu',
   'belon_pro_menu_display',
-  'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNTQ0cHgiIGhlaWdodD0iNTQ0cHgiIHZpZXdCb3g9IjAgMCA1NDQgNTQ0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPHRpdGxlPm5vdW4tdGVtcGxhdGUtMzIxODA3MzwvdGl0bGU+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0ibm91bi10ZW1wbGF0ZS0zMjE4MDczIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjc2MDMwMCwgMC43NTUzMDApIiBmaWxsPSIjMDAwMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aCIgcG9pbnRzPSI2OS45ODk3IDEzOS45OTQ3IDg3LjQ4OTcgMTM5Ljk5NDcgODcuNDg5NyAxNTcuNDk0NyA2OS45ODk3IDE1Ny40OTQ3Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBwb2ludHM9IjEwNC45ODk3IDEzOS45OTQ3IDEyMi40ODk3IDEzOS45OTQ3IDEyMi40ODk3IDE1Ny40OTQ3IDEwNC45ODk3IDE1Ny40OTQ3Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBwb2ludHM9IjEzOS45ODk3IDEzOS45OTQ3IDE1Ny40ODk3IDEzOS45OTQ3IDE1Ny40ODk3IDE1Ny40OTQ3IDEzOS45ODk3IDE1Ny40OTQ3Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik01MTcuMDE5Nyw0MDEuMDQ0NyBMNTI4LjgzOTcsMzgwLjM0OTcgTDUyMi4zMjgsMzczLjgzOCBDNTM1LjY2LDM0MS4yNzYgNTQyLjQ5MiwzMDYuODA3IDU0Mi40OTIsMjcxLjI0OCBDNTQyLjQ5MiwyMDguNzEzIDUyMC43MzgsMTQ3LjkxOCA0ODEuMjQyLDk5LjYyOCBMNDgxLjI0Miw3Ni4wOTcgTDQzNy40OTIsMTAuNDcyIEw0MTYuMzE2LDQyLjIzNCBDMzcyLjkyNSwxNC42ODMgMzIzLjAwNywwIDI3MS4yNDYsMCBDMTg2LjYyNSwwIDEwOC44MzYsMzguMjU0IDU3LjAxNiwxMDUgTDM1LDEwNSBMMzUsMTM4LjAzOSBDMTIuMTQ1LDE3OC41MTYgMCwyMjQuNDg4IDAsMjcxLjI0OSBDMCw0MjAuODA5IDEyMS42OCw1NDIuNDk5NiAyNzEuMjUsNTQyLjQ5OTYgQzMwNi44MDEsNTQyLjQ5OTYgMzQxLjI2Niw1MzUuNjY3IDM3My44NCw1MjIuMzMxIEwzODAuMzQsNTI4Ljg0MjcgTDQwMS4wNTEsNTE3LjAzMDcgQzQwMy4wMzU0LDUxNy45NDA4NiA0MDUuMDMxNSw1MTguNzgwNyA0MDcuMDM1NCw1MTkuNTM0NiBMNDEzLjMyMDYsNTQyLjQ5OTYgTDQ2MS42Nzk2LDU0Mi40OTk2IEw0NjcuOTYwOCw1MTkuNTMwNiBDNDY5Ljk2NDcsNTE4Ljc3NjY5IDQ3MS45NjA4LDUxNy45NDg2IDQ3My45NDUyLDUxNy4wMjY3IEw0OTQuNjU2Miw1MjguODM4NyBMNTI4Ljg0NDIsNDk0LjY0MzcgTDUxNy4wMjQyLDQ3My45NDg3IEM1MTcuOTM0MzYsNDcxLjk3MjEgNTE4Ljc3NDIsNDY5Ljk2ODIgNTE5LjUyODEsNDY3Ljk1NjUgTDU0Mi41MDUxLDQ2MS42NzUzIEw1NDIuNTA1MSw0MTMuMzIzMyBMNTE5LjUzNjEsNDA3LjA0MjEgQzUxOC43ODIxOSw0MDUuMDI2NSA1MTcuOTQyMyw0MDMuMDIyNiA1MTcuMDMyMiw0MDEuMDQ2IEw1MTcuMDE5Nyw0MDEuMDQ0NyBaIE01MjQuOTkyNCwyNzEuMjQ0NyBDNTI0Ljk5MjQsMzAyLjAzNzcgNTE5LjU4NjIsMzMxLjk3MTcgNTA4Ljg5MDQsMzYwLjM5NjcgTDQ5NC42NDQ0LDM0Ni4xNTA3IEw0ODEuMjQyNCwzNTMuNzk5MSBMNDgxLjI0MjQsMTI5LjAxOTEgQzUwOS41MzE0LDE3MC44MDAxIDUyNC45OTI0LDIyMC4zODYxIDUyNC45OTI0LDI3MS4yMzkxIEw1MjQuOTkyNCwyNzEuMjQ0NyBaIE0zNTcuOTYyNCw0MDEuMDQ0NyBDMzU3LjA1MjI0LDQwMy4wMjEzIDM1Ni4yMTI0LDQwNS4wMjUyIDM1NS40NTg1LDQwNy4wMzY5IEwzMzIuNDg5NSw0MTMuMzIyMSBMMzMyLjQ4OTUsNDE5Ljk5NzkgTDY1Ljg0OTUsNDE5Ljk5NzkgQzYxLjA4MzksNDEzLjQzNTQgNTYuNjE5LDQwNi42Mzg5IDUyLjQ5MDUsMzk5LjYxODkgTDUyLjQ5MDUsMTkyLjQ5ODkgTDM5My43NDA1LDE5Mi40OTg5IEwzOTMuNzQwNSwzNTMuNzk4OSBMMzgwLjMzNDUsMzQ2LjE1MDUgTDM0Ni4xNDY1LDM4MC4zNDU1IEwzNTcuOTYyNCw0MDEuMDQ0NyBaIE00MTEuMjM5NCw4Ny40OTQ3IEw0MjguNzM5NCw4Ny40OTQ3IEw0MjguNzM5NCwzMzIuNDk0NyBMNDEzLjMwNTQsMzMyLjQ5NDcgTDQxMS4yMzksMzQwLjA1MzMgTDQxMS4yMzk0LDg3LjQ5NDcgWiBNNDQ2LjIzOTQsODcuNDk0NyBMNDYzLjczOTQsODcuNDk0NyBMNDYzLjczOTQsMzQwLjA1NDcgTDQ2MS42NzMsMzMyLjQ5NjEgTDQ0Ni4yMzksMzMyLjQ5NjEgTDQ0Ni4yMzk0LDg3LjQ5NDcgWiBNNDU2LjE0NTYsNjkuOTk0NyBMNDE4Ljg0NDYsNjkuOTk0NyBMNDM3LjQ4OTYsNDIuMDIxNyBMNDU2LjE0NTYsNjkuOTk0NyBaIE0yNzEuMjM1NiwxNy40OTQ3IEMzMTkuNTM2NiwxNy40OTQ3IDM2Ni4xMDI2LDMxLjE1NDcgNDA2LjYwNTYsNTYuNzgzNyBMMzkzLjczNDYsNzYuMDkyNyBMMzkzLjczNDYsMTA0Ljk5NDcgTDc5LjU5NDYsMTA0Ljk5NDcgQzEyNy44Njc2LDQ5LjE5NzcgMTk2LjcxNDYsMTcuNDk0NyAyNzEuMjM0NiwxNy40OTQ3IEwyNzEuMjM1NiwxNy40OTQ3IFogTTM5My43MzU2LDEyMi40OTQ3IEwzOTMuNzM1NiwxNzQuOTk0NyBMNTIuNDg1NiwxNzQuOTk0NyBMNTIuNDg1NiwxMjIuNDk0NyBMMzkzLjczNTYsMTIyLjQ5NDcgWiBNMzQuOTg1NiwxNzguODI2NyBMMzQuOTg1NiwzNjMuNjY2NyBDMjMuNzMxNiwzMzUuMDAyNyAxNy40ODU2LDMwMy44NTA3IDE3LjQ4NTYsMjcxLjI0ODcgQzE3LjQ4NTYsMjM5LjQ4NjcgMjMuNTQwMywyMDguMTM1NyAzNC45ODU2LDE3OC44MzA3IEwzNC45ODU2LDE3OC44MjY3IFogTTI3MS4yMzU2LDUyNC45OTcxIEMxOTQuODc2Niw1MjQuOTk3MSAxMjYuMzM1Niw0OTEuMDQ3NyA3OS43NzU2LDQzNy40OTY3IEwzMzIuNDg1Niw0MzcuNDk2NyBMMzMyLjQ4NTYsNDYxLjY3MjcgTDM1NS40NTQ2LDQ2Ny45NTM5IEMzNTYuMjA4NTEsNDY5Ljk2NTYgMzU3LjA0ODQsNDcxLjk2OTUgMzU3Ljk1ODUsNDczLjk0NjEgTDM0Ni4xMzg1LDQ5NC42NDExIEwzNjAuMzkyNSw1MDguODk1MSBDMzMxLjk2MjUsNTE5LjU3OTEgMzAyLjAyOTUsNTI0Ljk5NzEgMjcxLjIzNjUsNTI0Ljk5NzEgTDI3MS4yMzU2LDUyNC45OTcxIFogTTUyNC45ODU2LDQ0OC4zMjA3IEw1MDUuNzk3Niw0NTMuNTcwNyBMNTA0LjM4NzQsNDU4LjE2NDUgQzUwMy4xMjU3LDQ2Mi4yMTUzIDUwMS40NDYsNDY2LjI1MDQgNDk5LjM4MzUsNDcwLjE0NDUgTDQ5Ny4xMjU3LDQ3NC4zOTg0IEw1MDcuMDEyNCw0OTEuNzE0NCBMNDkxLjcwNzQsNTA3LjAyNjQgTDQ3NC4zOTE0LDQ5Ny4xNDc1IEw0NzAuMTQ5Miw0OTkuMzg1OCBDNDY2LjIxMTcsNTAxLjQ2NzggNDYyLjE2ODcsNTAzLjE0NzUgNDU4LjE1MzIsNTA0LjM4OTcgTDQ1My41NjczLDUwNS44MDc3IEw0NDguMzAxNyw1MjQuOTk1NyBMNDI2LjY2MDcsNTI0Ljk5NTcgTDQyMS40MDI5LDUwNS44MDc3IEw0MTYuODE3LDUwNC4zODk3IEM0MTIuODAxNCw1MDMuMTQ3NSA0MDguNzU4NCw1MDEuNDY3OCA0MDQuODIxLDQ5OS4zODU4IEw0MDAuNTc4OCw0OTcuMTQ3NSBMMzgzLjI2MjgsNTA3LjAyNjQgTDM2Ny45NTc4LDQ5MS43MTQ0IEwzNzcuODQ0NSw0NzQuMzk4NCBMMzc1LjU4NjcsNDcwLjE0NDUgQzM3My41MjAzLDQ2Ni4yNSAzNzEuODMyOCw0NjIuMjE4NyAzNzAuNTgyOCw0NTguMTY0NSBMMzY5LjE3MjYsNDUzLjU3MDcgTDM0OS45ODQ2LDQ0OC4zMjA3IEwzNDkuOTg0Niw0MjYuNjcyNyBMMzY5LjE3MjYsNDIxLjQyMjcgTDM3MC41ODI4LDQxNi44Mjg5IEMzNzEuODQ0NSw0MTIuNzc4MSAzNzMuNTI0Miw0MDguNzQzIDM3NS41ODY3LDQwNC44NDg5IEwzNzcuODQ0NSw0MDAuNTk1IEwzNjcuOTU3OCwzODMuMjc5IEwzODMuMjYyOCwzNjcuOTY3IEw0MDAuNTc4OCwzNzcuODQ1OSBMNDA0LjgyMSwzNzUuNjA3NiBDNDA4Ljc1ODUsMzczLjUyNTYgNDEyLjgwMTUsMzcxLjg0NTkgNDE2LjgxNywzNzAuNjAzNyBMNDIxLjQwMjksMzY5LjE4NTcgTDQyNi42Njg1LDM0OS45OTc3IEw0NDguMzA5NSwzNDkuOTk3NyBMNDUzLjU2NzMsMzY5LjE4NTcgTDQ1OC4xNTMyLDM3MC42MDM3IEM0NjIuMTY4OCwzNzEuODQ1OSA0NjYuMjExOCwzNzMuNTI1NiA0NzAuMTQ5MiwzNzUuNjA3NiBMNDc0LjM5MTQsMzc3Ljg0NTkgTDQ5MS43MDc0LDM2Ny45NjcgTDUwNy4wMTI0LDM4My4yNzkgTDQ5Ny4xMjU3LDQwMC41OTUgTDQ5OS4zODM1LDQwNC44NDg5IEM1MDEuNDQ5OSw0MDguNzQzNCA1MDMuMTM3NCw0MTIuNzc0NyA1MDQuMzg3NCw0MTYuODI4OSBMNTA1Ljc5NzYsNDIxLjQyMjcgTDUyNC45ODU2LDQyNi42NzI3IEw1MjQuOTg1Niw0NDguMzIwNyBaIiBpZD0iU2hhcGUiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZD0iTTQzNy40ODk3LDM4NC45OTQ3IEM0MDguNTM2NywzODQuOTk0NyAzODQuOTg5Nyw0MDguNTQxNyAzODQuOTg5Nyw0MzcuNDk0NyBDMzg0Ljk4OTcsNDY2LjQ0NzcgNDA4LjUzNjcsNDg5Ljk5NDcgNDM3LjQ4OTcsNDg5Ljk5NDcgQzQ2Ni40NDI3LDQ4OS45OTQ3IDQ4OS45ODk3LDQ2Ni40NDc3IDQ4OS45ODk3LDQzNy40OTQ3IEM0ODkuOTg5Nyw0MDguNTQxNyA0NjYuNDQyNywzODQuOTk0NyA0MzcuNDg5NywzODQuOTk0NyBaIE00MzcuNDg5Nyw0NzIuNDk0NyBDNDE4LjE4ODcsNDcyLjQ5NDcgNDAyLjQ4OTcsNDU2Ljc5NTcgNDAyLjQ4OTcsNDM3LjQ5NDcgQzQwMi40ODk3LDQxOC4xOTM3IDQxOC4xODg3LDQwMi40OTQ3IDQzNy40ODk3LDQwMi40OTQ3IEM0NTYuNzkwNyw0MDIuNDk0NyA0NzIuNDg5Nyw0MTguMTkzNyA0NzIuNDg5Nyw0MzcuNDk0NyBDNDcyLjQ4OTcsNDU2Ljc5NTcgNDU2Ljc5MDcsNDcyLjQ5NDcgNDM3LjQ4OTcsNDcyLjQ5NDcgWiIgaWQ9IlNoYXBlIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0yNDQuOTg5NywyMDkuOTk0NyBMNjkuOTg5NywyMDkuOTk0NyBMNjkuOTg5NywyOTcuNDk0NyBMMjQ0Ljk4OTcsMjk3LjQ5NDcgTDI0NC45ODk3LDIwOS45OTQ3IFogTTIyNy40ODk3LDI3OS45OTQ3IEw4Ny40ODk3LDI3OS45OTQ3IEw4Ny40ODk3LDIyNy40OTQ3IEwyMjcuNDg5NywyMjcuNDk0NyBMMjI3LjQ4OTcsMjc5Ljk5NDcgWiIgaWQ9IlNoYXBlIj48L3BhdGg+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBwb2ludHM9IjI2Mi40ODk3IDIwOS45OTQ3IDM3Ni4yMzk3IDIwOS45OTQ3IDM3Ni4yMzk3IDIyNy40OTQ3IDI2Mi40ODk3IDIyNy40OTQ3Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBwb2ludHM9IjI2Mi40ODk3IDI0NC45OTQ3IDM3Ni4yMzk3IDI0NC45OTQ3IDM3Ni4yMzk3IDI2Mi40OTQ3IDI2Mi40ODk3IDI2Mi40OTQ3Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBwb2ludHM9IjM1OC43Mzk3IDI3OS45OTQ3IDM3Ni4yMzk3IDI3OS45OTQ3IDM3Ni4yMzk3IDI5Ny40OTQ3IDM1OC43Mzk3IDI5Ny40OTQ3Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBwb2ludHM9IjI2Mi40ODk3IDI3OS45OTQ3IDM0MS4yMzk3IDI3OS45OTQ3IDM0MS4yMzk3IDI5Ny40OTQ3IDI2Mi40ODk3IDI5Ny40OTQ3Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02OS45ODk3LDQwMi40OTQ3IEwxOTIuNDg5Nyw0MDIuNDk0NyBMMTkyLjQ4OTcsMzE0Ljk5NDcgTDY5Ljk4OTcsMzE0Ljk5NDcgTDY5Ljk4OTcsNDAyLjQ5NDcgWiBNODcuNDg5NywzMzIuNDk0NyBMMTc0Ljk4OTcsMzMyLjQ5NDcgTDE3NC45ODk3LDM4NC45OTQ3IEw4Ny40ODk3LDM4NC45OTQ3IEw4Ny40ODk3LDMzMi40OTQ3IFoiIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMjA5Ljk4OTcsNDAyLjQ5NDcgTDMzMi40ODk3LDQwMi40OTQ3IEwzMzIuNDg5NywzMTQuOTk0NyBMMjA5Ljk4OTcsMzE0Ljk5NDcgTDIwOS45ODk3LDQwMi40OTQ3IFogTTIyNy40ODk3LDMzMi40OTQ3IEwzMTQuOTg5NywzMzIuNDk0NyBMMzE0Ljk4OTcsMzg0Ljk5NDcgTDIyNy40ODk3LDM4NC45OTQ3IEwyMjcuNDg5NywzMzIuNDk0NyBaIiBpZD0iU2hhcGUiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==',
-  '30'
+  null,
+  '32'
  );
+
  add_submenu_page(
   'belon_pro_menu',
-  'Slider Settings',
+  'Main Settings - Belon Pro Theme',
+  'Main Settings',
+  'administrator',
+  'belon_pro_menu',
+  'belon_pro_header_display'
+ );
+
+ add_submenu_page(
+  'belon_pro_menu',
+  'Header Settings - Belon Pro Theme',
+  'Header',
+  'administrator',
+  'belon_pro_header',
+  'belon_pro_header_display'
+ );
+
+ add_submenu_page(
+  'belon_pro_menu',
+  'Contact Us Settings - Belon Pro Theme',
+  'Contact Us',
+  'administrator',
+  'belon_pro_contact_us',
+  'belon_pro_contactus_display'
+ );
+
+ add_submenu_page(
+  'belon_pro_menu',
+  'Slider Settings - Belon Pro Theme',
   'Slider',
   'administrator',
-  'belon_pro_menu_slider',
+  'belon_pro_slider',
   'belon_pro_slider_display'
  );
  add_submenu_page(
   'belon_pro_menu',
-  'Social Icons Settings',
-  'Social Navbar',
+  'Social Icons Settings - Belon Pro Theme',
+  'Social Icons',
   'administrator',
-  'belon_pro_menu_soc_icons',
-  'belon_pro_soc_icons_display'
+  'belon_pro_soc_icons',
+  'belon_pro_menu_soc_icons_display'
  );
 }
 add_action('admin_menu', 'belon_create_menu_page');
 
-function belon_pro_menu_display(){
+function belon_pro_menu_soc_icons_display(){
 ?>
  <div class="wrap">
-  <h2>Настройки темы Belon Pro</h2>
+  <h2>Настройки Social Icons</h2>
   <!-- вывод ошибок -->
   <?php settings_errors(); ?>
-  <form method="post" action="options.php">
+  <form method="post" action="options.php" class="h2_hidden">
    <?php settings_fields('belon_theme_sect1_options'); ?>
    <?php do_settings_sections('belon_theme_sect1_options'); ?>
    <?php submit_button(); ?>
@@ -105,6 +133,21 @@ function belon_pro_menu_display(){
  </div>
 <?php
 }
+
+function belon_pro_contactus_display(){
+ ?>
+  <div class="wrap">
+   <h2>Настройки Contact Us Section</h2>
+   <!-- вывод ошибок -->
+   <?php settings_errors(); ?>
+   <form method="post" action="options.php" class="h2_hidden">
+    <?php settings_fields('belon_theme_contact_options'); ?>
+    <?php do_settings_sections('belon_theme_contact_options'); ?>
+    <?php submit_button(); ?>
+   </form>
+  </div>
+ <?php
+ }
 
 
 //**** set main page in admin panel ****//
@@ -186,6 +229,84 @@ function belon_theme_init_sect1_options()
 add_action('admin_init', 'belon_theme_init_sect1_options');
 
 
+function belon_theme_init_contact_options() {
+ if(false == get_option('belon_theme_contact_options')) {
+  add_option('belon_theme_contact_options');
+ }
+ add_settings_section(
+  'belon_contact_hd',
+  'Header and title',
+  'belon_contact_hd_callback',
+  'belon_theme_contact_options'
+ );
+ add_settings_field(
+  'belon_contact_hd_title',
+  'Section Title',
+  'belon_contact_hd_cb_input',
+  'belon_theme_contact_options',
+  'belon_contact_hd',
+  array(
+   'id' => 'belon_contact_hd_title',
+   'type' => 'text'
+  )
+ );
+
+ add_settings_field(
+  'belon_contact_hd_desc',
+  'Section Descritpion',
+  'belon_contact_hd_cb_input',
+  'belon_theme_contact_options',
+  'belon_contact_hd',
+  array(
+   'id' => 'belon_contact_hd_desc',
+   'type' => 'textarea'
+  )
+ );
+ add_settings_field(
+  'belon_contact_hd_placeholder',
+  'Input placeholder value',
+  'belon_contact_hd_cb_input',
+  'belon_theme_contact_options',
+  'belon_contact_hd',
+  array(
+   'id' => 'belon_contact_hd_placeholder',
+   'type' => 'text'
+  )
+ );
+
+ add_settings_field(
+  'belon_contact_hd_btn_text',
+  'Button text value',
+  'belon_contact_hd_cb_input',
+  'belon_theme_contact_options',
+  'belon_contact_hd',
+  array(
+   'id' => 'belon_contact_hd_btn_text',
+   'type' => 'text'
+  )
+ );
+
+ add_settings_field(
+  'belon_contact_hd_hide',
+  'Hide Section',
+  'belon_contact_hd_cb_input',
+  'belon_theme_contact_options',
+  'belon_contact_hd',
+  array(
+   'id' => 'belon_contact_hd_hide',
+   'type' => 'checkbox'
+  )
+ );
+
+ register_setting(
+  'belon_theme_contact_options',
+  'belon_theme_contact_options'
+ );
+} add_action('admin_init', 'belon_theme_init_contact_options');
+
+
+
+
 //callbacks for show info
 function belon_sect1_callback(){
  echo '<p>Укажите ссылки на социальные сети:</p>';}
@@ -195,9 +316,44 @@ function belon_sect1_callback(){
   $url = '';
   if (isset($options[$id])) {
    $url = $options[$id];
-  } echo '<input type="text" id="' . $id . '" name="belon_theme_sect1_options[' . $id . ']" value="' . $url . '"/>';
+  } 
+  echo '<input type="text" id="' . $id . '" name="belon_theme_sect1_options[' . $id . ']" value="' . $url . '"/>';
  }
+//callbacks for contact us
+function belon_contact_hd_callback(){
+ echo '<p>Заполните данные секции:</p>';}
+function belon_contact_hd_cb_input($args){
+ $id = $args['id'];
+ $options = get_option('belon_theme_contact_options');
+ $val = '';
+ if (isset($options[$id])) {
+  $val = $options[$id];
+ } 
+ if($args['type'] === 'textarea') {
+ echo '<textarea id="' . $id . '" name="belon_theme_contact_options[' . $id . ']">'. $val .'</textarea>';
+ } else if($args['type'] === 'checkbox') {
+  echo '<input type="' . $args['type'] . '" id="' . $id . '" name="belon_theme_contact_options[' . $id . ']" value="1" ' . checked(1, $options['belon_contact_hd_hide'], false) . '/>';
+ }
+ else {
+  echo '<input type="' . $args['type'] . '" id="' . $id . '" name="belon_theme_contact_options[' . $id . ']" value="' . $val . '"/>';
+ }
+}
 
+function set_default_contact_hd() {
+ $options = get_option('belon_theme_contact_options');
+ $setdefault = array(
+  'belon_contact_hd_title' => $options['belon_contact_hd_title'] ? $options['belon_contact_hd_title'] : 'Contact Us',
+  'belon_contact_hd_desc' => $options['belon_contact_hd_desc'] ? $options['belon_contact_hd_desc'] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aliquam libero laudantium cumque, aperiam quos nesciunt tempore, assumenda error veniam dolorum quidem.',
+  'belon_contact_hd_placeholder' => $options['belon_contact_hd_placeholder'] ? $options['belon_contact_hd_placeholder'] : 'Your email',
+  'belon_contact_hd_btn_text' => $options['belon_contact_hd_btn_text'] ? $options['belon_contact_hd_btn_text'] : 'Send',
+  'belon_contact_hd_hide' => $options['belon_contact_hd_hide'],
+ );
+update_option( 'belon_theme_contact_options', $setdefault );
+
+
+}
+
+set_default_contact_hd();
 //**** set main page in admin panel end ****//
 
 

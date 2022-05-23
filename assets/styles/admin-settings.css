@@ -1,0 +1,7 @@
+/* fix admin panel overflow bug in some locales (ru, fr) */
+#adminmenu div.wp-menu-name {
+ padding: 8px 6px 8px 33px;
+}
+
+#adminmenu a[href="admin.php?page=belon_pro_menu"] {
+}

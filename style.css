@@ -881,7 +881,7 @@ justify-content: center;
  min-height: 685px;
  position: relative;
  background: url('./img/hd_bg.svg') 90% 85% no-repeat;
- background-size: 97% auto;
+ background-size: 98% auto;
 }
 
 .hd-image img {
@@ -1628,8 +1628,8 @@ justify-content: center;
 
 /* Footer styles */
 
-.main-footer {
- background-color: #fff;
+.main-footer_wrapper {
+  background-color: #fff;
 }
 
 .ft_block_1_wrapper {

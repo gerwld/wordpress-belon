@@ -1,5 +1,6 @@
-<?php $social_options = get_option('belon_theme_sect1_options'); ?>
+<!-- //**** SOCIAL ICONS COMPONENT ****// -->
 
+<?php $social_options = get_option('belon_theme_sect1_options'); ?>
 <ul class="sc_icons">
  <?php echo $social_options['facebook'] ?
   '<li class="fb"><a href="' . $social_options['facebook'] . '" target="_blank" and rel="noopener noreferrer">
