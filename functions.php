@@ -123,23 +123,58 @@ function belon_theme_init_sect1_options()
  add_settings_field(
   'twitter',
   'Twitter',
-  'sect1_twitter_callback',
+  'sect1_input_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
+  'twitter'
  );
  add_settings_field(
   'facebook',
   'Facebook',
-  'sect1_facebook_callback',
+  'sect1_input_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
+  'facebook'
  );
  add_settings_field(
   'linkedin',
   'Linkedin',
-  'sect1_linkedin_callback',
+  'sect1_input_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
+  'linkedin'
+ );
+ add_settings_field(
+  'youtube',
+  'YouTube',
+  'sect1_input_callback',
+  'belon_theme_sect1_options',
+  'belon_sect1',
+  'youtube'
+ );
+ add_settings_field(
+  'instagram',
+  'Instagram',
+  'sect1_input_callback',
+  'belon_theme_sect1_options',
+  'belon_sect1',
+  'instagram'
+ );
+ add_settings_field(
+  'dribble',
+  'Dribble',
+  'sect1_input_callback',
+  'belon_theme_sect1_options',
+  'belon_sect1',
+  'dribble'
+ );
+ add_settings_field(
+  'github',
+  'GitHub',
+  'sect1_input_callback',
+  'belon_theme_sect1_options',
+  'belon_sect1',
+  'github'
  );
 
  register_setting(
@@ -155,29 +190,13 @@ add_action('admin_init', 'belon_theme_init_sect1_options');
 function belon_sect1_callback(){
  echo '<p>Укажите ссылки на социальные сети:</p>';}
 
-function sect1_twitter_callback(){
- $options = get_option('belon_theme_sect1_options');
- $url = '';
- if (isset($options['twitter'])) {
-  $url = $options['twitter'];
- } echo '<input type="text" id="twitter" name="belon_theme_sect1_options[twitter]" value="' . $url . '" />';
-}
-
-function sect1_facebook_callback(){
- $options = get_option('belon_theme_sect1_options');
- $url = '';
- if (isset($options['facebook'])) {
-  $url = $options['facebook'];
- } echo '<input type="text" id="facebook" name="belon_theme_sect1_options[facebook]" value="' . $url . '" />';
-}
-
-function sect1_linkedin_callback(){
- $options = get_option('belon_theme_sect1_options');
- $url = '';
- if (isset($options['linkedin'])) {
-  $url = $options['linkedin'];
- } echo '<input type="text" id="linkedin" name="belon_theme_sect1_options[linkedin]" value="' . $url . '" />';
-}
+ function sect1_input_callback($id){
+  $options = get_option('belon_theme_sect1_options');
+  $url = '';
+  if (isset($options[$id])) {
+   $url = $options[$id];
+  } echo '<input type="text" id="' . $id . '" name="belon_theme_sect1_options[' . $id . ']" value="' . $url . '"/>';
+ }
 
 //**** set main page in admin panel end ****//
 
