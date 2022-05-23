@@ -276,10 +276,11 @@ ul.sc_icons {
  }
 
  .sc_icons .ig a:hover {
-  background-color: #ffffff;
+  background-color: #eee8e8;
  }
  .sc_icons .ig a:hover svg {
   stroke: #E1306C;
+  fill: none;
  }
 
  .sc_icons .db a:hover {
@@ -2774,13 +2775,18 @@ body {
  }
 
  .hd-image .sc_icons {
-  width: 170px;
-  justify-content: space-between;
-  right: calc(50% - 85px);
+  width: 100%;
+  justify-content: center;
+  left: 0;
+  right: 0;
  }
 
  .hd-image .sc_icons li {
-  margin-right: 0;
+  margin-right: 2%;
+ }
+
+ .hd-image .sc_icons li:nth-last-child(1) {
+   margin-right: 0;
  }
 
  .sc_icons a {
