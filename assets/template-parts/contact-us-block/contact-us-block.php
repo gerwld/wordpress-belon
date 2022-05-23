@@ -1,6 +1,6 @@
 <!-- //**** CONTACT US COMPONENT ****// -->
-
 <?php $contactus_options = get_option('belon_theme_contact_options'); ?>
+
 <?php if(!$contactus_options['belon_contact_hd_hide']) { ?>
 <div class="ft_block_1_wrapper">
  <div class="content_wrapper">

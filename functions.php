@@ -181,58 +181,86 @@ function belon_theme_init_sect1_options()
  add_settings_field(
   'twitter',
   'Twitter',
-  'sect1_input_callback',
+  'belon_op_field_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
-  'twitter'
+  array(
+   'id' => 'twitter',
+   'option' => 'belon_theme_sect1_options',
+   'type' => 'text'
+  )
  );
  add_settings_field(
   'facebook',
   'Facebook',
-  'sect1_input_callback',
+  'belon_op_field_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
-  'facebook'
+  array(
+   'id' => 'facebook',
+   'option' => 'belon_theme_sect1_options',
+   'type' => 'text'
+  )
  );
  add_settings_field(
   'linkedin',
   'Linkedin',
-  'sect1_input_callback',
+  'belon_op_field_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
-  'linkedin'
+  array(
+   'id' => 'linkedin',
+   'option' => 'belon_theme_sect1_options',
+   'type' => 'text'
+  )
  );
  add_settings_field(
   'youtube',
   'YouTube',
-  'sect1_input_callback',
+  'belon_op_field_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
-  'youtube'
+  array(
+   'id' => 'youtube',
+   'option' => 'belon_theme_sect1_options',
+   'type' => 'text'
+  )
  );
  add_settings_field(
   'instagram',
   'Instagram',
-  'sect1_input_callback',
+  'belon_op_field_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
-  'instagram'
+  array(
+   'id' => 'instagram',
+   'option' => 'belon_theme_sect1_options',
+   'type' => 'text'
+  )
  );
  add_settings_field(
   'dribble',
   'Dribble',
-  'sect1_input_callback',
+  'belon_op_field_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
-  'dribble'
+  array(
+   'id' => 'dribble',
+   'option' => 'belon_theme_sect1_options',
+   'type' => 'text'
+  )
  );
  add_settings_field(
   'github',
   'GitHub',
-  'sect1_input_callback',
+  'belon_op_field_callback',
   'belon_theme_sect1_options',
   'belon_sect1',
-  'github'
+  array(
+   'id' => 'github',
+   'option' => 'belon_theme_sect1_options',
+   'type' => 'text'
+  )
  );
 
  register_setting(
@@ -245,8 +273,9 @@ add_action('admin_init', 'belon_theme_init_sect1_options');
 
 
 //**** init & set contact subpage ****//
-function belon_theme_init_contact_options() {
- if(false == get_option('belon_theme_contact_options')) {
+function belon_theme_init_contact_options()
+{
+ if (false == get_option('belon_theme_contact_options')) {
   add_option('belon_theme_contact_options');
  }
  add_settings_section(
@@ -255,62 +284,68 @@ function belon_theme_init_contact_options() {
   'belon_contact_hd_callback',
   'belon_theme_contact_options'
  );
+
  add_settings_field(
   'belon_contact_hd_title',
   'Section Title',
-  'belon_contact_hd_cb_input',
+  'belon_op_field_callback',
   'belon_theme_contact_options',
   'belon_contact_hd',
   array(
    'id' => 'belon_contact_hd_title',
-   'type' => 'text'
+   'type' => 'text',
+   'option' => 'belon_theme_contact_options'
   )
  );
 
  add_settings_field(
   'belon_contact_hd_desc',
   'Section Descritpion',
-  'belon_contact_hd_cb_input',
+  'belon_op_field_callback',
   'belon_theme_contact_options',
   'belon_contact_hd',
   array(
    'id' => 'belon_contact_hd_desc',
-   'type' => 'textarea'
+   'type' => 'textarea',
+   'option' => 'belon_theme_contact_options'
   )
  );
  add_settings_field(
   'belon_contact_hd_placeholder',
   'Input placeholder value',
-  'belon_contact_hd_cb_input',
+  'belon_op_field_callback',
   'belon_theme_contact_options',
   'belon_contact_hd',
   array(
    'id' => 'belon_contact_hd_placeholder',
-   'type' => 'text'
+   'type' => 'text',
+   'option' => 'belon_theme_contact_options'
   )
  );
 
  add_settings_field(
   'belon_contact_hd_btn_text',
   'Button text value',
-  'belon_contact_hd_cb_input',
+  'belon_op_field_callback',
   'belon_theme_contact_options',
   'belon_contact_hd',
   array(
    'id' => 'belon_contact_hd_btn_text',
-   'type' => 'text'
+   'type' => 'text',
+   'option' => 'belon_theme_contact_options'
   )
  );
 
  add_settings_field(
   'belon_contact_hd_hide',
   'Hide Section',
-  'belon_contact_hd_cb_input',
+  'belon_op_field_callback',
   'belon_theme_contact_options',
   'belon_contact_hd',
   array(
    'id' => 'belon_contact_hd_hide',
-   'type' => 'checkbox'
+   'type' => 'checkbox',
+   'option' => 'belon_theme_contact_options'
   )
  );
 
@@ -318,11 +353,13 @@ function belon_theme_init_contact_options() {
   'belon_theme_contact_options',
   'belon_theme_contact_options'
  );
-} add_action('admin_init', 'belon_theme_init_contact_options');
+}
+add_action('admin_init', 'belon_theme_init_contact_options');
 
 //**** init & set header subpage ****//
-function belon_theme_init_header_options() {
- if(false === get_option('belon_theme_header_options')) {
+function belon_theme_init_header_options()
+{
+ if (false === get_option('belon_theme_header_options')) {
   add_option('belon_theme_header_options');
  }
  add_settings_section(
@@ -356,89 +393,89 @@ function belon_theme_init_header_options() {
    'id' => 'belon_header_hd_title',
    'type' => 'text',
    'option' => 'belon_theme_header_options'
-  ));
-  add_settings_field(
-   'belon_header_hd_desc',
-   'Header Description',
-   'belon_op_field_callback',
-   'belon_theme_header_options',
-   'belon_header_hd',
-   array(
-    'id' => 'belon_header_hd_desc',
-    'type' => 'text',
-    'option' => 'belon_theme_header_options'
-   ));
+  )
+ );
+ add_settings_field(
+  'belon_header_hd_desc',
+  'Header Description',
+  'belon_op_field_callback',
+  'belon_theme_header_options',
+  'belon_header_hd',
+  array(
+   'id' => 'belon_header_hd_desc',
+   'type' => 'text',
+   'option' => 'belon_theme_header_options'
+  )
+ );
 
-   add_settings_field(
-    'belon_header_hd_btn_title',
-    'Button text',
-    'belon_op_field_callback',
-    'belon_theme_header_options',
-    'belon_header_btn_hd',
-    array(
-     'id' => 'belon_header_hd_btn_title',
-     'type' => 'text',
-     'option' => 'belon_theme_header_options'
-    ));
-   add_settings_field(
-    'belon_header_hd_btn_link',
-    'Button Link',
-    'belon_op_field_callback',
-    'belon_theme_header_options',
-    'belon_header_btn_hd',
-    array(
-     'id' => 'belon_header_hd_btn_link',
-     'type' => 'text',
-     'option' => 'belon_theme_header_options'
-    ));
+ add_settings_field(
+  'belon_header_hd_btn_title',
+  'Button text',
+  'belon_op_field_callback',
+  'belon_theme_header_options',
+  'belon_header_btn_hd',
+  array(
+   'id' => 'belon_header_hd_btn_title',
+   'type' => 'text',
+   'option' => 'belon_theme_header_options'
+  )
+ );
+ add_settings_field(
+  'belon_header_hd_btn_link',
+  'Button Link',
+  'belon_op_field_callback',
+  'belon_theme_header_options',
+  'belon_header_btn_hd',
+  array(
+   'id' => 'belon_header_hd_btn_link',
+   'type' => 'text',
+   'option' => 'belon_theme_header_options'
+  )
+ );
 
-    add_settings_field(
-     'belon_header_hd_il_choose',
-     'Select Illustration',
-     'belon_op_field_callback',
-     'belon_theme_header_options',
-     'belon_header_il_hd',
-     array(
-      'id' => 'belon_header_hd_il_choose',
-      'type' => 'text',
-      'option' => 'belon_theme_header_options'
-     ));
+ add_settings_field(
+  'belon_header_hd_il_choose',
+  'Select Illustration',
+  'belon_op_field_callback',
+  'belon_theme_header_options',
+  'belon_header_il_hd',
+  array(
+   'id' => 'belon_header_hd_il_choose',
+   'type' => 'text',
+   'option' => 'belon_theme_header_options'
+  )
+ );
 
  register_setting(
   'belon_theme_header_options',
   'belon_theme_header_options'
  );
-} add_action('admin_init', 'belon_theme_init_header_options');
+}
+add_action('admin_init', 'belon_theme_init_header_options');
 
 
 //callbacks for show info
 function belon_sect1_callback(){
  echo '<p>Укажите ссылки на социальные сети:</p>';}
 
- function sect1_input_callback($id){
-  $options = get_option('belon_theme_sect1_options');
-  $url = '';
-  if (isset($options[$id])) {
-   $url = $options[$id];
-  } 
-  echo '<input type="text" id="' . $id . '" name="belon_theme_sect1_options[' . $id . ']" value="' . $url . '"/>';
- }
 //callbacks for contact us
 function belon_contact_hd_callback(){
  echo '<p>Заполните данные секции:</p>';}
-function belon_contact_hd_cb_input($args){
+
+function belon_op_field_callback($args) {
  $id = $args['id'];
- $options = get_option('belon_theme_contact_options');
+ $option = $args['option'];
+ $options = get_option($option);
  $val = '';
  if (isset($options[$id])) {
   $val = $options[$id];
  } 
  if($args['type'] === 'textarea') {
- echo '<textarea id="' . $id . '" size="36" rows="8" cols="36" style="resize: none;" name="belon_theme_contact_options[' . $id . ']">'. $val .'</textarea>';
- } else if($args['type'] === 'checkbox') {
-  echo '<input type="' . $args['type'] . '" size="36" id="' . $id . '" name="belon_theme_contact_options[' . $id . ']" value="1" ' . checked(1, $options['belon_contact_hd_hide'], false) . '/>';
+ echo '<textarea size="36" rows="8" cols="36" style="resize: none;" id="' . $id . '" name="'. $option .'[' . $id . ']">'. $val .'</textarea>';
+ }else if($args['type'] === 'checkbox') {
+  echo '<input type="checkbox" id="' . $id . '" name="'. $option .'[' . $id . ']" value="1" ' . checked(1, $options[$id], false) . '/>';
  } else {
-  echo '<input type="' . $args['type'] . '" size="36" id="' . $id . '" name="belon_theme_contact_options[' . $id . ']" value="' . $val . '"/>';
+  echo '<input type="' . $args['type'] . '" size="36" id="' . $id . '" name="'. $option .'[' . $id . ']" value="' . $val . '"/>';
  }
 }
 
@@ -455,34 +492,29 @@ function belon_header_il_hd_callback() {
  }
 
 
-function belon_op_field_callback($args) {
- $id = $args['id'];
- $option = $args['option'];
- $options = get_option($option);
- $val = '';
- if (isset($options[$id])) {
-  $val = $options[$id];
- } 
- if($args['type'] === 'textarea') {
- echo '<textarea size="36" id="' . $id . '" name="'. $option .'[' . $id . ']">'. $val .'</textarea>';
- } else {
-  echo '<input type="' . $args['type'] . '" size="36" id="' . $id . '" name="'. $option .'[' . $id . ']" value="' . $val . '"/>';
- }
-}
-
 //default values setters
 function set_default_contact_hd(){
  $options = get_option('belon_theme_contact_options');
- $setdefault = array(
+ $setdefault = array_merge($options, array(
   'belon_contact_hd_title' => $options['belon_contact_hd_title'] ? $options['belon_contact_hd_title'] : 'Contact Us',
   'belon_contact_hd_desc' => $options['belon_contact_hd_desc'] ? $options['belon_contact_hd_desc'] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aliquam libero laudantium cumque, aperiam quos nesciunt tempore, assumenda error veniam dolorum quidem.',
   'belon_contact_hd_placeholder' => $options['belon_contact_hd_placeholder'] ? $options['belon_contact_hd_placeholder'] : 'Your email',
   'belon_contact_hd_btn_text' => $options['belon_contact_hd_btn_text'] ? $options['belon_contact_hd_btn_text'] : 'Send',
   'belon_contact_hd_hide' => $options['belon_contact_hd_hide'],
- );
+ ));
  update_option('belon_theme_contact_options', $setdefault);
 } set_default_contact_hd();
 
+function set_default_header_hd(){
+ $options = get_option('belon_theme_header_options');
+ $setdefault = array_merge($options, array(
+  'belon_header_hd_title' => $options['belon_header_hd_title'] ? $options['belon_header_hd_title'] : 'Remotus Amoleos',
+  'belon_header_hd_desc' => $options['belon_header_hd_desc'] ? $options['belon_header_hd_desc'] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nulla neque, ratione sequi vel hic eveniet qui sit fuga laboriosam autem maxime ipsa nesciunt ipsum nisi fugit assumenda, consequatur blanditiis!',
+  'belon_header_hd_btn_title' => $options['belon_header_hd_btn_title'] ? $options['belon_header_hd_btn_title'] : 'Explore',
+  'belon_header_hd_btn_link' => $options['belon_header_hd_btn_link'] ? $options['belon_header_hd_btn_link'] : '#section-1',
+ ));
+ update_option('belon_theme_header_options', $setdefault);
+} set_default_header_hd();
 
 //**** set main page in admin panel end ****//
 
