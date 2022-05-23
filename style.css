@@ -267,6 +267,37 @@ ul.sc_icons {
  background-color: #0E76a8;
 }
 
+.sc_icons .yt a:hover {
+  background-color: red;
+ }
+.sc_icons .yt a:hover svg {
+  fill: red;
+  stroke: white;
+ }
+
+ .sc_icons .ig a:hover {
+  background-color: #ffffff;
+ }
+ .sc_icons .ig a:hover svg {
+  stroke: #E1306C;
+ }
+
+ .sc_icons .db a:hover {
+  background-color: #ffdcdc;
+ }
+ .sc_icons .db a:hover svg {
+  stroke: #EA4C89;
+  fill: none;
+ }
+
+ .sc_icons .gh a:hover {
+  background-color: #333;
+ }
+ .sc_icons .gh a:hover svg {
+  stroke: #ffffff;
+  fill: none;
+ }
+
 
 .sc_icons svg {
   max-width: 70%;
