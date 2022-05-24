@@ -79,7 +79,7 @@ function belon_create_menu_page()
   'Main Settings',
   'administrator',
   'belon_pro_menu',
-  'belon_pro_header_display'
+  'belon_pro_mainsettings_display'
  );
 
  add_submenu_page(
@@ -165,8 +165,8 @@ function belon_pro_contactus_display(){
  }
 
 
-//**** set main page in admin panel ****//
-function belon_theme_init_sect1_options()
+ //**** init & set soc icons subpage ****//
+function belon_theme_init_socicons_options()
 {
  if (false == get_option('belon_theme_sect1_options')) {
   add_option('belon_theme_sect1_options');
@@ -276,7 +276,7 @@ function belon_theme_init_sect1_options()
   'belon_theme_sanitize_urls'
  );
 }
-add_action('admin_init', 'belon_theme_init_sect1_options');
+add_action('admin_init', 'belon_theme_init_socicons_options');
 
 
 //**** init & set contact subpage ****//
@@ -358,7 +358,8 @@ function belon_theme_init_contact_options()
 
  register_setting(
   'belon_theme_contact_options',
-  'belon_theme_contact_options'
+  'belon_theme_contact_options',
+  'belon_theme_sanitize_text'
  );
 }
 add_action('admin_init', 'belon_theme_init_contact_options');
@@ -410,7 +411,7 @@ function belon_theme_init_header_options()
   'belon_header_hd',
   array(
    'id' => 'belon_header_hd_desc',
-   'type' => 'text',
+   'type' => 'textarea',
    'option' => 'belon_theme_header_options'
   )
  );
@@ -468,7 +469,8 @@ function belon_theme_init_header_options()
 
  register_setting(
   'belon_theme_header_options',
-  'belon_theme_header_options'
+  'belon_theme_header_options',
+  "belon_theme_sanitize_text"
  );
 }
 add_action('admin_init', 'belon_theme_init_header_options');
@@ -706,6 +708,17 @@ function true_validate_cbtn_text($validity, $value)
   $validity->add('empty_copy', 'Button text value cannot be greater that 15 symbols');
  }
  return $validity;
+}
+
+function belon_theme_sanitize_text($input)
+{
+ $output = array();
+ foreach ($input as $key => $v) {
+  if (isset($input[$key])) {
+   $output[$key] = strip_tags(stripslashes($input[$key]));
+  }
+ }
+ return apply_filters('belon_theme_sanitize_urls', $output, $input);
 }
 
 function belon_theme_sanitize_urls($input)

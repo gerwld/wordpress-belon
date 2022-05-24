@@ -28,14 +28,7 @@
   wp_body_open();
   ?>
   <header class="main-header" id="mn_header">
-    <?php if (get_option('sandbox_theme_display_options', true)['show_header']) { ?>
-      <div class="anim_bg" id="anim_bg">
-        <div class="block_1" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_1.svg"); ?>');"></div>
-        <div class="block_2" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_2.svg"); ?>');"></div>
-        <div class="block_3" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_3.svg"); ?>');"></div>
-        <div class="block_4" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg/oval_4.svg"); ?>');"></div>
-      </div>
-    <?php } ?>
+  <?php get_template_part('assets/template-parts/main-header-block/parallax-bg'); ?>
     <div class="hd-navbar">
       <div class="hd-navbar_content content_wrapper">
         <div class="logo"><a href="<?php echo get_home_url(); ?>">
@@ -85,3 +78,12 @@
     <?php get_template_part('assets/template-parts/main-header-block/content'); ?>
     </div>
   </header>
+
+  <?php get_template_part('assets/template-parts/video-dt-block/video-dt-block'); ?>
+  <?php get_template_part('assets/template-parts/posts-gallery-block/posts-gallery-block'); ?>
+  <?php get_template_part('assets/template-parts/benefits-block/benefits-block'); ?>
+  <?php get_template_part('assets/template-parts/plans-block/plans-block'); ?>
+  <?php get_template_part('assets/template-parts/transparent-block'); ?>
+  <?php get_template_part('assets/template-parts/features-block'); ?>
+  <?php get_template_part('assets/template-parts/bl-slider-block/bl-slider-block'); ?>
+  <?php get_template_part('assets/template-parts/lastpost-block'); ?>
