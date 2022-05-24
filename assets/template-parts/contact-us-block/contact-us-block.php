@@ -2,7 +2,7 @@
 <?php $contactus_options = get_option('belon_theme_contact_options'); ?>
 
 <?php if(!$contactus_options['belon_contact_hd_hide']) { ?>
-<div class="ft_block_1_wrapper">
+<div class="constact-us-block ft_block_1_wrapper" id="contact-us">
  <div class="content_wrapper">
   <div class="ft_block_1">
    <div class="ft_contact">

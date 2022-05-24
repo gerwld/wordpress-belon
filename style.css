@@ -58,6 +58,7 @@ html {
  font-family: "Montserrat", sans-serif;
  line-height: 1.35em;
  font-size: 16px;
+ scroll-behavior: smooth;
 }
 
 button {
@@ -1992,7 +1993,6 @@ justify-content: center;
 
 .transparent_block {
  color: #fff;
- background: url('./img/fallback.jpg');
  background-attachment: fixed;
  background-size: cover;
 }

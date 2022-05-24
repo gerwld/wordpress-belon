@@ -19,7 +19,7 @@
     </div>
     <div class="vb_player rect_shadow">
       <div class="bg">
-       <img src="./img/fallback.jpg" alt="">
+       <img src=<?php echo get_template_directory_uri() . "/assets/images/fallback.jpg"?> alt="">
       </div>
       <div class="filter"></div>
       <div class="play"></div>

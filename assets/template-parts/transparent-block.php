@@ -1,4 +1,4 @@
-<section class="transparent_block">
+<section class="transparent_block" style="background-image: url('<?php echo get_template_directory_uri() . "/assets/images/fallback.jpg" ?>');">
     <div class="content">
       <div class="content_wrapper">
         <div class="tb_content">
