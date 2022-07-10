@@ -1,9 +1,11 @@
 // **** Rb slider **** //
 
+(function() {
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
-const IS_AUTOSCROLL = true;
+const IS_AUTOSCROLL = false;
 const AUTOSCROLL_TIMEOUT = 2000;
+const ACTION_INTERVAL = 200;
 
 const rb_slider = document.getElementById('rb_slider');
 const rb_viewbox = rb_slider.querySelector('.rb_viewbox');
@@ -11,6 +13,7 @@ const rb_content = rb_slider.querySelector('.rb_content');
 const rb_block = rb_slider.querySelector('.rb_block');
 
 let elemWidth;
+let isActionDelay;
 let offsetLeft = 0;
 let paddingSize = 15;
 
@@ -18,12 +21,18 @@ if(rb_block) {
   rb_slider.addEventListener("click", (e) => {
   let btn_back = rb_slider.querySelector('.btn_back');
   let btn_fw = rb_slider.querySelector('.btn_fw');
+
+  if(isActionDelay !== true) {
     if (e.target === btn_back) {
     offsetLeft += rb_block.offsetWidth + paddingSize;
     } else if (e.target === btn_fw) {
       offsetLeft -= rb_block.offsetWidth + paddingSize;
     }
-    ajustRbSlider();
+    if(e.target === btn_back || e.target === btn_fw) {
+      isActionDelay = true;
+      setTimeout(() => isActionDelay = false, ACTION_INTERVAL);
+    }
+  } ajustRbSlider();
   });
 
   function ajustRbSlider() {
@@ -67,10 +76,13 @@ if(rb_block) {
       rb_content.style.left = `${offsetLeft}px`;
     }
 
-    rb_slider.addEventListener("mouseover", () => toggleScroll(false));
-    rb_slider.addEventListener("mouseleave", () => toggleScroll(true));
-    rb_slider.addEventListener("touchstart", () => toggleScroll(false));
-    rb_slider.addEventListener("touchend", () => toggleScroll(true));
+    rb_slider.addEventListener("mouseover", () => toggleScroll(false), {passive: true});
+    rb_slider.addEventListener("mouseleave", () => toggleScroll(true), {passive: true});
+    rb_slider.addEventListener("touchstart", () => toggleScroll(false), {passive: true});
+    rb_slider.addEventListener("touchend", () => toggleScroll(true), {passive: true});
+
+    //show scroll anim only when block is visible
+    window.addEventListener("scroll", animOnlyWhenVisible, {passive: true})
   }
 
   /* Blocks resizing when parent wd changes */
@@ -100,3 +112,7 @@ if(rb_block) {
   rb_viewbox.style.height = `${Math.floor(rb_content.offsetHeight) + 30}px`;
   }
 }
+
+window.addEventListener("resize", resizeRbBlock, {passive: true});
+resizeRbBlock();
+}());

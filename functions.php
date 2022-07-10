@@ -2,25 +2,33 @@
 //console.log alternative
 function consolelog($data){ $output = $data; if (is_array($output)) $output = implode(',', $output); echo "<script>console.log('Debug Objects: " . $output . "' );</script>";}
 
-//connect theme styles & fonts
-function enqueue_styles()
-{
- wp_enqueue_style('styles', get_stylesheet_uri());
- wp_register_style('font-montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
- wp_register_style('font-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
- wp_enqueue_style('font-montserrat');
- wp_enqueue_style('font-roboto');
-} add_action('wp_enqueue_scripts', 'enqueue_styles');
 
 //connect theme js files, etc
-function enqueue_scripts()
+function enqueue_assets_main()
 {
- wp_register_script('main-js', get_template_directory_uri() . '/assets/js/main.js', '', '', true);
- wp_register_script('glob-js', get_template_directory_uri() . '/assets/js/main_2.js', '', '', true);
- wp_enqueue_script('main-js');
- wp_enqueue_script('glob-js');
+ wp_enqueue_style('styles', get_stylesheet_uri());
+ wp_enqueue_style('font-montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+ wp_enqueue_style('font-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+ wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js', '', '', true);
+ wp_enqueue_script('glob-js', get_template_directory_uri() . '/assets/js/main_2.js', '', '', true);
+ wp_enqueue_script('slider', get_template_directory_uri() . '/assets/js/header.js', '', '', true);
+
 }
-add_action('wp_enqueue_scripts', 'enqueue_scripts');
+add_action('wp_enqueue_scripts', 'enqueue_assets_main');
+
+
+
+//Add assets/js in theme-parts
+
+function test_template_part_hook() {
+ wp_enqueue_script('slider', get_template_directory_uri() . '/assets/js/slider.js', '', '', true);
+} add_action( 'get_template_part_assets/template-parts/slider-block-bl', 'test_template_part_hook', 10 );
+
+function connect_asset_js_header() {
+ wp_enqueue_script('slider', get_template_directory_uri() . '/assets/js/header.js', '', '', true);
+} add_action( 'get_template_part_assets/template-parts/slider-block-bl', 'connect_asset_js_header', 10 );
+
 
 //*** add theme functional with hooks / params ***//
 //add logo

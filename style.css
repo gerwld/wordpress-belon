@@ -214,6 +214,7 @@ input,
 
 ul.sc_icons {
  display: flex;
+ flex-wrap: wrap;
  margin: 0;
  padding: 0;
  list-style: none;
@@ -683,7 +684,8 @@ justify-content: center;
  position: fixed;
  top: -100%;
  left: 0;
- width: 100vw;
+ right: 0;
+ width: 100%;
  padding-top: 74px;
  background-color: #fff;
  box-shadow: var(--shadow-main_3);
@@ -2783,6 +2785,7 @@ body {
 
  .hd-image .sc_icons li {
   margin-right: 2%;
+  margin-bottom: 2%;
  }
 
  .hd-image .sc_icons li:nth-last-child(1) {

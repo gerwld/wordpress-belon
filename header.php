@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Header file for the Belon Pro theme.
  *
@@ -9,7 +8,6 @@
  * @subpackage Belon_Pro
  * @since Belon Pro 1.1
  */
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -28,7 +26,7 @@
   wp_body_open();
   ?>
   <header class="main-header" id="mn_header">
-  <?php get_template_part('assets/template-parts/main-header-block/parallax-bg'); ?>
+  <?php get_template_part('assets/template-parts/header-parallax'); ?>
     <div class="hd-navbar">
       <div class="hd-navbar_content content_wrapper">
         <div class="logo"><a href="<?php echo get_home_url(); ?>">
@@ -75,15 +73,15 @@
       <div class="bg"></div>
     </div>
 
-    <?php get_template_part('assets/template-parts/main-header-block/content'); ?>
+    <?php get_template_part('assets/template-parts/header-block-main'); ?>
     </div>
   </header>
 
-  <?php get_template_part('assets/template-parts/video-dt-block/video-dt-block'); ?>
-  <?php get_template_part('assets/template-parts/posts-gallery-block/posts-gallery-block'); ?>
-  <?php get_template_part('assets/template-parts/benefits-block/benefits-block'); ?>
-  <?php get_template_part('assets/template-parts/plans-block/plans-block'); ?>
-  <?php get_template_part('assets/template-parts/transparent-block'); ?>
+  <?php get_template_part('assets/template-parts/video-dt-block'); ?>
+  <?php get_template_part('assets/template-parts/posts-gallery-block'); ?>
+  <?php get_template_part('assets/template-parts/benefits-block'); ?>
+  <?php get_template_part('assets/template-parts/plans-block'); ?>
+  <?php get_template_part('assets/template-parts/transp-block'); ?>
   <?php get_template_part('assets/template-parts/features-block'); ?>
-  <?php get_template_part('assets/template-parts/bl-slider-block/bl-slider-block'); ?>
+  <?php get_template_part('assets/template-parts/slider-block-bl'); ?>
   <?php get_template_part('assets/template-parts/lastpost-block'); ?>
