@@ -6,7 +6,7 @@
   <div class="hd-info h3-height-hotfix">
    <h1><?php echo $mainheader_options['belon_header_hd_title'] ?></h1>
    <p><?php echo $mainheader_options['belon_header_hd_desc'] ?></p>
-   <a href="<?php echo $mainheader_options['belon_header_hd_btn_link'] ?>" <?php echo $mainheader_options['belon_header_hd_btn_newtab'] ? "target='_blank' rel='noopener noreferrer'" : '' ?> class="btn btn_explore"><?php echo $mainheader_options['belon_header_hd_btn_title'] ?><span></span></a>
+   <a href="<?php echo $mainheader_options['belon_header_hd_btn_link'] ?>" <?php echo $mainheader_options['belon_header_hd_btn_newtab']??0 ? "target='_blank' rel='noopener noreferrer'" : '' ?> class="btn btn_explore"><?php echo $mainheader_options['belon_header_hd_btn_title'] ?><span></span></a>
   </div>
   <div class="hd-image h3-height-hotfix" id="hd_img" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . "/assets/images/hd_bg.svg"); ?>');">
    <div class="hd-image_tablet">

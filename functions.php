@@ -127,6 +127,25 @@ function belon_create_menu_page()
 }
 add_action('admin_menu', 'belon_create_menu_page');
 
+function belon_pro_menu_display() {
+  echo '<h1>Belon Pro Theme Settings</h1>';
+  // Your menu page content here
+}
+
+
+function belon_pro_mainsettings_display() {
+  echo '<h1>belon_pro_mainsettings_display</h1>';
+  // Your menu page content here
+}
+
+function belon_pro_slider_display() {
+  echo '<h1>belon_pro_slider_display</h1>';
+  // Your menu page content here
+}
+
+
+
+
 function belon_pro_menu_soc_icons_display(){
 ?>
  <div class="wrap">
@@ -554,7 +573,7 @@ function set_default_header_hd(){
   $options = [];
 }
  $setdefault = array_merge($options, array(
-  'belon_header_hd_title' => $options['belon_header_hd_title'] ? $options['belon_header_hd_title'] : 'Remotus Amoleos',
+  'belon_header_hd_title' => $options['belon_header_hd_title'] ? $options['belon_header_hd_title'] : 'Belon Pro Theme',
   'belon_header_hd_desc' => $options['belon_header_hd_desc'] ? $options['belon_header_hd_desc'] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nulla neque, ratione sequi vel hic eveniet qui sit fuga laboriosam autem maxime ipsa nesciunt ipsum nisi fugit assumenda, consequatur blanditiis!',
   'belon_header_hd_btn_title' => $options['belon_header_hd_btn_title'] ? $options['belon_header_hd_btn_title'] : 'Explore',
   'belon_header_hd_btn_link' => $options['belon_header_hd_btn_link'] ? $options['belon_header_hd_btn_link'] : '#section-1',

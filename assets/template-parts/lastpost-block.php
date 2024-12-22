@@ -20,7 +20,7 @@
          officiis id odit corporis sapiente eos minus ratione, ad debitis enim molestias temporibus fuga? Sed, quam.</p>
         <div class="credentials">
          <div class="avatar">
-          <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/847.jpg"  alt="User avatar">
+          <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/pfp.png"); ?>"  alt="User avatar">
          </div>
          <span class="username">Edmund Lehner</span>
         </div>

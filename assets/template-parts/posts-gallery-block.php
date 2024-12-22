@@ -24,7 +24,7 @@
      </ul>
      <div class="gb_gallery">
       <div class="gb_block">
-       <img src="sdvsd"  alt="Gallery Block">
+       <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/fallback.png"); ?>"  alt="Gallery Block">
        <div class="hover">
         <div class="cn">
          <h4>Lorem, ipsum dolor.</h4>
@@ -34,7 +34,7 @@
        </div>
       </div>
       <div class="gb_block">
-       <img src="sdvsd"  alt="Gallery Block">
+        <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/fallback.png"); ?>"  alt="Gallery Block">
        <div class="hover">
         <div class="cn">
          <h4>Lorem, ipsum dolor.</h4>
@@ -44,7 +44,7 @@
        </div>
       </div>
       <div class="gb_block">
-       <img src="sdvsd"  alt="Gallery Block">
+      <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/fallback.png"); ?>"  alt="Gallery Block">
        <div class="hover">
         <div class="cn">
          <h4>Lorem, ipsum dolor.</h4>

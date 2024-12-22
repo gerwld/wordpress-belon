@@ -11,7 +11,7 @@
 
        <div class="rb_block">
         <div class="photo">
-         <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/847.jpg"  alt="Customer Photo">
+         <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/pfp.png"); ?>"  alt="Customer Photo">
         </div>
         <blockquote>
          <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempora quam, laboriosam repud iandae.</q>
@@ -20,7 +20,7 @@
        </div>
        <div class="rb_block">
         <div class="photo">
-         <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1221.jpg"  alt="Customer Photo">
+        <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/pfp.png"); ?>"  alt="Customer Photo">
         </div>
         <blockquote>
          <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempora quam, laboriosam repud iandae.</q>
@@ -29,7 +29,7 @@
        </div>
        <div class="rb_block">
         <div class="photo">
-         <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1031.jpg"  alt="Customer Photo">
+        <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/pfp.png"); ?>"  alt="Customer Photo">
         </div>
         <blockquote>
          <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempora quam, laboriosam repud iandae.</q>
@@ -38,7 +38,7 @@
        </div>
        <div class="rb_block">
         <div class="photo">
-         <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/720.jpg"  alt="Customer Photo">
+        <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/pfp.png"); ?>"  alt="Customer Photo">
         </div>
         <blockquote>
          <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempora quam, laboriosam repud iandae.</q>
@@ -47,7 +47,7 @@
        </div>
        <div class="rb_block">
         <div class="photo">
-         <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/463.jpg"  alt="Customer Photo">
+        <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/pfp.png"); ?>"  alt="Customer Photo">
         </div>
         <blockquote>
          <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempora quam, laboriosam repud iandae.</q>
@@ -56,7 +56,7 @@
        </div>
        <div class="rb_block">
         <div class="photo">
-         <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/587.jpg"  alt="Customer Photo">
+        <img src="<?php echo esc_url(get_template_directory_uri() . "/assets/images/pfp.png"); ?>"  alt="Customer Photo">
         </div>
         <blockquote>
          <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempora quam, laboriosam repud iandae.</q>
