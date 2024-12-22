@@ -2,9 +2,9 @@
 /**
  * Header file for the Belon Pro theme.
  *
- * @link https://gerwld.github.io
+ * @link https://weblxapplications.com
  *
- * @package Gerwld Studio
+ * @package WebLX Applications
  * @subpackage Belon_Pro
  * @since Belon Pro 1.1
  */
