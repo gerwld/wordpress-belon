@@ -449,6 +449,9 @@ function belon_theme_init_header_options()
   )
  );
 
+ echo get_option('belon_theme_header_options')['belon_header_hd_btn_newtab'] ?? 0; // Retrieve the options array
+
+
  add_settings_field(
   'belon_header_hd_btn_newtab',
   'Open in a new tab',
@@ -501,13 +504,13 @@ function belon_op_field_callback($args) {
  if (isset($options[$id])) {
   $val = $options[$id];
  } 
- if($args['placeholder'] === 'link') {
+ if(isset($args['placeholder']) && $args['placeholder'] === 'link') {
   $placeholder = 'https://'. $id .'.com/*';
  }
  if($args['type'] === 'textarea') {
  echo '<textarea size="36" rows="8" cols="36" style="resize: none;" id="' . $id . '" name="'. $option .'[' . $id . ']">'. $val .'</textarea>';
  }else if($args['type'] === 'checkbox') {
-  echo '<input type="checkbox" id="' . $id . '" name="'. $option .'[' . $id . ']" value="1" ' . checked(1, $options[$id], false) . '/>';
+  echo '<input type="checkbox" id="' . $id . '" name="'. $option .'[' . $id . ']" value="1" ' . checked(1, $options[$id] ?? 0, false) . '/>';
  } else {
   echo '<input type="' . $args['type'] . '" placeholder="'. $placeholder .'" size="36" id="' . $id . '" name="'. $option .'[' . $id . ']" value="' . $val . '"/>';
  }
@@ -529,6 +532,11 @@ function belon_header_il_hd_callback() {
 //default values setters
 function set_default_contact_hd(){
  $options = get_option('belon_theme_contact_options');
+  // to ensure that $options is an array
+  if (!is_array($options)) {
+    $options = [];
+  }
+
  $setdefault = array_merge($options, array(
   'belon_contact_hd_title' => $options['belon_contact_hd_title'] ? $options['belon_contact_hd_title'] : 'Contact Us',
   'belon_contact_hd_desc' => $options['belon_contact_hd_desc'] ? $options['belon_contact_hd_desc'] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aliquam libero laudantium cumque, aperiam quos nesciunt tempore, assumenda error veniam dolorum quidem.',
@@ -541,6 +549,10 @@ function set_default_contact_hd(){
 
 function set_default_header_hd(){
  $options = get_option('belon_theme_header_options');
+ // to ensure that $options is an array
+ if (!is_array($options)) {
+  $options = [];
+}
  $setdefault = array_merge($options, array(
   'belon_header_hd_title' => $options['belon_header_hd_title'] ? $options['belon_header_hd_title'] : 'Remotus Amoleos',
   'belon_header_hd_desc' => $options['belon_header_hd_desc'] ? $options['belon_header_hd_desc'] : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nulla neque, ratione sequi vel hic eveniet qui sit fuga laboriosam autem maxime ipsa nesciunt ipsum nisi fugit assumenda, consequatur blanditiis!',
